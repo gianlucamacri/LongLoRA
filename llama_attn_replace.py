@@ -9,11 +9,20 @@ import transformers
 from einops import rearrange
 from flash_attn import __version__ as flash_attn_version
 from flash_attn.bert_padding import pad_input, unpad_input
-from flash_attn.flash_attn_interface import (
-    flash_attn_func,
-    flash_attn_varlen_kvpacked_func,
-    flash_attn_varlen_qkvpacked_func
-)
+if flash_attn_version.split('.')[0] == '1':
+    from flash_attn.flash_attn_interface import (
+        flash_attn_func,
+        flash_attn_unpadded_kvpacked_func, #flash_attn_varlen_kvpacked_func,
+        flash_attn_unpadded_qkvpacked_func, #flash_attn_varlen_qkvpacked_func
+    ) # edited to retrofit for flash_attn 1.*
+    flash_attn_v1 = True
+else:
+    from flash_attn.flash_attn_interface import (
+        flash_attn_func,
+        flash_attn_varlen_kvpacked_func,
+        flash_attn_varlen_qkvpacked_func
+    )
+    flash_attn_v1 = False
 from transformers.models.llama.modeling_llama import apply_rotary_pos_emb, repeat_kv, rotate_half
 from flash_attn.bert_padding import unpad_input, pad_input
 import math
@@ -114,7 +123,8 @@ def forward_flashattn(
     x_unpad = rearrange(
         x_unpad, "nnz (three h d) -> nnz three h d", three=3, h=nheads // 2
     )
-    output_unpad = flash_attn_varlen_qkvpacked_func(
+    attn_function = flash_attn_varlen_qkvpacked_func if not flash_attn_v1 else flash_attn_unpadded_qkvpacked_func
+    output_unpad = attn_function(
         x_unpad, cu_q_lens, group_size, 0.0, softmax_scale=None, causal=True
     )
     output = rearrange(
@@ -207,7 +217,8 @@ def forward_flashattn_full(
     x_unpad = rearrange(
         x_unpad, "nnz (three h d) -> nnz three h d", three=3, h=nheads
     )
-    output_unpad = flash_attn_varlen_qkvpacked_func(
+    attn_function = flash_attn_varlen_qkvpacked_func if not flash_attn_v1 else flash_attn_unpadded_qkvpacked_func
+    output_unpad = attn_function(
         x_unpad, cu_q_lens, max_s, 0.0, softmax_scale=None, causal=True
     )
     output = rearrange(
@@ -418,7 +429,8 @@ def forward_flashattn_inference(
         kv, _, cu_k_lens, max_k = unpad_input(
             torch.stack((k, v), dim=2), attention_mask
         )
-        output_unpad = flash_attn_varlen_kvpacked_func(
+        attn_function = flash_attn_varlen_kvpacked_func if not flash_attn_v1 else flash_attn_unpadded_kvpacked_func
+        output_unpad = attn_function(
             q,
             kv,
             cu_q_lens,

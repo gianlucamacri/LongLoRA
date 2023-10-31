@@ -1,0 +1,82 @@
+  0%|                                                                                                                                                                | 0/60 [00:00<?, ?it/s]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/nn/modules.py:224: UserWarning: Input type into Linear4bit is torch.float16, but bnb_4bit_compute_type=torch.float32 (default). This will lead to slow inference or training speed.
+  warnings.warn(f'Input type into Linear4bit is torch.float16, but bnb_4bit_compute_type=torch.float32 (default). This will lead to slow inference or training speed.')
+  2%|██▌                                                                                                                                                     | 1/60 [00:12<12:06, 12.32s/it]
+{'loss': 0.0, 'learning_rate': 1.0000000000000002e-06, 'epoch': 0.05}
+
+
+  5%|███████▌                                                                                                                                                | 3/60 [00:35<11:19, 11.92s/it]
+
+  7%|██████████▏                                                                                                                                             | 4/60 [00:48<11:13, 12.03s/it]
+
+  8%|████████████▋                                                                                                                                           | 5/60 [01:00<11:10, 12.19s/it]
+
+ 10%|███████████████▏                                                                                                                                        | 6/60 [01:11<10:43, 11.92s/it]
+
+ 12%|█████████████████▋                                                                                                                                      | 7/60 [01:24<10:37, 12.03s/it]
+
+ 13%|████████████████████▎                                                                                                                                   | 8/60 [01:36<10:30, 12.12s/it]
+
+ 15%|██████████████████████▊                                                                                                                                 | 9/60 [01:48<10:21, 12.18s/it]
+
+ 17%|█████████████████████████▏                                                                                                                             | 10/60 [02:01<10:12, 12.25s/it]
+
+ 18%|███████████████████████████▋                                                                                                                           | 11/60 [02:13<10:04, 12.33s/it]
+{'loss': 0.0, 'learning_rate': 9e-06, 'epoch': 0.55}
+ 20%|██████████████████████████████▏                                                                                                                        | 12/60 [02:26<09:57, 12.46s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 355, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 349, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2654, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2679, in compute_loss
+    outputs = model(**inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 636, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 624, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 918, in forward
+    return self.base_model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 94, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 806, in forward
+    outputs = self.model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 685, in forward
+    layer_outputs = torch.utils.checkpoint.checkpoint(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
+    outputs = run_function(*args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 681, in custom_forward
+    return module(*inputs, output_attentions, None)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 408, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py", line 278, in forward_noflashattn
+    query_states = self.q_proj(hidden_states)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+KeyboardInterrupt

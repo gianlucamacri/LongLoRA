@@ -1,0 +1,54 @@
+
+  3%|█████                                                                                                                                                   | 1/30 [00:02<01:06,  2.30s/it]
+ 20%|██████████████████████████████▍                                                                                                                         | 2/10 [00:00<00:02,  3.52it/s]
+
+
+
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 388, in <module>██████████████████████████████| 10/10 [00:05<00:00,  1.53it/s]
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 382, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3066, in evaluate
+    output = eval_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3359, in evaluation_loop
+    metrics = self.compute_metrics(EvalPrediction(predictions=all_preds, label_ids=all_labels))
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 233, in <lambda>
+    compute_metrics = lambda x: compute_metrics_hf(eval_pred=x, metrics=metrics)
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 243, in compute_metrics_hf
+    metrics_dic.update(metric.compute(predictions=outputs, references=y))
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/evaluate/module.py", line 450, in compute
+    self.add_batch(**inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/evaluate/module.py", line 509, in add_batch
+    self.selected_feature_format = self._infer_feature_from_batch(batch)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/evaluate/module.py", line 591, in _infer_feature_from_batch
+    return self._infer_feature_from_example(example)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/evaluate/module.py", line 611, in _infer_feature_from_example
+    raise ValueError(error_msg) from None
+ValueError: Predictions and/or references don't match the expected format.
+Expected format:
+Feature option 0: {'predictions': Value(dtype='string', id='sequence'), 'references': Sequence(feature=Value(dtype='string', id='sequence'), length=-1, id=None)}
+Feature option 1: {'predictions': Value(dtype='string', id='sequence'), 'references': Value(dtype='string', id='sequence')},
+Input predictions: [  13 1966   13 ...  278 1962 7604],
+Input references: [-100 -100 -100 ... -100 -100 -100]
+outputs:
+(20, 2048) - [[   13  1966    13 ...   278  1962  7604]
+ [30488  1966 29911 ...  4682 18897   322]
+ [   13    13    13 ...    13  1525   402]
+ ...
+ [30488 29871 29871 ... 29879 29889   526]
+ [    2     2     2 ... 29949 29949    13]
+ [30879 16196 31017 ... 29955   278   731]]
+y:
+(20, 2048) - [[-100 -100 -100 ... -100 -100 -100]
+ [-100 -100 -100 ... -100 -100 -100]
+ [-100 -100 -100 ... -100 -100 -100]
+ ...
+ [-100 -100 -100 ... -100 -100 -100]
+ [-100 -100 -100 ... -100 -100 -100]
+ [-100 -100 -100 ... -100 -100 -100]]

@@ -1,0 +1,69 @@
+
+
+  3%|█████                                                                                                                                                   | 1/30 [00:06<02:58,  6.14s/it]
+
+  7%|██████████▏                                                                                                                                             | 2/30 [00:11<02:46,  5.93s/it]
+
+ 10%|███████████████▏                                                                                                                                        | 3/30 [00:17<02:39,  5.92s/it]
+
+ 13%|████████████████████▎                                                                                                                                   | 4/30 [00:23<02:35,  5.96s/it]
+
+ 17%|█████████████████████████▎                                                                                                                              | 5/30 [00:29<02:30,  6.02s/it]
+
+ 20%|██████████████████████████████▍                                                                                                                         | 6/30 [00:36<02:25,  6.08s/it]
+ 20%|██████████████████████████████▍                                                                                                                         | 6/30 [00:36<02:25,  6.08s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 359, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 353, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2801, in compute_loss
+    outputs = model(**inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1807, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 918, in forward
+    return self.base_model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 94, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 1045, in forward
+    outputs = self.model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 925, in forward
+    layer_outputs = torch.utils.checkpoint.checkpoint(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
+    outputs = run_function(*args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 921, in custom_forward
+    return module(*inputs, past_key_value, output_attentions, padding_mask=padding_mask)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/mistral/modeling_mistral.py", line 618, in forward
+    hidden_states = self.input_layernorm(hidden_states)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+KeyboardInterrupt

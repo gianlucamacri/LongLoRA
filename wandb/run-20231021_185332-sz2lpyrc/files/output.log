@@ -1,0 +1,37 @@
+
+  0%|                                                                                                                                                                | 0/60 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 307, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 301, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1867, in _inner_training_loop
+    self.accelerator.clip_grad_norm_(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1925, in clip_grad_norm_
+    self.unscale_gradients()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1888, in unscale_gradients
+    self.scaler.unscale_(opt)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/cuda/amp/grad_scaler.py", line 284, in unscale_
+    optimizer_state["found_inf_per_device"] = self._unscale_grads_(optimizer, inv_scale, found_inf, False)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/cuda/amp/grad_scaler.py", line 212, in _unscale_grads_
+    raise ValueError("Attempting to unscale FP16 gradients.")
+ValueError: Attempting to unscale FP16 gradients.
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 307, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 301, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1867, in _inner_training_loop
+    self.accelerator.clip_grad_norm_(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1925, in clip_grad_norm_
+    self.unscale_gradients()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1888, in unscale_gradients
+    self.scaler.unscale_(opt)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/cuda/amp/grad_scaler.py", line 284, in unscale_
+    optimizer_state["found_inf_per_device"] = self._unscale_grads_(optimizer, inv_scale, found_inf, False)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/cuda/amp/grad_scaler.py", line 212, in _unscale_grads_
+    raise ValueError("Attempting to unscale FP16 gradients.")
+ValueError: Attempting to unscale FP16 gradients.

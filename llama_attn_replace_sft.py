@@ -7,24 +7,28 @@ import torch
 from torch import nn
 import transformers
 from einops import rearrange
-from flash_attn import __version__ as flash_attn_version
-from flash_attn.bert_padding import pad_input, unpad_input
-if flash_attn_version.split('.')[0] == '1':
-    from flash_attn.flash_attn_interface import (
-        flash_attn_func,
-        flash_attn_unpadded_kvpacked_func, #flash_attn_varlen_kvpacked_func,
-        flash_attn_unpadded_qkvpacked_func, #flash_attn_varlen_qkvpacked_func
-    ) # edited to retrofit for flash_attn 1.*
-    flash_attn_v1 = True
-else:
-    from flash_attn.flash_attn_interface import (
-        flash_attn_func,
-        flash_attn_varlen_kvpacked_func,
-        flash_attn_varlen_qkvpacked_func
-    )
-    flash_attn_v1 = False
+try:
+    from flash_attn import __version__ as flash_attn_version
+    from flash_attn.bert_padding import pad_input, unpad_input
+    if flash_attn_version.split('.')[0] == '1':
+        from flash_attn.flash_attn_interface import (
+            flash_attn_func,
+            flash_attn_unpadded_kvpacked_func, #flash_attn_varlen_kvpacked_func,
+            flash_attn_unpadded_qkvpacked_func, #flash_attn_varlen_qkvpacked_func
+        ) # edited to retrofit for flash_attn 1.*
+        flash_attn_v1 = True
+    else:
+        from flash_attn.flash_attn_interface import (
+            flash_attn_func,
+            flash_attn_varlen_kvpacked_func,
+            flash_attn_varlen_qkvpacked_func
+        )
+        flash_attn_v1 = False
+    from flash_attn.bert_padding import unpad_input, pad_input
+except:
+    print('cannot import Flash attention')
+
 from transformers.models.llama.modeling_llama import apply_rotary_pos_emb, repeat_kv, rotate_half
-from flash_attn.bert_padding import unpad_input, pad_input
 import math
 
 group_size_ratio = 1/4
@@ -107,12 +111,12 @@ def forward_flashattn(
     key_padding_mask = attention_mask.repeat(2, 1)
     nheads = qkv.shape[-2]
     # shift
-
+    
     if q_len % 4096 == 0:
         group_size = int(q_len * group_size_ratio)
     else:
         group_size = sft_group_size
-
+    
     qkv = qkv.reshape(bsz, q_len, 3, 2, self.num_heads // 2, self.head_dim).permute(0, 3, 1, 2, 4, 5).reshape(bsz * 2,
                                                                                                               q_len, 3,
                                                                                                               self.num_heads // 2,

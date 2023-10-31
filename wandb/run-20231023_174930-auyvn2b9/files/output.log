@@ -1,0 +1,49 @@
+
+  2%|██▌                                                                                                                                                     | 1/60 [00:13<12:55, 13.14s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 323, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 317, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1901, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2212, in _maybe_log_save_evaluate
+    self.log(logs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2570, in log
+    self.control = self.callback_handler.on_log(self.args, self.state, self.control, logs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_callback.py", line 390, in on_log
+    return self.call_event("on_log", args, state, control, logs=logs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_callback.py", line 397, in call_event
+    result = getattr(callback, event)(
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 231, in on_log
+    handle = pynvml.nvmlDeviceGetHandleByIndex(i)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/pynvml/nvml.py", line 1977, in nvmlDeviceGetHandleByIndex
+    fn = _nvmlGetFunctionPointer("nvmlDeviceGetHandleByIndex_v2")
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/pynvml/nvml.py", line 848, in _nvmlGetFunctionPointer
+    raise NVMLError(NVML_ERROR_UNINITIALIZED)
+pynvml.nvml.NVMLError_Uninitialized: Uninitialized
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 323, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 317, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1901, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2212, in _maybe_log_save_evaluate
+    self.log(logs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2570, in log
+    self.control = self.callback_handler.on_log(self.args, self.state, self.control, logs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_callback.py", line 390, in on_log
+    return self.call_event("on_log", args, state, control, logs=logs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_callback.py", line 397, in call_event
+    result = getattr(callback, event)(
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 231, in on_log
+    handle = pynvml.nvmlDeviceGetHandleByIndex(i)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/pynvml/nvml.py", line 1977, in nvmlDeviceGetHandleByIndex
+    fn = _nvmlGetFunctionPointer("nvmlDeviceGetHandleByIndex_v2")
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/pynvml/nvml.py", line 848, in _nvmlGetFunctionPointer
+    raise NVMLError(NVML_ERROR_UNINITIALIZED)
+pynvml.nvml.NVMLError_Uninitialized: Uninitialized

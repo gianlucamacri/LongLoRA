@@ -1,0 +1,48 @@
+
+
+  0%|▍                                                                                                                                                      | 1/354 [00:09<55:39,  9.46s/it]
+{'loss': 3.5307, 'learning_rate': 0.0, 'epoch': 0.01}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 13/14 [00:31<00:02,  2.89s/it]
+{'eval_loss': 4.220984935760498, 'eval_runtime': 35.7025, 'eval_samples_per_second': 0.756, 'eval_steps_per_second': 0.392, 'epoch': 0.01}
+  1%|▊                                                                                                                                                    | 2/354 [00:52<2:52:20, 29.38s/it]
+
+
+
+
+
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 368, in <module>                               | 6/14 [00:15<00:24,  3.06s/it]
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 362, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3066, in evaluate
+    output = eval_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3245, in evaluation_loop
+    for step, inputs in enumerate(dataloader):
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/data_loader.py", line 460, in __iter__
+    current_batch = send_to_device(current_batch, self.device)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 160, in send_to_device
+    {
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 161, in <dictcomp>
+    k: t if k in skip_keys else send_to_device(t, device, non_blocking=non_blocking, skip_keys=skip_keys)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 167, in send_to_device
+    return tensor.to(device, non_blocking=non_blocking)
+KeyboardInterrupt

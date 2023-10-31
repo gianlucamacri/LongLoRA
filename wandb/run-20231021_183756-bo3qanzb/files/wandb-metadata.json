@@ -1,0 +1,169 @@
+{
+    "os": "Linux-5.4.0-149-generic-x86_64-with-glibc2.27",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-10-21T16:37:57.448445",
+    "startedAt": "2023-10-21T16:37:56.906098",
+    "docker": null,
+    "cuda": "10.2.89",
+    "args": [],
+    "state": "running",
+    "program": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune_hard_coded.py",
+    "codePath": "supervised-fine-tune_hard_coded.py",
+    "git": {
+        "remote": "git@github.com:gianlucamacri/LongLoRA.git",
+        "commit": "f13b66b8227cdf8fd44c6fb89e12597fba5135d9"
+    },
+    "email": "gianluca18ma@gmail.com",
+    "root": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA",
+    "host": "leonardo",
+    "username": "gmacri",
+    "executable": "/home/gmacri/anaconda3/envs/LongLora/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2231.6479166666663,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2124.98,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1807.335,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2091.493,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1935.518,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1793.056,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3882.157,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3639.177,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2388.863,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1896.039,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2244.352,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1805.47,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1761.224,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2164.185,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1844.872,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2229.066,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1739.375,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1920.599,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3583.407,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2552.433,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2630.72,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1772.079,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1969.412,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1903.1,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1880.638,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "total": 937.8226585388184,
+        "used": 809.7233085632324
+    },
+    "gpu": "NVIDIA TITAN RTX",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25396838400
+        },
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25395462144
+        }
+    ],
+    "memory": {
+        "total": 62.74051284790039
+    }
+}

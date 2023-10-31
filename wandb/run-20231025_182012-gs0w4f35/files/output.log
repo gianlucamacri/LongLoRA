@@ -1,0 +1,46 @@
+
+
+  3%|█████                                                                                                                                                   | 1/30 [00:04<02:07,  4.41s/it]
+
+  7%|██████████▏                                                                                                                                             | 2/30 [00:08<02:01,  4.35s/it]
+
+ 10%|███████████████▏                                                                                                                                        | 3/30 [00:13<02:00,  4.46s/it]
+{'loss': 0.0, 'learning_rate': 3e-06, 'epoch': 0.3}
+
+
+ 17%|█████████████████████████▎                                                                                                                              | 5/30 [00:22<01:57,  4.69s/it]
+{'loss': 0.0, 'learning_rate': 5e-06, 'epoch': 0.5}
+
+ 20%|██████████████████████████████▍                                                                                                                         | 6/30 [00:28<01:56,  4.85s/it]
+
+
+ 27%|████████████████████████████████████████▌                                                                                                               | 8/30 [00:39<01:54,  5.21s/it]
+
+ 30%|█████████████████████████████████████████████▌                                                                                                          | 9/30 [00:44<01:49,  5.23s/it]
+
+ 33%|██████████████████████████████████████████████████▎                                                                                                    | 10/30 [00:49<01:45,  5.25s/it]
+
+ 37%|███████████████████████████████████████████████████████▎                                                                                               | 11/30 [00:55<01:41,  5.32s/it]
+
+ 40%|████████████████████████████████████████████████████████████▍                                                                                          | 12/30 [01:00<01:36,  5.37s/it]
+{'loss': 0.0, 'learning_rate': 1.2e-05, 'epoch': 1.2}
+ 43%|█████████████████████████████████████████████████████████████████▍                                                                                     | 13/30 [01:06<01:32,  5.44s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 360, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 354, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2787, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1979, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1909, in backward
+    self.losses += loss.mean().item()
+KeyboardInterrupt

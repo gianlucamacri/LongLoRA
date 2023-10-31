@@ -1,0 +1,26 @@
+
+
+  1%|█                                                                                                                                                    | 1/140 [01:14<2:53:14, 74.78s/it]
+
+  1%|██▏                                                                                                                                                  | 2/140 [02:31<2:54:58, 76.08s/it]
+
+  2%|███▏                                                                                                                                                 | 3/140 [04:06<3:13:25, 84.71s/it]
+
+  3%|████▎                                                                                                                                                | 4/140 [05:37<3:17:24, 87.09s/it]
+  4%|█████▎                                                                                                                                               | 5/140 [07:07<3:18:42, 88.31s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 409, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 403, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3062, in evaluate
+    eval_dataloader = self.get_eval_dataloader(eval_dataset)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 888, in get_eval_dataloader
+    raise ValueError("Trainer: evaluation requires an eval_dataset.")
+ValueError: Trainer: evaluation requires an eval_dataset.
+{'loss': 3.19, 'learning_rate': 2e-05, 'epoch': 0.34}

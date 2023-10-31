@@ -1,0 +1,51 @@
+
+
+  2%|██▌                                                                                                                                                     | 1/60 [00:07<06:54,  7.03s/it]
+
+  3%|█████                                                                                                                                                   | 2/60 [00:13<06:16,  6.49s/it]
+
+  5%|███████▌                                                                                                                                                | 3/60 [00:19<06:00,  6.32s/it]
+
+  7%|██████████▏                                                                                                                                             | 4/60 [00:25<05:49,  6.24s/it]
+
+  8%|████████████▋                                                                                                                                           | 5/60 [00:31<05:41,  6.21s/it]
+
+ 10%|███████████████▏                                                                                                                                        | 6/60 [00:37<05:34,  6.19s/it]
+{'loss': 0.0, 'learning_rate': 6e-06, 'epoch': 0.3}
+
+ 12%|█████████████████▋                                                                                                                                      | 7/60 [00:43<05:28,  6.19s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 307, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 301, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2665, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1853, in backward
+    loss.backward(**kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 307, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 301, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2665, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1853, in backward
+    loss.backward(**kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

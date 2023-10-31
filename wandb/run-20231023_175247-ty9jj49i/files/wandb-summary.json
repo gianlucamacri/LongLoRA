@@ -1,0 +1,1 @@
+{"train/loss": 0.0, "train/learning_rate": 2.0000000000000003e-06, "train/epoch": 0.1, "train/global_step": 2, "_timestamp": 1698076393.069435, "_runtime": 25.440175771713257, "_step": 7, "loss": 0.0, "learning_rate": 2.0000000000000003e-06, "epoch": 0.1, "GPU Memory Usage/Device 0": 20681, "GPU Memory Usage/Device 1": 20722, "_wandb": {"runtime": 33}}

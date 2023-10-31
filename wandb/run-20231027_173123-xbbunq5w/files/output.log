@@ -1,0 +1,92 @@
+
+
+  0%|▏                                                                                                                                                      | 1/705 [00:04<53:38,  4.57s/it]
+
+  0%|▍                                                                                                                                                      | 2/705 [00:09<52:45,  4.50s/it]
+{'loss': 5.9425, 'learning_rate': 0.0, 'epoch': 0.01}
+
+
+  1%|▊                                                                                                                                                      | 4/705 [00:18<58:45,  5.03s/it]
+{'loss': 3.1291, 'learning_rate': 0.0, 'epoch': 0.02}
+
+  1%|█                                                                                                                                                    | 5/705 [00:30<1:25:41,  7.35s/it]
+
+  1%|█▎                                                                                                                                                   | 6/705 [00:40<1:35:04,  8.16s/it]
+
+  1%|█▍                                                                                                                                                   | 7/705 [00:46<1:28:16,  7.59s/it]
+
+
+  1%|█▉                                                                                                                                                   | 9/705 [01:02<1:30:19,  7.79s/it]
+{'loss': 3.4662, 'learning_rate': 2e-05, 'epoch': 0.04}
+
+
+  2%|██▎                                                                                                                                                 | 11/705 [01:13<1:18:42,  6.81s/it]
+
+  2%|██▌                                                                                                                                                 | 12/705 [01:20<1:19:00,  6.84s/it]
+  2%|██▋                                                                                                                                                 | 13/705 [01:26<1:16:35,  6.64s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 390, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 384, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2801, in compute_loss
+    outputs = model(**inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 659, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 647, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 918, in forward
+    return self.base_model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 94, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1038, in forward
+    outputs = self.model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 921, in forward
+    layer_outputs = torch.utils.checkpoint.checkpoint(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
+    outputs = run_function(*args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 917, in custom_forward
+    return module(*inputs, past_key_value, output_attentions, padding_mask=padding_mask)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 635, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py", line 283, in forward_noflashattn
+    key_states = self.k_proj(hidden_states)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora.py", line 1225, in forward
+    self.lora_B[self.active_adapter](
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt
+{'loss': 6.0799, 'learning_rate': 2e-05, 'epoch': 0.06}

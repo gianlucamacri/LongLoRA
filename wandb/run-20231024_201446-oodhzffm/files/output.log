@@ -1,0 +1,31 @@
+
+
+  2%|██▌                                                                                                                                                     | 1/60 [00:14<14:29, 14.73s/it]
+{'loss': 3.7354, 'learning_rate': 1.0000000000000002e-06, 'epoch': 0.05}
+
+  3%|█████                                                                                                                                                   | 2/60 [00:24<11:22, 11.76s/it]
+
+  5%|███████▌                                                                                                                                                | 3/60 [00:38<12:09, 12.81s/it]
+
+  7%|██████████▏                                                                                                                                             | 4/60 [00:48<10:51, 11.64s/it]
+
+  8%|████████████▋                                                                                                                                           | 5/60 [00:58<10:16, 11.20s/it]
+
+ 10%|███████████████▏                                                                                                                                        | 6/60 [01:07<09:28, 10.54s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 351, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 345, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2665, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1985, in backward
+    loss.backward(**kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

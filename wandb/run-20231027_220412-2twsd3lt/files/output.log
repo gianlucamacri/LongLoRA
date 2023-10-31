@@ -1,0 +1,47 @@
+
+  1%|▊                                                                                                                                                      | 1/177 [00:16<48:02, 16.38s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  1%|▊                                                                                                                                                      | 1/177 [00:16<48:02, 16.38s/it]
+  1%|█▋                                                                                                                                                     | 2/177 [00:32<47:56, 16.44s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  1%|█▋                                                                                                                                                     | 2/177 [00:32<47:56, 16.44s/it]
+  2%|██▌                                                                                                                                                    | 3/177 [00:41<37:27, 12.91s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  2%|██▌                                                                                                                                                    | 3/177 [00:41<37:27, 12.91s/it]
+  2%|███▍                                                                                                                                                   | 4/177 [00:59<42:55, 14.89s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  2%|███▍                                                                                                                                                   | 4/177 [00:59<42:55, 14.89s/it]
+{'loss': 3.6566, 'learning_rate': 0, 'epoch': 0.07}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 13/14 [00:38<00:03,  3.43s/it]
+  3%|████▏                                                                                                                                                | 5/177 [01:57<1:27:03, 30.37s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  3%|████▏                                                                                                                                                | 5/177 [01:57<1:27:03, 30.37s/it]
+  3%|█████                                                                                                                                                | 6/177 [02:13<1:12:28, 25.43s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  3%|█████                                                                                                                                                | 6/177 [02:13<1:12:28, 25.43s/it]
+
+  4%|█████▉                                                                                                                                               | 7/177 [02:36<1:09:53, 24.67s/it]
+
+  5%|██████▋                                                                                                                                              | 8/177 [02:53<1:03:08, 22.41s/it]
+{'loss': 3.264, 'learning_rate': 2e-05, 'epoch': 0.14}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 13/14 [00:45<00:03,  3.92s/it]

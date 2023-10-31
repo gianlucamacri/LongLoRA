@@ -1,0 +1,77 @@
+
+
+  0%|▍                                                                                                                                                      | 1/354 [00:09<55:48,  9.49s/it]
+
+  1%|▊                                                                                                                                                      | 2/354 [00:15<44:29,  7.58s/it]
+
+  1%|█▎                                                                                                                                                     | 3/354 [00:21<39:14,  6.71s/it]
+{'loss': 3.6743, 'learning_rate': 0.0, 'epoch': 0.03}
+
+  1%|█▋                                                                                                                                                     | 4/354 [00:30<44:22,  7.61s/it]
+
+  1%|██▏                                                                                                                                                    | 5/354 [00:34<35:52,  6.17s/it]
+
+  2%|██▌                                                                                                                                                    | 6/354 [00:37<31:09,  5.37s/it]
+
+  2%|██▉                                                                                                                                                    | 7/354 [00:46<37:11,  6.43s/it]
+
+
+  3%|███▊                                                                                                                                                   | 9/354 [01:03<43:00,  7.48s/it]
+{'loss': 4.3874, 'learning_rate': 0.0, 'epoch': 0.08}
+
+
+  3%|████▋                                                                                                                                                 | 11/354 [01:17<42:25,  7.42s/it]
+{'loss': 3.2758, 'learning_rate': 0.0, 'epoch': 0.09}
+
+
+  4%|█████▌                                                                                                                                                | 13/354 [01:33<44:28,  7.83s/it]
+
+  4%|█████▉                                                                                                                                                | 14/354 [01:43<47:32,  8.39s/it]
+{'loss': 3.4397, 'learning_rate': 0.0, 'epoch': 0.12}
+
+  4%|██████▎                                                                                                                                               | 15/354 [01:54<52:34,  9.30s/it]
+
+  5%|██████▊                                                                                                                                               | 16/354 [01:58<43:07,  7.66s/it]
+
+  5%|███████▏                                                                                                                                              | 17/354 [02:08<46:41,  8.31s/it]
+
+  5%|███████▋                                                                                                                                              | 18/354 [02:20<52:41,  9.41s/it]
+
+  5%|████████                                                                                                                                              | 19/354 [02:28<50:54,  9.12s/it]
+
+  6%|████████▍                                                                                                                                             | 20/354 [02:38<51:56,  9.33s/it]
+
+
+  6%|█████████▏                                                                                                                                          | 22/354 [03:03<1:00:15, 10.89s/it]
+{'loss': 3.387, 'learning_rate': 0.0, 'epoch': 0.19}
+
+  6%|█████████▌                                                                                                                                          | 23/354 [03:14<1:00:12, 10.91s/it]
+
+  7%|██████████▏                                                                                                                                           | 24/354 [03:22<55:40, 10.12s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 390, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 384, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2787, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1983, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1929, in backward
+    self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1951, in backward
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

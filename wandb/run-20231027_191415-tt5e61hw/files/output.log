@@ -1,0 +1,25 @@
+
+
+  0%|▍                                                                                                                                                      | 1/354 [00:09<55:30,  9.44s/it]
+{'loss': 3.5307, 'learning_rate': 0.0, 'epoch': 0.01}
+
+
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 392, in <module>                               | 4/14 [00:06<00:18,  1.83s/it]
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 386, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3066, in evaluate
+    output = eval_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3281, in evaluation_loop
+    preds_host = logits if preds_host is None else nested_concat(preds_host, logits, padding_index=-100)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 123, in nested_concat
+    return torch_pad_and_concatenate(tensors, new_tensors, padding_index=padding_index)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 88, in torch_pad_and_concatenate
+    result = tensor1.new_full(new_shape, padding_index)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 9.65 GiB (GPU 0; 23.65 GiB total capacity; 14.28 GiB already allocated; 4.51 GiB free; 18.23 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

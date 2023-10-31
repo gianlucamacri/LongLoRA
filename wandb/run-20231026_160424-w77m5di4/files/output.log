@@ -1,0 +1,100 @@
+
+
+  3%|█████                                                                                                                                                   | 1/30 [00:09<04:23,  9.09s/it]
+{'loss': 8.0866, 'learning_rate': 0.0, 'epoch': 0.1}
+
+
+ 10%|███████████████▏                                                                                                                                        | 3/30 [00:27<04:06,  9.12s/it]
+
+ 13%|████████████████████▎                                                                                                                                   | 4/30 [00:36<04:01,  9.27s/it]
+{'loss': 1.4912, 'learning_rate': 1.0000000000000002e-06, 'epoch': 0.4}
+
+ 17%|█████████████████████████▎                                                                                                                              | 5/30 [00:46<03:54,  9.39s/it]
+
+ 20%|██████████████████████████████▍                                                                                                                         | 6/30 [00:56<03:48,  9.50s/it]
+
+ 23%|███████████████████████████████████▍                                                                                                                    | 7/30 [01:06<03:46,  9.86s/it]
+
+ 27%|████████████████████████████████████████▌                                                                                                               | 8/30 [01:18<03:50, 10.47s/it]
+ 30%|█████████████████████████████████████████████▌                                                                                                          | 9/30 [01:28<03:39, 10.45s/it]Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/linecache.py", line 137, in updatecache
+    lines = fp.readlines()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/codecs.py", line 319, in decode
+    def decode(self, input, final=False):
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 389, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 383, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2801, in compute_loss
+    outputs = model(**inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1807, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 918, in forward
+    return self.base_model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 94, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1038, in forward
+    outputs = self.model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 921, in forward
+    layer_outputs = torch.utils.checkpoint.checkpoint(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
+    outputs = run_function(*args)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 917, in custom_forward
+    return module(*inputs, past_key_value, output_attentions, padding_mask=padding_mask)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 635, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py", line 356, in forward_noflashattn
+    attn_output = self.o_proj(attn_output)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora.py", line 1208, in forward
+    result = super().forward(x)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/nn/modules.py", line 248, in forward
+    out = bnb.matmul_4bit(x, self.weight.t(), bias=bias, quant_state=self.weight.quant_state)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 579, in matmul_4bit
+    return MatMul4Bit.apply(A, B, out, bias, quant_state)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 516, in forward
+    output = torch.nn.functional.linear(A, F.dequantize_4bit(B, state).to(A.dtype).t(), bias)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/functional.py", line 924, in dequantize_4bit
+    lib.cdequantize_blockwise_fp16_nf4(get_ptr(None), get_ptr(A), get_ptr(absmax), get_ptr(out), ct.c_int(blocksize), ct.c_int(n))
+KeyboardInterrupt

@@ -1,0 +1,23 @@
+
+  3%|█████                                                                                                                                                   | 1/30 [00:02<01:06,  2.29s/it]
+ 20%|██████████████████████████████▍                                                                                                                         | 2/10 [00:00<00:02,  3.49it/s]
+
+
+
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 388, in <module>██████████████████████████████| 10/10 [00:05<00:00,  1.50it/s]
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 382, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3066, in evaluate
+    output = eval_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3359, in evaluation_loop
+    metrics = self.compute_metrics(EvalPrediction(predictions=all_preds, label_ids=all_labels))
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 233, in <lambda>
+    compute_metrics = lambda x: compute_metrics_hf(eval_pred=x, metric_fs=metric_fs)
+TypeError: compute_metrics_hf() got an unexpected keyword argument 'metric_fs'

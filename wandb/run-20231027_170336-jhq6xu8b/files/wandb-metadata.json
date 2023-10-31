@@ -1,0 +1,211 @@
+{
+    "os": "Linux-5.4.0-149-generic-x86_64-with-glibc2.27",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-10-27T15:03:37.040597",
+    "startedAt": "2023-10-27T15:03:36.412110",
+    "docker": null,
+    "cuda": "10.2.89",
+    "args": [
+        "--model_name_or_path",
+        "Yukang/LongAlpaca-7B",
+        "--output_dir",
+        "test_eurlexsum_alpaca",
+        "--model_max_length",
+        "8192",
+        "--use_flash_attn",
+        "False",
+        "--data_path",
+        "../../data/hdd_data/LongLora_data/eurlexsum_ita_cleaned_8192_train.json",
+        "--low_rank_training",
+        "True",
+        "--num_train_epochs",
+        "3",
+        "--per_device_train_batch_size",
+        "1",
+        "--gradient_accumulation_steps",
+        "2",
+        "--evaluation_strategy",
+        "no",
+        "--save_strategy",
+        "epoch",
+        "--save_total_limit",
+        "1",
+        "--learning_rate",
+        "2e-5",
+        "--weight_decay",
+        "0.0",
+        "--warmup_steps",
+        "1",
+        "--lr_scheduler_type",
+        "constant_with_warmup",
+        "--logging_steps",
+        "1",
+        "--fp16",
+        "True",
+        "--deepspeed",
+        "ds_configs/stage2.json"
+    ],
+    "state": "running",
+    "program": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py",
+    "codePathLocal": "supervised-fine-tune-qlora.py",
+    "codePath": "supervised-fine-tune-qlora.py",
+    "git": {
+        "remote": "git@github.com:gianlucamacri/LongLoRA.git",
+        "commit": "f13b66b8227cdf8fd44c6fb89e12597fba5135d9"
+    },
+    "email": "gianluca18ma@gmail.com",
+    "root": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA",
+    "host": "leonardo",
+    "username": "gmacri",
+    "executable": "/home/gmacri/anaconda3/envs/LongLora/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2035.514166666667,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1797.835,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1839.266,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2336.025,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2040.455,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1892.064,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1889.674,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1758.477,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2781.553,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1887.78,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2210.464,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1892.668,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1784.771,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1869.992,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1753.754,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2789.49,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1975.412,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2186.883,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2193.161,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1872.978,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2241.582,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1787.639,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2207.326,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1848.241,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2014.85,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 937.8226585388184,
+            "used": 847.6379241943359
+        }
+    },
+    "gpu": "NVIDIA TITAN RTX",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25396838400
+        },
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25395462144
+        }
+    ],
+    "memory": {
+        "total": 62.74051284790039
+    }
+}

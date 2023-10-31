@@ -1,0 +1,31 @@
+
+
+  3%|█████                                                                                                                                                   | 1/30 [00:07<03:30,  7.25s/it]
+{'loss': 0.0, 'learning_rate': 1.0000000000000002e-06, 'epoch': 0.1}
+
+
+ 10%|███████████████▏                                                                                                                                        | 3/30 [00:21<03:16,  7.28s/it]
+
+ 13%|████████████████████▎                                                                                                                                   | 4/30 [00:29<03:12,  7.40s/it]
+{'loss': 0.0, 'learning_rate': 4.000000000000001e-06, 'epoch': 0.4}
+
+ 17%|█████████████████████████▎                                                                                                                              | 5/30 [00:37<03:09,  7.56s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 360, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 354, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2787, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1979, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1909, in backward
+    self.losses += loss.mean().item()
+KeyboardInterrupt

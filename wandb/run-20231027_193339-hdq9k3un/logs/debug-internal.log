@@ -1,0 +1,409 @@
+2023-10-27 19:33:39,393 INFO    StreamThr :76357 [internal.py:wandb_internal():86] W&B internal server running at pid: 76357, started at: 2023-10-27 19:33:39.392460
+2023-10-27 19:33:39,394 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status
+2023-10-27 19:33:39,397 INFO    WriterThread:76357 [datastore.py:open_for_write():85] open: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/run-hdq9k3un.wandb
+2023-10-27 19:33:39,398 DEBUG   SenderThread:76357 [sender.py:send():380] send: header
+2023-10-27 19:33:39,399 DEBUG   SenderThread:76357 [sender.py:send():380] send: run
+2023-10-27 19:33:39,875 INFO    SenderThread:76357 [dir_watcher.py:__init__():211] watching files in: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files
+2023-10-27 19:33:39,875 INFO    SenderThread:76357 [sender.py:_start_run_threads():1122] run started: hdq9k3un with start time 1698428019.392433
+2023-10-27 19:33:39,886 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: check_version
+2023-10-27 19:33:39,887 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: check_version
+2023-10-27 19:33:39,993 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: run_start
+2023-10-27 19:33:39,997 DEBUG   HandlerThread:76357 [system_info.py:__init__():32] System info init
+2023-10-27 19:33:39,997 DEBUG   HandlerThread:76357 [system_info.py:__init__():47] System info init done
+2023-10-27 19:33:39,997 INFO    HandlerThread:76357 [system_monitor.py:start():194] Starting system monitor
+2023-10-27 19:33:39,997 INFO    SystemMonitor:76357 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-10-27 19:33:39,998 INFO    HandlerThread:76357 [system_monitor.py:probe():214] Collecting system info
+2023-10-27 19:33:39,998 INFO    SystemMonitor:76357 [interfaces.py:start():190] Started cpu monitoring
+2023-10-27 19:33:40,000 INFO    SystemMonitor:76357 [interfaces.py:start():190] Started disk monitoring
+2023-10-27 19:33:40,000 INFO    SystemMonitor:76357 [interfaces.py:start():190] Started gpu monitoring
+2023-10-27 19:33:40,002 INFO    SystemMonitor:76357 [interfaces.py:start():190] Started memory monitoring
+2023-10-27 19:33:40,002 INFO    SystemMonitor:76357 [interfaces.py:start():190] Started network monitoring
+2023-10-27 19:33:40,034 DEBUG   HandlerThread:76357 [system_info.py:probe():196] Probing system
+2023-10-27 19:33:40,035 DEBUG   HandlerThread:76357 [system_info.py:_probe_git():181] Probing git
+2023-10-27 19:33:40,042 DEBUG   HandlerThread:76357 [system_info.py:_probe_git():189] Probing git done
+2023-10-27 19:33:40,042 DEBUG   HandlerThread:76357 [system_info.py:probe():244] Probing system done
+2023-10-27 19:33:40,042 DEBUG   HandlerThread:76357 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-149-generic-x86_64-with-glibc2.27', 'python': '3.10.9', 'heartbeatAt': '2023-10-27T17:33:40.034332', 'startedAt': '2023-10-27T17:33:39.386757', 'docker': None, 'cuda': '10.2.89', 'args': ('--model_name_or_path', 'Yukang/LongAlpaca-7B', '--output_dir', 'test_eurlexsum_alpaca', '--model_max_length', '8192', '--use_flash_attn', 'False', '--data_path', '../../data/hdd_data/LongLora_data/eurlexsum_ita_cleaned_8192_train.json', '--low_rank_training', 'True', '--num_train_epochs', '3', '--per_device_train_batch_size', '1', '--gradient_accumulation_steps', '2', '--eval_accumulation_steps', '2', '--per_device_eval_batch_size', '1', '--evaluation_strategy', 'steps', '--eval_steps', '4', '--eval_data_path', '../../data/hdd_data/LongLora_data/eurlexsum_ita_cleaned_8192_test.json', '--save_strategy', 'epoch', '--save_total_limit', '1', '--learning_rate', '2e-5', '--weight_decay', '0.0', '--warmup_steps', '0', '--lr_scheduler_type', 'constant_with_warmup', '--logging_steps', '1', '--fp16', 'True', '--deepspeed', 'ds_configs/stage2.json'), 'state': 'running', 'program': '/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py', 'codePathLocal': 'supervised-fine-tune-qlora.py', 'codePath': 'supervised-fine-tune-qlora.py', 'git': {'remote': 'git@github.com:gianlucamacri/LongLoRA.git', 'commit': 'f13b66b8227cdf8fd44c6fb89e12597fba5135d9'}, 'email': 'gianluca18ma@gmail.com', 'root': '/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA', 'host': 'leonardo', 'username': 'gmacri', 'executable': '/home/gmacri/anaconda3/envs/LongLora/bin/python', 'cpu_count': 12, 'cpu_count_logical': 24, 'cpu_freq': {'current': 2271.334291666666, 'min': 2200.0, 'max': 3500.0}, 'cpu_freq_per_core': [{'current': 1833.173, 'min': 2200.0, 'max': 3500.0}, {'current': 2342.38, 'min': 2200.0, 'max': 3500.0}, {'current': 2799.431, 'min': 2200.0, 'max': 3500.0}, {'current': 1823.026, 'min': 2200.0, 'max': 3500.0}, {'current': 2061.007, 'min': 2200.0, 'max': 3500.0}, {'current': 4092.788, 'min': 2200.0, 'max': 3500.0}, {'current': 1794.407, 'min': 2200.0, 'max': 3500.0}, {'current': 2060.357, 'min': 2200.0, 'max': 3500.0}, {'current': 2200.698, 'min': 2200.0, 'max': 3500.0}, {'current': 2042.769, 'min': 2200.0, 'max': 3500.0}, {'current': 2344.179, 'min': 2200.0, 'max': 3500.0}, {'current': 1752.376, 'min': 2200.0, 'max': 3500.0}, {'current': 1926.976, 'min': 2200.0, 'max': 3500.0}, {'current': 2548.799, 'min': 2200.0, 'max': 3500.0}, {'current': 2752.597, 'min': 2200.0, 'max': 3500.0}, {'current': 2001.914, 'min': 2200.0, 'max': 3500.0}, {'current': 2129.697, 'min': 2200.0, 'max': 3500.0}, {'current': 4142.435, 'min': 2200.0, 'max': 3500.0}, {'current': 1757.844, 'min': 2200.0, 'max': 3500.0}, {'current': 1908.041, 'min': 2200.0, 'max': 3500.0}, {'current': 2181.424, 'min': 2200.0, 'max': 3500.0}, {'current': 1929.421, 'min': 2200.0, 'max': 3500.0}, {'current': 2335.736, 'min': 2200.0, 'max': 3500.0}, {'current': 1750.548, 'min': 2200.0, 'max': 3500.0}], 'disk': {'/': {'total': 937.8226585388184, 'used': 835.5212287902832}}, 'gpu': 'NVIDIA TITAN RTX', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA TITAN RTX', 'memory_total': 25396838400}, {'name': 'NVIDIA TITAN RTX', 'memory_total': 25395462144}], 'memory': {'total': 62.74051284790039}}
+2023-10-27 19:33:40,042 INFO    HandlerThread:76357 [system_monitor.py:probe():224] Finished collecting system info
+2023-10-27 19:33:40,042 INFO    HandlerThread:76357 [system_monitor.py:probe():227] Publishing system info
+2023-10-27 19:33:40,042 DEBUG   HandlerThread:76357 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-10-27 19:33:40,043 DEBUG   HandlerThread:76357 [system_info.py:_save_pip():68] Saving pip packages done
+2023-10-27 19:33:40,043 DEBUG   HandlerThread:76357 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-10-27 19:33:40,877 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/conda-environment.yaml
+2023-10-27 19:33:40,877 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/requirements.txt
+2023-10-27 19:33:43,060 DEBUG   HandlerThread:76357 [system_info.py:_save_conda():87] Saving conda packages done
+2023-10-27 19:33:43,061 INFO    HandlerThread:76357 [system_monitor.py:probe():229] Finished publishing system info
+2023-10-27 19:33:43,063 DEBUG   SenderThread:76357 [sender.py:send():380] send: files
+2023-10-27 19:33:43,063 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-10-27 19:33:43,072 DEBUG   SenderThread:76357 [sender.py:send():380] send: telemetry
+2023-10-27 19:33:43,076 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:33:43,076 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:33:43,077 DEBUG   SenderThread:76357 [sender.py:send():380] send: config
+2023-10-27 19:33:43,078 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:33:43,351 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:33:43,352 DEBUG   SenderThread:76357 [sender.py:send():380] send: telemetry
+2023-10-27 19:33:43,352 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:33:43,352 WARNING SenderThread:76357 [sender.py:send_metric():1329] Seen metric with glob (shouldn't happen)
+2023-10-27 19:33:43,738 INFO    wandb-upload_0:76357 [upload_job.py:push():131] Uploaded file /tmp/tmp26jnopb0wandb/ls1vemzr-wandb-metadata.json
+2023-10-27 19:33:43,877 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/conda-environment.yaml
+2023-10-27 19:33:43,877 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:33:43,877 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-metadata.json
+2023-10-27 19:33:45,353 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:33:45,877 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:33:50,354 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:33:55,355 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:33:58,070 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:33:58,071 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:33:58,071 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:33:58,881 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:33:58,883 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:33:58,883 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:33:58,884 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:33:58,884 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:33:58,884 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:33:58,885 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:33:59,884 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:33:59,885 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_created():271] file/dir created: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:34:00,887 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:01,885 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:05,888 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:10,894 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:11,888 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/config.yaml
+2023-10-27 19:34:13,735 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:34:13,735 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:34:13,736 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:34:13,788 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:34:14,007 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:34:14,007 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:34:14,009 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:34:14,890 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:34:15,890 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:17,010 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:21,305 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:34:21,306 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:34:21,307 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:34:21,309 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:34:21,892 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:21,893 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:34:22,310 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:23,893 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:27,311 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:29,828 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:34:29,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:34:29,830 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:34:33,071 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:37,993 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:34:37,994 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:34:37,995 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:34:37,997 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:34:38,719 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:38,899 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:34:39,899 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:40,003 DEBUG   SystemMonitor:76357 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-10-27 19:34:40,017 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:34:43,900 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:44,380 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:44,828 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:34:44,828 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:34:44,829 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:34:45,901 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:47,902 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:49,950 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:51,904 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:55,809 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:34:55,905 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:57,906 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:34:59,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:34:59,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:34:59,830 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:34:59,907 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:01,049 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:03,909 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:05,909 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:06,629 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:09,911 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:10,006 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:35:12,007 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:14,828 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:35:14,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:35:14,829 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:35:15,913 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:17,632 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:35:17,634 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:35:17,641 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:17,914 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:18,208 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:35:18,208 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:35:18,208 DEBUG   SenderThread:76357 [sender.py:send():380] send: metric
+2023-10-27 19:35:18,208 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:35:18,208 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:35:18,209 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:35:18,915 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/config.yaml
+2023-10-27 19:35:18,915 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:35:19,915 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:23,210 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:28,211 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:29,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:35:29,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:35:29,830 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:35:32,537 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:35:32,538 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:35:32,539 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:35:32,539 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:35:32,920 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:35:33,540 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:33,920 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:38,541 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:40,007 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:35:44,008 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:44,829 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:35:44,830 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:35:44,830 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:35:48,316 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:35:48,317 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:35:48,317 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:35:48,318 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:35:48,924 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:35:49,323 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:49,925 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:35:49,925 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/config.yaml
+2023-10-27 19:35:54,606 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:35:59,607 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:00,215 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:36:00,216 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:36:00,216 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:36:05,484 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:08,770 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:36:08,771 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:36:08,771 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:36:08,772 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:36:08,931 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:36:09,931 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:10,008 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:36:11,009 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:11,932 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:16,009 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:20,635 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:36:20,635 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:36:20,636 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:36:21,804 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:24,755 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:36:24,757 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:36:24,757 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:36:24,758 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:36:24,937 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:36:25,937 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:27,490 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:27,938 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:29,939 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:33,362 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:33,940 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:35,633 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:36:35,634 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:36:35,636 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:36:35,941 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:38,888 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:39,942 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:40,009 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:36:43,943 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:44,452 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:47,945 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:49,946 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:50,423 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:50,634 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:36:50,634 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:36:50,634 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:36:53,947 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:55,591 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:36:57,949 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:36:59,950 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:01,163 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:01,950 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:05,634 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:37:05,634 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:37:05,637 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:37:06,823 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:07,952 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:09,953 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:10,010 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:37:10,069 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:37:10,070 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:37:10,071 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:37:10,072 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:37:10,953 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:37:11,954 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:12,074 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:17,074 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:21,026 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:37:21,026 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:37:21,027 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:37:22,220 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:27,221 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:32,222 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:34,196 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:37:34,197 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:37:34,197 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:37:34,199 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:37:34,961 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:37:35,962 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:36,025 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:37:36,025 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:37:36,028 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:37:38,192 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:40,011 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:37:44,013 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:49,013 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:53,552 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:37:53,553 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: stop_status
+2023-10-27 19:37:53,553 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: stop_status
+2023-10-27 19:37:53,564 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: partial_history
+2023-10-27 19:37:53,793 DEBUG   SenderThread:76357 [sender.py:send():380] send: history
+2023-10-27 19:37:53,793 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: summary_record
+2023-10-27 19:37:53,794 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:37:53,967 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:37:54,794 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:37:55,968 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:37:59,795 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:38:04,796 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:38:07,285 DEBUG   SenderThread:76357 [sender.py:send():380] send: exit
+2023-10-27 19:38:07,285 INFO    SenderThread:76357 [sender.py:send_exit():585] handling exit code: 255
+2023-10-27 19:38:07,285 INFO    SenderThread:76357 [sender.py:send_exit():587] handling runtime: 267
+2023-10-27 19:38:07,286 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:38:07,286 INFO    SenderThread:76357 [sender.py:send_exit():593] send defer
+2023-10-27 19:38:07,286 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,286 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 0
+2023-10-27 19:38:07,287 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,287 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-10-27 19:38:07,287 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 1
+2023-10-27 19:38:07,287 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,287 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 1
+2023-10-27 19:38:07,287 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,287 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-10-27 19:38:07,288 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 2
+2023-10-27 19:38:07,288 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,288 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 2
+2023-10-27 19:38:07,288 INFO    HandlerThread:76357 [system_monitor.py:finish():203] Stopping system monitor
+2023-10-27 19:38:07,288 INFO    HandlerThread:76357 [interfaces.py:finish():202] Joined cpu monitor
+2023-10-27 19:38:07,289 INFO    HandlerThread:76357 [interfaces.py:finish():202] Joined disk monitor
+2023-10-27 19:38:07,289 DEBUG   SystemMonitor:76357 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-10-27 19:38:07,289 DEBUG   SystemMonitor:76357 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-10-27 19:38:07,594 INFO    HandlerThread:76357 [interfaces.py:finish():202] Joined gpu monitor
+2023-10-27 19:38:07,594 INFO    HandlerThread:76357 [interfaces.py:finish():202] Joined memory monitor
+2023-10-27 19:38:07,594 INFO    HandlerThread:76357 [interfaces.py:finish():202] Joined network monitor
+2023-10-27 19:38:07,595 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,595 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-10-27 19:38:07,595 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 3
+2023-10-27 19:38:07,595 DEBUG   SenderThread:76357 [sender.py:send():380] send: stats
+2023-10-27 19:38:07,595 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,596 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 3
+2023-10-27 19:38:07,596 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,596 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-10-27 19:38:07,596 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 4
+2023-10-27 19:38:07,596 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,597 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 4
+2023-10-27 19:38:07,597 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,597 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-10-27 19:38:07,597 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 5
+2023-10-27 19:38:07,597 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,597 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 5
+2023-10-27 19:38:07,598 DEBUG   SenderThread:76357 [sender.py:send():380] send: summary
+2023-10-27 19:38:07,598 INFO    SenderThread:76357 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-10-27 19:38:07,598 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,598 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-10-27 19:38:07,598 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 6
+2023-10-27 19:38:07,598 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,599 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 6
+2023-10-27 19:38:07,599 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,599 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-10-27 19:38:07,599 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 7
+2023-10-27 19:38:07,599 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: status_report
+2023-10-27 19:38:07,599 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:07,599 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 7
+2023-10-27 19:38:07,600 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:07,600 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-10-27 19:38:07,972 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:38:07,972 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:38:08,278 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: poll_exit
+2023-10-27 19:38:09,191 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 8
+2023-10-27 19:38:09,191 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: poll_exit
+2023-10-27 19:38:09,192 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:09,192 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 8
+2023-10-27 19:38:09,192 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:09,192 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-10-27 19:38:09,192 INFO    SenderThread:76357 [job_builder.py:build():281] Attempting to build job artifact
+2023-10-27 19:38:09,194 INFO    SenderThread:76357 [job_builder.py:_get_source_type():393] is repo sourced job
+2023-10-27 19:38:09,196 INFO    SenderThread:76357 [job_builder.py:build():369] adding wandb-job metadata file
+2023-10-27 19:38:09,216 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 9
+2023-10-27 19:38:09,217 DEBUG   SenderThread:76357 [sender.py:send():380] send: artifact
+2023-10-27 19:38:09,218 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:09,219 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 9
+2023-10-27 19:38:09,278 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: poll_exit
+2023-10-27 19:38:09,972 INFO    Thread-12 :76357 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:38:10,511 INFO    wandb-upload_0:76357 [upload_job.py:push():86] Skipped uploading /home/gmacri/.local/share/wandb/artifacts/staging/tmpgfw11k68
+2023-10-27 19:38:10,826 INFO    wandb-upload_1:76357 [upload_job.py:push():89] Uploaded file /home/gmacri/.local/share/wandb/artifacts/staging/tmpg7irnf6m
+2023-10-27 19:38:12,085 INFO    SenderThread:76357 [sender.py:send_artifact():1456] sent artifact job-git_github.com_gianlucamacri_LongLoRA.git_supervised-fine-tune-qlora.py - {'id': 'QXJ0aWZhY3Q6NjE4NjY3OTc2', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEwOTQ3NzUzMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjE4NjQ4NzM1', 'versionIndex': 23}}}
+2023-10-27 19:38:12,086 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:12,086 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-10-27 19:38:12,086 INFO    SenderThread:76357 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-10-27 19:38:12,974 INFO    SenderThread:76357 [dir_watcher.py:finish():388] scan: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files
+2023-10-27 19:38:12,974 INFO    SenderThread:76357 [dir_watcher.py:finish():402] scan save: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-metadata.json wandb-metadata.json
+2023-10-27 19:38:12,974 INFO    SenderThread:76357 [dir_watcher.py:finish():402] scan save: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/conda-environment.yaml conda-environment.yaml
+2023-10-27 19:38:12,974 INFO    SenderThread:76357 [dir_watcher.py:finish():402] scan save: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/requirements.txt requirements.txt
+2023-10-27 19:38:12,974 INFO    SenderThread:76357 [dir_watcher.py:finish():402] scan save: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log output.log
+2023-10-27 19:38:12,980 INFO    SenderThread:76357 [dir_watcher.py:finish():402] scan save: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json wandb-summary.json
+2023-10-27 19:38:12,983 INFO    SenderThread:76357 [dir_watcher.py:finish():402] scan save: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/config.yaml config.yaml
+2023-10-27 19:38:12,984 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 10
+2023-10-27 19:38:12,987 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: poll_exit
+2023-10-27 19:38:12,987 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:12,987 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 10
+2023-10-27 19:38:12,990 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:12,990 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-10-27 19:38:12,990 INFO    SenderThread:76357 [file_pusher.py:finish():175] shutting down file pusher
+2023-10-27 19:38:13,385 INFO    wandb-upload_1:76357 [upload_job.py:push():131] Uploaded file /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/requirements.txt
+2023-10-27 19:38:13,431 INFO    wandb-upload_0:76357 [upload_job.py:push():131] Uploaded file /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/conda-environment.yaml
+2023-10-27 19:38:13,465 INFO    wandb-upload_3:76357 [upload_job.py:push():131] Uploaded file /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/wandb-summary.json
+2023-10-27 19:38:13,472 INFO    wandb-upload_2:76357 [upload_job.py:push():131] Uploaded file /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/output.log
+2023-10-27 19:38:13,488 INFO    wandb-upload_4:76357 [upload_job.py:push():131] Uploaded file /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/files/config.yaml
+2023-10-27 19:38:13,689 INFO    Thread-11 (_thread_body):76357 [sender.py:transition_state():613] send defer: 11
+2023-10-27 19:38:13,689 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:13,689 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 11
+2023-10-27 19:38:13,690 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:13,690 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-10-27 19:38:13,690 INFO    SenderThread:76357 [file_pusher.py:join():181] waiting for file pusher
+2023-10-27 19:38:13,690 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 12
+2023-10-27 19:38:13,690 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:13,690 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 12
+2023-10-27 19:38:13,690 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:13,690 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-10-27 19:38:13,690 INFO    SenderThread:76357 [file_stream.py:finish():595] file stream finish called
+2023-10-27 19:38:14,280 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: keepalive
+2023-10-27 19:38:14,441 INFO    SenderThread:76357 [file_stream.py:finish():599] file stream finish is done
+2023-10-27 19:38:14,441 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 13
+2023-10-27 19:38:14,441 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:14,441 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 13
+2023-10-27 19:38:14,442 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:14,442 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-10-27 19:38:14,442 INFO    SenderThread:76357 [sender.py:transition_state():613] send defer: 14
+2023-10-27 19:38:14,442 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: defer
+2023-10-27 19:38:14,442 DEBUG   SenderThread:76357 [sender.py:send():380] send: final
+2023-10-27 19:38:14,443 INFO    HandlerThread:76357 [handler.py:handle_request_defer():172] handle defer: 14
+2023-10-27 19:38:14,443 DEBUG   SenderThread:76357 [sender.py:send():380] send: footer
+2023-10-27 19:38:14,443 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: defer
+2023-10-27 19:38:14,443 INFO    SenderThread:76357 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-10-27 19:38:14,444 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: poll_exit
+2023-10-27 19:38:14,444 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: poll_exit
+2023-10-27 19:38:14,445 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: server_info
+2023-10-27 19:38:14,445 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: server_info
+2023-10-27 19:38:14,448 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: get_summary
+2023-10-27 19:38:14,448 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: sampled_history
+2023-10-27 19:38:14,449 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: internal_messages
+2023-10-27 19:38:14,449 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: job_info
+2023-10-27 19:38:14,595 DEBUG   SenderThread:76357 [sender.py:send_request():407] send_request: job_info
+2023-10-27 19:38:14,595 INFO    MainThread:76357 [wandb_run.py:_footer_history_summary_info():3599] rendering history
+2023-10-27 19:38:14,596 INFO    MainThread:76357 [wandb_run.py:_footer_history_summary_info():3631] rendering summary
+2023-10-27 19:38:14,596 INFO    MainThread:76357 [wandb_run.py:_footer_sync_info():3558] logging synced files
+2023-10-27 19:38:14,596 DEBUG   HandlerThread:76357 [handler.py:handle_request():146] handle_request: shutdown
+2023-10-27 19:38:14,597 INFO    HandlerThread:76357 [handler.py:finish():866] shutting down handler
+2023-10-27 19:38:15,450 INFO    WriterThread:76357 [datastore.py:close():294] close: /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231027_193339-hdq9k3un/run-hdq9k3un.wandb
+2023-10-27 19:38:15,595 INFO    SenderThread:76357 [sender.py:finish():1534] shutting down sender
+2023-10-27 19:38:15,595 INFO    SenderThread:76357 [file_pusher.py:finish():175] shutting down file pusher
+2023-10-27 19:38:15,596 INFO    SenderThread:76357 [file_pusher.py:join():181] waiting for file pusher

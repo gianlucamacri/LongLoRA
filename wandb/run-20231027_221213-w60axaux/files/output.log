@@ -1,0 +1,57 @@
+
+  1%|▊                                                                                                                                                      | 1/177 [00:16<48:49, 16.64s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  1%|▊                                                                                                                                                      | 1/177 [00:16<48:49, 16.64s/it]
+  1%|█▋                                                                                                                                                     | 2/177 [00:33<48:38, 16.68s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  1%|█▋                                                                                                                                                     | 2/177 [00:33<48:38, 16.68s/it]
+{'loss': 3.4457, 'learning_rate': 0, 'epoch': 0.03}
+  2%|██▌                                                                                                                                                    | 3/177 [00:41<37:33, 12.95s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  2%|███▍                                                                                                                                                   | 4/177 [00:59<43:02, 14.93s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  2%|███▍                                                                                                                                                   | 4/177 [00:59<43:02, 14.93s/it]
+{'loss': 3.6566, 'learning_rate': 0, 'epoch': 0.07}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 13/14 [00:38<00:03,  3.45s/it]
+  3%|████▏                                                                                                                                                | 5/177 [01:58<1:27:31, 30.53s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  3%|████▏                                                                                                                                                | 5/177 [01:58<1:27:31, 30.53s/it]
+  3%|█████                                                                                                                                                | 6/177 [02:13<1:12:47, 25.54s/it]tried to get lr value before scheduler/optimizer started stepping, returning lr=0
+  3%|█████                                                                                                                                                | 6/177 [02:13<1:12:47, 25.54s/it]
+
+  4%|█████▉                                                                                                                                               | 7/177 [02:37<1:10:33, 24.91s/it]
+
+  5%|██████▋                                                                                                                                              | 8/177 [02:55<1:04:16, 22.82s/it]
+{'loss': 3.2635, 'learning_rate': 2e-05, 'epoch': 0.14}
+
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 369, in <module>                               | 3/14 [00:08<00:32,  2.97s/it]
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 363, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3066, in evaluate
+    output = eval_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3245, in evaluation_loop
+    for step, inputs in enumerate(dataloader):
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/data_loader.py", line 460, in __iter__
+    current_batch = send_to_device(current_batch, self.device)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 160, in send_to_device
+    {
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 161, in <dictcomp>
+    k: t if k in skip_keys else send_to_device(t, device, non_blocking=non_blocking, skip_keys=skip_keys)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/utils/operations.py", line 167, in send_to_device
+    return tensor.to(device, non_blocking=non_blocking)
+KeyboardInterrupt

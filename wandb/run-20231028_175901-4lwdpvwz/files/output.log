@@ -1,0 +1,322 @@
+
+
+  1%|█                                                                                                                                                    | 1/140 [01:11<2:44:26, 70.98s/it]
+{'loss': 3.8382, 'learning_rate': 2e-05, 'epoch': 0.07}
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:29<00:00,  2.19s/it]
+{'eval_loss': 3.9864394664764404, 'eval_runtime': 33.8123, 'eval_samples_per_second': 0.799, 'eval_steps_per_second': 0.414, 'epoch': 0.07}
+
+  1%|██▏                                                                                                                                                  | 2/140 [03:00<3:35:29, 93.69s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:34<00:00,  2.59s/it]
+
+  2%|███▏                                                                                                                                                | 3/140 [05:13<4:15:15, 111.79s/it]
+{'loss': 4.0164, 'learning_rate': 2e-05, 'epoch': 0.21}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:38<00:00,  2.80s/it]
+{'eval_loss': 3.9864394664764404, 'eval_runtime': 43.6227, 'eval_samples_per_second': 0.619, 'eval_steps_per_second': 0.321, 'epoch': 0.21}
+  3%|████▏                                                                                                                                               | 4/140 [07:28<4:34:03, 120.91s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:40<00:00,  3.02s/it]
+
+  4%|█████▎                                                                                                                                              | 5/140 [09:45<4:44:43, 126.54s/it]
+  0%|                                                                                                                                                                | 0/14 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:40<00:00,  3.02s/it]
+
+  4%|██████▎                                                                                                                                             | 6/140 [11:43<4:36:24, 123.77s/it]
+{'loss': 3.8573, 'learning_rate': 2e-05, 'epoch': 0.41}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:42<00:00,  3.16s/it]
+
+  5%|███████▍                                                                                                                                            | 7/140 [13:53<4:38:51, 125.80s/it]
+{'loss': 4.3588, 'learning_rate': 2e-05, 'epoch': 0.48}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:43<00:00,  3.17s/it]
+
+  6%|████████▍                                                                                                                                           | 8/140 [16:23<4:53:24, 133.37s/it]
+{'loss': 4.0313, 'learning_rate': 2e-05, 'epoch': 0.55}
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:42<00:00,  3.12s/it]
+
+{'eval_loss': 3.906705141067505, 'eval_runtime': 48.7114, 'eval_samples_per_second': 0.554, 'eval_steps_per_second': 0.287, 'epoch': 0.55}
+
+  6%|█████████▌                                                                                                                                          | 9/140 [18:46<4:57:40, 136.34s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:41<00:00,  3.06s/it]
+
+  7%|██████████▌                                                                                                                                        | 10/140 [21:07<4:58:44, 137.88s/it]
+{'loss': 4.1494, 'learning_rate': 2e-05, 'epoch': 0.68}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:40<00:00,  3.03s/it]
+
+  8%|███████████▌                                                                                                                                       | 11/140 [23:24<4:56:09, 137.75s/it]
+{'loss': 3.7426, 'learning_rate': 2e-05, 'epoch': 0.75}
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:42<00:00,  3.11s/it]
+
+{'eval_loss': 3.8086049556732178, 'eval_runtime': 47.6759, 'eval_samples_per_second': 0.566, 'eval_steps_per_second': 0.294, 'epoch': 0.75}
+  9%|████████████▌                                                                                                                                      | 12/140 [25:40<4:52:26, 137.08s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:43<00:00,  3.23s/it]
+
+  9%|█████████████▋                                                                                                                                     | 13/140 [27:52<4:47:13, 135.70s/it]
+{'loss': 4.2113, 'learning_rate': 2e-05, 'epoch': 0.89}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:43<00:00,  3.13s/it]
+
+ 10%|██████████████▋                                                                                                                                    | 14/140 [30:12<4:47:09, 136.74s/it]
+{'loss': 3.7172, 'learning_rate': 2e-05, 'epoch': 0.96}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [00:42<00:00,  3.08s/it]
+ 10%|██████████████▋                                                                                                                                    | 14/140 [31:00<4:47:09, 136.74s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py:1802: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+ 11%|███████████████▊                                                                                                                                   | 15/140 [32:53<5:00:15, 144.12s/it]
+{'loss': 3.6258, 'learning_rate': 2e-05, 'epoch': 1.03}
+
+
+
+
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 403, in <module>                               | 5/14 [00:12<00:23,  2.62s/it]
+    print(f'training args: {trainer.args}')
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 397, in train
+    model.gradient_checkpointing_enable()  # enable gradient checkpointing
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in _maybe_log_save_evaluate
+    metrics = self.evaluate(ignore_keys=ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3066, in evaluate
+    output = eval_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3255, in evaluation_loop
+    loss, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3474, in prediction_step
+    loss, outputs = self.compute_loss(model, inputs, return_outputs=True)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2801, in compute_loss
+    outputs = model(**inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 918, in forward
+    return self.base_model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 94, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1038, in forward
+    outputs = self.model(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 925, in forward
+    layer_outputs = decoder_layer(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 649, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 247, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/nn/modules.py", line 248, in forward
+    out = bnb.matmul_4bit(x, self.weight.t(), bias=bias, quant_state=self.weight.quant_state)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 579, in matmul_4bit
+    return MatMul4Bit.apply(A, B, out, bias, quant_state)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 516, in forward
+    output = torch.nn.functional.linear(A, F.dequantize_4bit(B, state).to(A.dtype).t(), bias)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/functional.py", line 903, in dequantize_4bit
+    absmax = dequantize_blockwise(absmax, state2)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/functional.py", line 703, in dequantize_blockwise
+    lib.cdequantize_blockwise_fp32(get_ptr(code), get_ptr(A), get_ptr(absmax), get_ptr(out), ct.c_int(blocksize), ct.c_int(A.numel()))
+KeyboardInterrupt

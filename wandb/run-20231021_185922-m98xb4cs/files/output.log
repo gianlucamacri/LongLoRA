@@ -1,0 +1,81 @@
+
+
+  2%|██▌                                                                                                                                                     | 1/60 [00:04<04:29,  4.58s/it]
+
+  3%|█████                                                                                                                                                   | 2/60 [00:08<03:56,  4.08s/it]
+{'loss': 0.0, 'learning_rate': 2.0000000000000003e-06, 'epoch': 0.1}
+
+
+  7%|██████████▏                                                                                                                                             | 4/60 [00:15<03:35,  3.86s/it]
+
+  8%|████████████▋                                                                                                                                           | 5/60 [00:19<03:30,  3.82s/it]
+
+ 10%|███████████████▏                                                                                                                                        | 6/60 [00:23<03:25,  3.81s/it]
+
+ 12%|█████████████████▋                                                                                                                                      | 7/60 [00:27<03:21,  3.80s/it]
+
+ 13%|████████████████████▎                                                                                                                                   | 8/60 [00:30<03:17,  3.80s/it]
+
+ 15%|██████████████████████▊                                                                                                                                 | 9/60 [00:34<03:14,  3.81s/it]
+
+ 17%|█████████████████████████▏                                                                                                                             | 10/60 [00:38<03:10,  3.82s/it]
+
+ 18%|███████████████████████████▋                                                                                                                           | 11/60 [00:42<03:07,  3.83s/it]
+
+ 20%|██████████████████████████████▏                                                                                                                        | 12/60 [00:46<03:04,  3.84s/it]
+
+ 22%|████████████████████████████████▋                                                                                                                      | 13/60 [00:50<03:01,  3.86s/it]
+
+ 23%|███████████████████████████████████▏                                                                                                                   | 14/60 [00:54<02:58,  3.87s/it]
+{'loss': 0.0, 'learning_rate': 1.4e-05, 'epoch': 0.7}
+
+ 25%|█████████████████████████████████████▊                                                                                                                 | 15/60 [00:58<02:55,  3.89s/it]
+
+ 27%|████████████████████████████████████████▎                                                                                                              | 16/60 [01:02<02:51,  3.90s/it]
+
+ 28%|██████████████████████████████████████████▊                                                                                                            | 17/60 [01:05<02:48,  3.93s/it]
+
+ 30%|█████████████████████████████████████████████▎                                                                                                         | 18/60 [01:09<02:45,  3.95s/it]
+
+
+ 33%|██████████████████████████████████████████████████▎                                                                                                    | 20/60 [01:17<02:38,  3.95s/it]
+
+ 35%|████████████████████████████████████████████████████▊                                                                                                  | 21/60 [01:21<02:34,  3.96s/it]
+
+ 37%|███████████████████████████████████████████████████████▎                                                                                               | 22/60 [01:25<02:30,  3.97s/it]
+ 37%|███████████████████████████████████████████████████████▎                                                                                               | 22/60 [01:25<02:30,  3.97s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 307, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 301, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2665, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1853, in backward
+    loss.backward(**kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 307, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune.py", line 301, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2665, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/accelerate/accelerator.py", line 1853, in backward
+    loss.backward(**kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

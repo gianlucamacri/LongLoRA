@@ -24,7 +24,7 @@ import transformers
 from torch.utils.data import Dataset
 from transformers import Trainer, DataCollatorForLanguageModeling
 from llama_attn_replace import replace_llama_attn
-from gptneox_attn_replace import replace_gpt_neox_attn
+#from gptneox_attn_replace import replace_gpt_neox_attn
 from peft import LoraConfig, get_peft_model
 from torch.distributed import barrier
 
@@ -124,7 +124,9 @@ def train():
         model_args.model_name_or_path,
         config=config,
         cache_dir=training_args.cache_dir,
-        torch_dtype=torch.bfloat16,
+        device_map="auto",
+        torch_dtype=torch.float16,
+        #torch_dtype=torch.bfloat16,
     )
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(

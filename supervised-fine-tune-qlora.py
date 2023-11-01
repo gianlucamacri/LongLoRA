@@ -26,7 +26,6 @@ from string import Formatter
 import torch
 import torch.nn as nn
 import transformers
-import evaluate
 from torch.utils.data import Dataset
 from transformers import Trainer, DataCollatorForLanguageModeling, BitsAndBytesConfig
 from datasets import load_dataset
@@ -105,6 +104,32 @@ class TrainingArguments(transformers.TrainingArguments):
         default="embed,norm",
         metadata={"help": "Additional trainable parameters except LoRA weights, if low rank training."},
     )
+    lora_r: int = field(
+        default=8,
+        metadata={"help": "Lora rank value."},
+    )
+    lora_alpha : int = field(
+        default=16,
+        metadata={"help": "Lora alpha value."},
+    )
+    use_quantization: bool = field(
+        default=True,
+        metadata={"help": "Whether use quantization for training."},
+    )
+    use_early_stopping: bool = field(
+        default=False,
+        metadata={"help": "Whether use earlystopping during training."},
+    )
+    es_patience: int = field(
+        default=1,
+        metadata={"help": "Patient value for early stopping."},
+    )
+    es_threshold: float = field(
+        default=0.0,
+        metadata={"help": "Patient threshold for early stopping."},
+    )
+
+
 
 def smart_tokenizer_and_embedding_resize(
     special_tokens_dict: Dict,
@@ -135,7 +160,7 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
         tokenizer(
             text,
             return_tensors="pt",
-            padding="longest",
+            padding="max_length", # "longest", # todo
             max_length=tokenizer.model_max_length,
             truncation=True,
             pad_to_multiple_of=4
@@ -299,10 +324,26 @@ def train():
         cache_dir=training_args.cache_dir,
     )
 
+    orig_rope_scaling = getattr(config, "rope_scaling",  {"factor": 1})
+    orig_rope_scaling_factor = orig_rope_scaling["factor"] if "factor" in orig_rope_scaling.keys() else 1
     orig_ctx_len = getattr(config, "max_position_embeddings", None)
-    if orig_ctx_len and training_args.model_max_length > orig_ctx_len:
-        scaling_factor = float(math.ceil(training_args.model_max_length / orig_ctx_len))
-        config.rope_scaling = {"type": "linear", "factor": scaling_factor}
+    if orig_ctx_len:
+        orig_ctx_len *= orig_rope_scaling_factor
+        if training_args.model_max_length > orig_ctx_len:
+            scaling_factor = float(math.ceil(training_args.model_max_length / orig_ctx_len))
+            config.rope_scaling = {"type": "linear", "factor": scaling_factor}
+
+    quantization_config = None
+    if training_args.use_quantization:
+        quantization_config = BitsAndBytesConfig(
+            #    load_in_8bit=True,
+            #    llm_int8_threshold=6.0,
+            #    llm_int8_has_fp16_weight=False,
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4",
+            )
 
     # Load model and tokenizer
     model = transformers.AutoModelForCausalLM.from_pretrained(
@@ -310,24 +351,16 @@ def train():
         config=config,
         cache_dir=training_args.cache_dir,
         #device_map="auto", # use only if model does not fint on a single gpu and lauch with python, less time efficient 
-        torch_dtype=torch.float16, # float16 is the default, but float32 seem to behave a little better and avoid mismatch with lora float32
-        quantization_config=BitsAndBytesConfig(
-        #    load_in_8bit=True,
-        #    llm_int8_threshold=6.0,
-        #    llm_int8_has_fp16_weight=False,
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-        ),
+        torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
+        quantization_config=quantization_config,
         trust_remote_code=True
     )
 
-   
-    for name, module in model.named_modules():
-        module.requires_grad = False  # freeze the model
-        if "norm" in name or "embed" in name: # added embed and norm since they both gets trained  
-            module = module.to(torch.float32)
+    if training_args.use_quantization:
+        for name, module in model.named_modules():
+            module.requires_grad = False  # freeze the model
+            if "norm" in name or "embed" in name: # added embed and norm since they both gets trained  
+                module = module.to(torch.float32)
 
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
@@ -357,13 +390,13 @@ def train():
 
     data_module = make_supervised_data_module(tokenizer=tokenizer, data_args=data_args)
 
-    class CastOutputToFloat(nn.Sequential):
-        def forward(self, x):
-            return super().forward(x).to(torch.float32)
-            #return super().forward(x).to(torch.float16)
-        
+    if training_args.use_quantization:
+        class CastOutputToFloat(nn.Sequential):
+            def forward(self, x):
+                return super().forward(x).to(torch.float32)
+                #return super().forward(x).to(torch.float16)
 
-    model.lm_head = CastOutputToFloat(model.lm_head)
+        model.lm_head = CastOutputToFloat(model.lm_head)
 
     if training_args.low_rank_training:
         if model_args.model_type == "gpt-neox":
@@ -373,8 +406,8 @@ def train():
             targets=["q_proj", "k_proj", "v_proj", "o_proj"]
 
         config = LoraConfig(
-            r=8,
-            lora_alpha=16,
+            r=training_args.lora_r, #8,
+            lora_alpha=training_args.lora_alpha, #16,
             target_modules=targets,
             lora_dropout=0,
             bias="none",
@@ -405,7 +438,11 @@ def train():
     # here compute_metrics function will be None, enablin just the loss evaluation, using other functions
     # caused memory overflow for some reason, I thought it may be due to eval_accumulation_steps not being set
     # but in that case there seem to be another issue that couses the crash
-    trainer = Trainer(model=model, tokenizer=tokenizer, args=training_args, **data_module)
+    early_stopping_callback = [transformers.EarlyStoppingCallback(
+            early_stopping_patience = training_args.es_patience,
+            early_stopping_threshold = training_args.es_threshold,
+        )] if training_args.use_early_stopping else None
+    trainer = Trainer(model=model, tokenizer=tokenizer, args=training_args, callbacks=early_stopping_callback, **data_module)
     print(f'training args: {trainer.args}')
     trainer.train()
     trainer.save_state()

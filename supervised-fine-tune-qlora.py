@@ -160,7 +160,7 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
         tokenizer(
             text,
             return_tensors="pt",
-            padding="max_length", # "longest", # todo
+            padding="max_length", # "longest", # todo, chenages just to check memory occupancy
             max_length=tokenizer.model_max_length,
             truncation=True,
             pad_to_multiple_of=4

@@ -7,7 +7,7 @@ import textwrap
 import transformers
 from peft import PeftModel
 from transformers import GenerationConfig, TextIteratorStreamer
-from llama_attn_replace_sft import replace_llama_attn
+from llama_attn_replace import replace_llama_attn
 from threading import Thread
 import gradio as gr
 
@@ -21,6 +21,8 @@ def parse_config():
     parser.add_argument('--temperature', type=float, default=0.6, help='')
     parser.add_argument('--top_p', type=float, default=0.9, help='')
     parser.add_argument('--max_gen_len', type=int, default=512, help='')
+    parser.add_argument("--host", type=str, default="localhost")
+    parser.add_argument("--port", type=int, default=8898)
     args = parser.parse_args()
     return args
 
@@ -59,10 +61,15 @@ Preprint Paper
 
 PROMPT_DICT = {
     "prompt_no_input": (
-        "{instruction}"
-        #"Below is an instruction that describes a task. "
-        #"Write a response that appropriately completes the request.\n\n"
-        #"### Instruction:\n{instruction}\n\n### Response:"
+        "Below is an instruction that describes a task. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n{instruction}\n\n### Response:"
+    ),
+    "prompt_no_input_llama2":(
+        "<s>[INST] <<SYS>>\n"
+        "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
+        "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+        "<</SYS>> \n\n {instruction} [/INST]"
     ),
 }
 
@@ -85,8 +92,10 @@ def build_generator(
         #    return "Only support txt file."
 #
         #material = read_txt_file(material.name)
-        prompt_no_input = PROMPT_DICT["prompt_no_input"]
+        #prompt_no_input = PROMPT_DICT["prompt_no_input"]
+        prompt_no_input = PROMPT_DICT["prompt_no_input_llama2"]
         prompt = prompt_no_input.format_map({"instruction": question})
+        #prompt = prompt_no_input.format_map({"instruction": material + "\n%s" % question})
 
         inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
@@ -153,6 +162,7 @@ def main(args):
     model.eval()
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)
+    # import pdb; pdb.set_trace()
     respond = build_generator(model, tokenizer, temperature=args.temperature, top_p=args.top_p,
                               max_gen_len=args.max_gen_len, use_cache=True)
 
@@ -172,7 +182,7 @@ def main(args):
     )
 
     demo.queue()
-    demo.launch(show_error=True, share=True)
+    demo.launch(server_name=args.host, server_port=args.port, show_error=True, share=True)
 
 if __name__ == "__main__":
     args = parse_config()

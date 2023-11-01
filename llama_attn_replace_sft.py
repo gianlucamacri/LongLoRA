@@ -111,7 +111,6 @@ def forward_flashattn(
     key_padding_mask = attention_mask.repeat(2, 1)
     nheads = qkv.shape[-2]
     # shift
-    
     if q_len % 4096 == 0:
         group_size = int(q_len * group_size_ratio)
     else:

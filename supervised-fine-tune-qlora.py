@@ -51,8 +51,6 @@ def jload(f, mode="r"):
     f.close()
     return jdict
 
-
-# unused (?)
 PROMPT_DICT = {
     "prompt_input": (
         "Below is an instruction that describes a task, paired with an input that provides further context. "
@@ -64,10 +62,21 @@ PROMPT_DICT = {
         "Write a response that appropriately completes the request.\n\n"
         "### Instruction:\n{instruction}\n\n### Response:"
     ),
+    "prompt_no_input_llama2":(
+        "<s>[INST] <<SYS>>\n"
+        "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
+        "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+        "<</SYS>> \n\n {instruction} [/INST]"
+    ),
+    "prompt_input_llama2": (
+        "<s>[INST] <<SYS>>\n"
+        "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
+        "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+        "<</SYS>> \n\n {instruction} \n{input} [/INST]"
+    )
 }
 
 
-# args classes
 @dataclass
 class ModelArguments:
     model_name_or_path: Optional[str] = field(default="EleutherAI/pythia-1.4b-deduped")
@@ -95,6 +104,10 @@ class TrainingArguments(transformers.TrainingArguments):
     use_flash_attn: bool = field(
         default=True,
         metadata={"help": "Whether use flash attention for training."},
+    )
+    use_full_attn: bool = field(
+        default=False,
+        metadata={"help": "Whether to use plain, full-attention for training."},
     )
     low_rank_training: bool = field(
         default=True,
@@ -160,7 +173,7 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
         tokenizer(
             text,
             return_tensors="pt",
-            padding="max_length", # "longest", # todo, chenages just to check memory occupancy
+            padding="longest", # todo, chenages just to check memory occupancy
             max_length=tokenizer.model_max_length,
             truncation=True,
             pad_to_multiple_of=4
@@ -238,8 +251,18 @@ class SupervisedDatasetWithPrompts(Dataset):
             format_dict = {field_name:example[field_name] for field_name in prompt_field_names}
             return prompt.format(**format_dict)
 
-        sources = [format_example(example) for example in list_data_dict]
+        instructions = [format_example(example) for example in list_data_dict]
+
+        prompt_input, prompt_no_input = PROMPT_DICT["prompt_input_llama2"], PROMPT_DICT["prompt_no_input_llama2"]
+
+        raise Exception('todo adapt this code')
+        sources = [
+            prompt_input.format_map(example) if example.get("input", "") != "" else prompt_no_input.format_map(example)
+            for example in instructions
+        ]
+
         targets = [f"{example[target_column]}{tokenizer.eos_token}" for example in list_data_dict]
+
         
         logging.info("Tokenizing inputs... This may take some time...")
         data_dict = preprocess(sources, targets, tokenizer)
@@ -316,7 +339,7 @@ def train():
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
-    replace_llama_attn(training_args.use_flash_attn)
+    replace_llama_attn(training_args.use_flash_attn, training_args.use_full_attn)
 
     # Set RoPE scaling factor
     config = transformers.AutoConfig.from_pretrained(

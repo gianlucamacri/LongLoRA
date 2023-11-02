@@ -213,11 +213,11 @@ def preprocess(
 
 def get_prompts(prompts:List[str], prompts_are_fn:bool, system_prompt:str):
     if prompts_are_fn:
-            actual_prompts = []
-            for prompt_fn in prompts:
-                with open(prompt_fn, 'r') as f:
-                    actual_prompts.append(f.read())
-            prompts = actual_prompts
+        actual_prompts = []
+        for prompt_fn in prompts:
+            with open(prompt_fn, 'r') as f:
+                actual_prompts.append(f.read())
+        prompts = actual_prompts
     
     prompts = [prompt.replace('\\n', '\n') for prompt in prompts]
 

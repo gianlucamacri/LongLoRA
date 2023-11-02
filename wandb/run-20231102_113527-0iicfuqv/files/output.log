@@ -1,0 +1,13 @@
+  0%|                                                                                                                                                               | 0/400 [00:00<?, ?it/s]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1879: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+  0%|▎                                                                                                                                                    | 1/400 [00:35<3:51:30, 34.81s/it]/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py:53: UserWarning: This function should be used just for training. For inference, please use forward_flashattn_inference.
+  warnings.warn("This function should be used just for training. For inference, please use forward_flashattn_inference.")
+  0%|                                                                                                                                                                 | 0/5 [00:00<?, ?it/s]
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:03<00:00,  1.06it/s]
+{'eval_loss': 4.096309661865234, 'eval_runtime': 6.4477, 'eval_samples_per_second': 2.171, 'eval_steps_per_second': 0.775, 'epoch': 0.1}
+{'train_runtime': 46.2442, 'train_samples_per_second': 201.539, 'train_steps_per_second': 8.65, 'train_loss': 5.0022172927856445, 'epoch': 0.1}

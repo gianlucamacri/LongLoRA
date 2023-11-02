@@ -51,6 +51,11 @@ def jload(f, mode="r"):
     f.close()
     return jdict
 
+SYSTEM_PROMPT = (
+    "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
+    "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+)
+
 PROMPT_DICT = {
     "prompt_input": (
         "Below is an instruction that describes a task, paired with an input that provides further context. "
@@ -64,14 +69,12 @@ PROMPT_DICT = {
     ),
     "prompt_no_input_llama2":(
         "<s>[INST] <<SYS>>\n"
-        "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
-        "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+        "{system_prompt}"
         "<</SYS>> \n\n {instruction} [/INST]"
     ),
     "prompt_input_llama2": (
         "<s>[INST] <<SYS>>\n"
-        "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
-        "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+        "{system_prompt}"
         "<</SYS>> \n\n {instruction} \n{input} [/INST]"
     )
 }
@@ -90,8 +93,10 @@ class DataArguments:
     eval_data_path: str = field(default=None, metadata={"help": "Path to the evaluation data (validation set)."})
     prompts: List[str] = field(default_factory=lambda : ["{instruction}"], metadata={"nargs":"+", "help" : "Prompt(s) to be used for the data. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
     prompts_are_fn: bool = field(default=False, metadata={"help" :"Whether to interpret the prompts as filenames conataining the actual prompts."})
-    target_column: str = field(default='output', metadata={"help" : "column to be used as the target for the prediction"})
-    max_prompt_token_count: int = field(default=None, metadata={"help" : "Max number of token allowed by the dataset, preforms a sanity check informing the user"})
+    target_column: str = field(default='output', metadata={"help" : "column to be used as the target for the prediction."})
+    max_prompt_token_count: int = field(default=None, metadata={"help" : "Max number of token allowed by the dataset, preforms a sanity check informing the user."})
+    system_prompt: str = field(default=SYSTEM_PROMPT, metadata={"help" : "Prompt to be used as a system prompt to define the model behaviour."})
+
 
 @dataclass
 class TrainingArguments(transformers.TrainingArguments):
@@ -173,10 +178,10 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
         tokenizer(
             text,
             return_tensors="pt",
-            padding="longest", # todo, chenages just to check memory occupancy
+            padding="max_length",#"longest", # todo: switch back to longest for actual training
             max_length=tokenizer.model_max_length,
             truncation=True,
-            pad_to_multiple_of=4
+            #pad_to_multiple_of=4
         )
         for text in strings
     ]
@@ -206,19 +211,30 @@ def preprocess(
         label[:source_len] = IGNORE_INDEX
     return dict(input_ids=input_ids, labels=labels)
 
-def get_prompts(prompts:List[str], prompts_are_fn:bool):
+def get_prompts(prompts:List[str], prompts_are_fn:bool, system_prompt:str):
     if prompts_are_fn:
             actual_prompts = []
             for prompt_fn in prompts:
                 with open(prompt_fn, 'r') as f:
                     actual_prompts.append(f.read())
             prompts = actual_prompts
+    
     prompts = [prompt.replace('\\n', '\n') for prompt in prompts]
-    return prompts
+
+    # include the "user prompts" in the compelte prompts including the system behavior
+    complete_prompt_template = PROMPT_DICT['prompt_no_input_llama2']
+    complete_prompts = [complete_prompt_template.format(system_prompt=system_prompt, instruction=prompt) for prompt in prompts] 
+
+    return complete_prompts
 
 def get_prompts_max_token_len(prompts, tokenizer):
-    prompt_token_lengths = [len(tokenizer.tokenize(prompt)) for prompt in prompts]
+    # replace unistantiated placeholders with empty string
+    empty_formatted_prompts = [prompt.format_map({k:'' for k in get_string_placeholder_names(prompt)}) for prompt in prompts]
+    prompt_token_lengths = [len(tokenizer.tokenize(prompt)) for prompt in empty_formatted_prompts]
     return max(prompt_token_lengths)
+
+def get_string_placeholder_names(s:str):
+    return [v[1] for v in Formatter().parse(s) if v[1]]
 
 class SupervisedDatasetWithPrompts(Dataset):
     """Dataset for supervised fine-tuning with prompts."""
@@ -238,7 +254,7 @@ class SupervisedDatasetWithPrompts(Dataset):
         logging.info("Formatting inputs...")
         single_prompt = len(prompts) == 1
         assert single_prompt or 'prompt_idx' in list_data_dict[0].keys(), 'prompt_idx must be a column in the data when multiple prompts are used'
-        field_names_for_prompt = [[v[1] for v in Formatter().parse(prompt) if v[1]] for prompt in prompts]
+        field_names_for_prompt = [get_string_placeholder_names(prompt) for prompt in prompts]
         logging.info(f"found the following field names in prompts: {field_names_for_prompt}")
 
         def format_example(example):
@@ -249,19 +265,15 @@ class SupervisedDatasetWithPrompts(Dataset):
             prompt = prompts[prompt_idx]
             prompt_field_names = field_names_for_prompt[prompt_idx]
             format_dict = {field_name:example[field_name] for field_name in prompt_field_names}
-            return prompt.format(**format_dict)
+            return prompt.format_map(format_dict)
 
-        instructions = [format_example(example) for example in list_data_dict]
-
-        prompt_input, prompt_no_input = PROMPT_DICT["prompt_input_llama2"], PROMPT_DICT["prompt_no_input_llama2"]
-
-        raise Exception('todo adapt this code')
-        sources = [
-            prompt_input.format_map(example) if example.get("input", "") != "" else prompt_no_input.format_map(example)
-            for example in instructions
-        ]
-
+        sources = [format_example(example) for example in list_data_dict]
+       
         targets = [f"{example[target_column]}{tokenizer.eos_token}" for example in list_data_dict]
+
+        logging.debug(f'first source beginning: {sources[0][:500]}')
+        logging.debug(f'first source ending: {sources[0][-500:]}')
+        logging.debug(f'first target beginning: {targets[0][:500]}')
 
         
         logging.info("Tokenizing inputs... This may take some time...")
@@ -301,14 +313,15 @@ def make_supervised_data_module(tokenizer: transformers.PreTrainedTokenizer, dat
     eval_dataset = None
     eval_data = None
 
-    prompts = get_prompts(data_args.prompts, data_args.prompts_are_fn)
+    prompts = get_prompts(data_args.prompts, data_args.prompts_are_fn, data_args.system_prompt)
     max_prompt_len = get_prompts_max_token_len(prompts, tokenizer)
 
     if data_args.max_prompt_token_count:
         if max_prompt_len <= data_args.max_prompt_token_count:
             logging.info('prompt max length under the given threshold')
         else:
-            logging.warning(f'Prompt max length grater than threshold ({max_prompt_len} > {data_args.max_prompt_token_count}) !')
+            logging.error(f'Prompt max length grater than threshold ({max_prompt_len} > {data_args.max_prompt_token_count}) !'
+                          'This may couse unexpected input truncation!')
 
     # data/datapath creation
     if data_args.hf_dataset:
@@ -352,8 +365,10 @@ def train():
     orig_ctx_len = getattr(config, "max_position_embeddings", None)
     if orig_ctx_len:
         orig_ctx_len *= orig_rope_scaling_factor
+        logging.debug(f'original context length {orig_ctx_len} (original scaling factor {orig_rope_scaling_factor})')
         if training_args.model_max_length > orig_ctx_len:
             scaling_factor = float(math.ceil(training_args.model_max_length / orig_ctx_len))
+            logging.debug(f'using {scaling_factor} as rope sclaing factor')
             config.rope_scaling = {"type": "linear", "factor": scaling_factor}
 
     quantization_config = None
@@ -466,11 +481,12 @@ def train():
             early_stopping_threshold = training_args.es_threshold,
         )] if training_args.use_early_stopping else None
     trainer = Trainer(model=model, tokenizer=tokenizer, args=training_args, callbacks=early_stopping_callback, **data_module)
-    print(f'training args: {trainer.args}')
+    logging.debug(f'training args: {trainer.args}')
     trainer.train()
     trainer.save_state()
     trainer.save_model(output_dir=training_args.output_dir)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
     train()

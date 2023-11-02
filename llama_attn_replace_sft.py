@@ -1,6 +1,7 @@
 # Modified based on https://github.com/lm-sys/FastChat
 
 import warnings
+import logging
 from typing import Optional, Tuple
 
 import torch
@@ -26,7 +27,7 @@ try:
         flash_attn_v1 = False
     from flash_attn.bert_padding import unpad_input, pad_input
 except:
-    print('cannot import Flash attention')
+    logging.info(f'cannot import flash attention')
 
 from transformers.models.llama.modeling_llama import apply_rotary_pos_emb, repeat_kv, rotate_half
 import math
@@ -49,7 +50,8 @@ def forward_flashattn(
     attention_mask: [bsz, q_len]
     """
     if not self.training:
-        raise ValueError("This function is only for training. For inference, please use forward_flashattn_inference.")
+        #raise ValueError("This function is only for training. For inference, please use forward_flashattn_inference.")
+        warnings.warn("This function should be used just for training. For inference, please use forward_flashattn_inference.")
 
     if output_attentions:
         warnings.warn(
@@ -490,9 +492,11 @@ def replace_llama_attn(use_flash_attn=True, use_full=False, inference=False):
             transformers.models.llama.modeling_llama.LlamaModel._prepare_decoder_attention_mask = _prepare_decoder_attention_mask_inference
             transformers.models.llama.modeling_llama.LlamaAttention.forward = forward_flashattn_inference
         else:
+            logging.debug(f'replacing llama attention forward with {"forward_flashattn_full" if use_full else "forward_flashattn"}')
             transformers.models.llama.modeling_llama.LlamaModel._prepare_decoder_attention_mask = (
                 _prepare_decoder_attention_mask
             )
             transformers.models.llama.modeling_llama.LlamaAttention.forward = forward_flashattn_full if use_full else forward_flashattn
     else:
+        logging.debug(f'replacing llama attention forward with forward_noflashattn')
         transformers.models.llama.modeling_llama.LlamaAttention.forward = forward_noflashattn

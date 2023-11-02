@@ -139,7 +139,7 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
             padding="longest",
             max_length=tokenizer.model_max_length,
             truncation=True,
-            pad_to_multiple_of=4
+            #pad_to_multiple_of=4
         )
         for text in strings
     ]

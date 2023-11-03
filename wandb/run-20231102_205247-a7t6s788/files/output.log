@@ -1,0 +1,755 @@
+  0%|                                                                                                                                                               | 0/270 [00:00<?, ?it/s]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1879: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  overflow_gpu = get_accelerator().ByteTensor([overflow])
+
+  0%|▌                                                                                                                                                    | 1/270 [00:56<4:10:13, 55.81s/it]
+{'loss': 9.676, 'learning_rate': 2e-05, 'epoch': 0.11}
+
+
+  1%|█▋                                                                                                                                                   | 3/270 [02:43<4:01:04, 54.17s/it]
+
+  1%|██▏                                                                                                                                                  | 4/270 [03:36<3:58:35, 53.82s/it]
+
+  2%|██▊                                                                                                                                                  | 5/270 [04:29<3:56:41, 53.59s/it]
+
+  2%|███▎                                                                                                                                                 | 6/270 [05:23<3:55:21, 53.49s/it]
+{'loss': 9.3901, 'learning_rate': 2e-05, 'epoch': 0.63}
+
+
+  3%|████▍                                                                                                                                                | 8/270 [07:09<3:53:06, 53.38s/it]
+
+  3%|████▉                                                                                                                                                | 9/270 [08:02<3:52:00, 53.34s/it]
+{'loss': 9.7299, 'learning_rate': 2e-05, 'epoch': 0.95}
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.83s/it]
+
+  3%|████▉                                                                                                                                                | 9/270 [08:40<3:52:00, 53.34s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+  4%|█████▍                                                                                                                                              | 10/270 [09:59<5:15:08, 72.72s/it]
+{'loss': 9.7628, 'learning_rate': 2e-05, 'epoch': 1.05}
+
+
+  4%|██████▌                                                                                                                                             | 12/270 [11:45<4:29:33, 62.69s/it]
+
+  5%|███████▏                                                                                                                                            | 13/270 [12:39<4:16:26, 59.87s/it]
+{'loss': 9.1073, 'learning_rate': 2e-05, 'epoch': 1.37}
+
+
+  6%|████████▏                                                                                                                                           | 15/270 [14:25<4:00:02, 56.48s/it]
+
+  6%|████████▊                                                                                                                                           | 16/270 [15:18<3:55:06, 55.54s/it]
+{'loss': 9.3436, 'learning_rate': 2e-05, 'epoch': 1.68}
+
+
+  7%|█████████▊                                                                                                                                          | 18/270 [17:05<3:48:37, 54.43s/it]
+
+  7%|██████████▍                                                                                                                                         | 19/270 [17:59<3:46:30, 54.15s/it]
+{'loss': 9.1868, 'learning_rate': 2e-05, 'epoch': 2.0}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+  7%|██████████▍                                                                                                                                         | 19/270 [18:09<3:46:30, 54.15s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+  7%|██████████▉                                                                                                                                         | 20/270 [19:55<5:02:53, 72.69s/it]
+{'loss': 9.051, 'learning_rate': 2e-05, 'epoch': 2.11}
+
+
+  8%|████████████                                                                                                                                        | 22/270 [21:41<4:19:43, 62.84s/it]
+
+  9%|████████████▌                                                                                                                                       | 23/270 [22:35<4:06:59, 60.00s/it]
+{'loss': 8.9178, 'learning_rate': 2e-05, 'epoch': 2.42}
+
+
+  9%|█████████████▋                                                                                                                                      | 25/270 [24:22<3:51:17, 56.64s/it]
+
+ 10%|██████████████▎                                                                                                                                     | 26/270 [25:15<3:46:20, 55.66s/it]
+
+ 10%|██████████████▊                                                                                                                                     | 27/270 [26:08<3:42:46, 55.01s/it]
+
+ 10%|███████████████▎                                                                                                                                    | 28/270 [27:02<3:39:48, 54.50s/it]
+{'loss': 9.1529, 'learning_rate': 2e-05, 'epoch': 2.95}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.69s/it]
+ 10%|███████████████▎                                                                                                                                    | 28/270 [27:39<3:39:48, 54.50s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 11%|███████████████▉                                                                                                                                    | 29/270 [29:00<4:55:17, 73.52s/it]
+
+ 11%|████████████████▍                                                                                                                                   | 30/270 [29:53<4:29:51, 67.46s/it]
+{'loss': 7.9098, 'learning_rate': 2e-05, 'epoch': 3.16}
+
+
+ 12%|█████████████████▌                                                                                                                                  | 32/270 [31:40<3:59:04, 60.27s/it]
+
+ 12%|██████████████████                                                                                                                                  | 33/270 [32:33<3:49:49, 58.19s/it]
+{'loss': 8.7297, 'learning_rate': 2e-05, 'epoch': 3.47}
+
+
+ 13%|███████████████████▏                                                                                                                                | 35/270 [34:20<3:38:13, 55.72s/it]
+
+ 13%|███████████████████▋                                                                                                                                | 36/270 [35:13<3:34:29, 55.00s/it]
+
+ 14%|████████████████████▎                                                                                                                               | 37/270 [36:07<3:31:53, 54.57s/it]
+{'loss': 8.6298, 'learning_rate': 2e-05, 'epoch': 3.89}
+ 14%|████████████████████▊                                                                                                                               | 38/270 [37:00<3:29:47, 54.26s/it]
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+
+ 14%|████████████████████▊                                                                                                                               | 38/270 [37:11<3:29:47, 54.26s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 14%|█████████████████████▍                                                                                                                              | 39/270 [38:59<4:43:09, 73.55s/it]
+
+ 15%|█████████████████████▉                                                                                                                              | 40/270 [39:52<4:18:45, 67.50s/it]
+
+ 15%|██████████████████████▍                                                                                                                             | 41/270 [40:45<4:01:30, 63.28s/it]
+
+ 16%|███████████████████████                                                                                                                             | 42/270 [41:39<3:49:09, 60.31s/it]
+
+ 16%|███████████████████████▌                                                                                                                            | 43/270 [42:32<3:40:06, 58.18s/it]
+
+ 16%|████████████████████████                                                                                                                            | 44/270 [43:25<3:33:44, 56.74s/it]
+
+ 17%|████████████████████████▋                                                                                                                           | 45/270 [44:19<3:29:03, 55.75s/it]
+
+ 17%|█████████████████████████▏                                                                                                                          | 46/270 [45:12<3:25:26, 55.03s/it]
+
+ 17%|█████████████████████████▊                                                                                                                          | 47/270 [46:06<3:22:43, 54.55s/it]
+{'loss': 8.4019, 'learning_rate': 2e-05, 'epoch': 4.95}
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+ 17%|█████████████████████████▊                                                                                                                          | 47/270 [46:43<3:22:43, 54.55s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 18%|██████████████████████████▎                                                                                                                         | 48/270 [48:04<4:32:08, 73.55s/it]
+
+ 18%|██████████████████████████▊                                                                                                                         | 49/270 [48:57<4:08:38, 67.50s/it]
+
+ 19%|███████████████████████████▍                                                                                                                        | 50/270 [49:50<3:52:00, 63.28s/it]
+
+ 19%|███████████████████████████▉                                                                                                                        | 51/270 [50:44<3:40:08, 60.31s/it]
+
+ 19%|████████████████████████████▌                                                                                                                       | 52/270 [51:37<3:31:35, 58.24s/it]
+{'loss': 8.033, 'learning_rate': 2e-05, 'epoch': 5.47}
+
+
+ 20%|█████████████████████████████▌                                                                                                                      | 54/270 [53:24<3:20:56, 55.82s/it]
+
+ 20%|██████████████████████████████▏                                                                                                                     | 55/270 [54:17<3:17:19, 55.07s/it]
+{'loss': 8.1935, 'learning_rate': 2e-05, 'epoch': 5.79}
+
+ 21%|██████████████████████████████▋                                                                                                                     | 56/270 [55:11<3:14:41, 54.59s/it]
+ 21%|███████████████████████████████▏                                                                                                                    | 57/270 [56:05<3:12:49, 54.32s/it]
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+ 21%|███████████████████████████████▏                                                                                                                    | 57/270 [56:15<3:12:49, 54.32s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 21%|███████████████████████████████▊                                                                                                                    | 58/270 [58:02<4:18:31, 73.17s/it]
+
+ 22%|████████████████████████████████▎                                                                                                                   | 59/270 [58:55<3:56:29, 67.25s/it]
+{'loss': 7.5356, 'learning_rate': 2e-05, 'epoch': 6.21}
+
+
+ 23%|████████████████████████████████▉                                                                                                                 | 61/270 [1:00:42<3:29:42, 60.20s/it]
+
+ 23%|█████████████████████████████████▌                                                                                                                | 62/270 [1:01:35<3:21:32, 58.14s/it]
+{'loss': 7.9579, 'learning_rate': 2e-05, 'epoch': 6.53}
+
+
+ 24%|██████████████████████████████████▌                                                                                                               | 64/270 [1:03:22<3:11:33, 55.79s/it]
+
+ 24%|███████████████████████████████████▏                                                                                                              | 65/270 [1:04:16<3:08:08, 55.06s/it]
+
+ 24%|███████████████████████████████████▋                                                                                                              | 66/270 [1:05:09<3:05:36, 54.59s/it]
+{'loss': 7.8869, 'learning_rate': 2e-05, 'epoch': 6.95}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 24%|███████████████████████████████████▋                                                                                                              | 66/270 [1:05:46<3:05:36, 54.59s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 25%|████████████████████████████████████▏                                                                                                             | 67/270 [1:07:08<4:09:49, 73.84s/it]
+
+ 25%|████████████████████████████████████▊                                                                                                             | 68/270 [1:08:01<3:47:57, 67.71s/it]
+{'loss': 6.7007, 'learning_rate': 2e-05, 'epoch': 7.16}
+
+
+ 26%|█████████████████████████████████████▊                                                                                                            | 70/270 [1:09:48<3:21:33, 60.47s/it]
+
+ 26%|██████████████████████████████████████▍                                                                                                           | 71/270 [1:10:42<3:13:46, 58.42s/it]
+
+ 27%|██████████████████████████████████████▉                                                                                                           | 72/270 [1:11:36<3:07:49, 56.92s/it]
+{'loss': 7.2858, 'learning_rate': 2e-05, 'epoch': 7.58}
+
+
+ 27%|████████████████████████████████████████                                                                                                          | 74/270 [1:13:22<3:00:08, 55.15s/it]
+
+ 28%|████████████████████████████████████████▌                                                                                                         | 75/270 [1:14:16<2:57:34, 54.64s/it]
+ 28%|█████████████████████████████████████████                                                                                                         | 76/270 [1:15:09<2:55:28, 54.27s/it]
+  0%|                                                                                                                                                                 | 0/5 [00:00<?, ?it/s]
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 28%|█████████████████████████████████████████                                                                                                         | 76/270 [1:15:20<2:55:28, 54.27s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 29%|█████████████████████████████████████████▋                                                                                                        | 77/270 [1:17:07<3:56:05, 73.39s/it]
+
+ 29%|██████████████████████████████████████████▏                                                                                                       | 78/270 [1:18:01<3:35:44, 67.42s/it]
+
+ 29%|██████████████████████████████████████████▋                                                                                                       | 79/270 [1:18:54<3:21:18, 63.24s/it]
+
+ 30%|███████████████████████████████████████████▎                                                                                                      | 80/270 [1:19:48<3:10:57, 60.30s/it]
+{'loss': 7.3495, 'learning_rate': 2e-05, 'epoch': 8.42}
+
+
+ 30%|████████████████████████████████████████████▎                                                                                                     | 82/270 [1:21:35<2:57:56, 56.79s/it]
+
+ 31%|████████████████████████████████████████████▉                                                                                                     | 83/270 [1:22:28<2:53:57, 55.82s/it]
+
+ 31%|█████████████████████████████████████████████▍                                                                                                    | 84/270 [1:23:21<2:50:45, 55.08s/it]
+
+ 31%|█████████████████████████████████████████████▉                                                                                                    | 85/270 [1:24:15<2:48:15, 54.57s/it]
+{'loss': 7.5448, 'learning_rate': 2e-05, 'epoch': 8.95}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 31%|█████████████████████████████████████████████▉                                                                                                    | 85/270 [1:24:52<2:48:15, 54.57s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 7.8878, 'learning_rate': 2e-05, 'epoch': 9.05}
+
+ 32%|███████████████████████████████████████████████                                                                                                   | 87/270 [1:27:07<3:26:14, 67.62s/it]
+
+ 33%|███████████████████████████████████████████████▌                                                                                                  | 88/270 [1:28:00<3:12:11, 63.36s/it]
+
+ 33%|████████████████████████████████████████████████▏                                                                                                 | 89/270 [1:28:53<3:02:06, 60.37s/it]
+
+ 33%|████████████████████████████████████████████████▋                                                                                                 | 90/270 [1:29:47<2:54:49, 58.27s/it]
+
+ 34%|█████████████████████████████████████████████████▏                                                                                                | 91/270 [1:30:40<2:49:30, 56.82s/it]
+
+ 34%|█████████████████████████████████████████████████▋                                                                                                | 92/270 [1:31:34<2:45:49, 55.90s/it]
+
+ 34%|██████████████████████████████████████████████████▎                                                                                               | 93/270 [1:32:28<2:42:51, 55.21s/it]
+
+ 35%|██████████████████████████████████████████████████▊                                                                                               | 94/270 [1:33:21<2:40:22, 54.67s/it]
+
+ 35%|███████████████████████████████████████████████████▎                                                                                              | 95/270 [1:34:14<2:38:23, 54.31s/it]
+{'loss': 6.9808, 'learning_rate': 2e-05, 'epoch': 10.0}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 35%|███████████████████████████████████████████████████▎                                                                                              | 95/270 [1:34:25<2:38:23, 54.31s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 36%|███████████████████████████████████████████████████▉                                                                                              | 96/270 [1:36:15<3:34:43, 74.05s/it]
+
+ 36%|████████████████████████████████████████████████████▍                                                                                             | 97/270 [1:37:08<3:15:42, 67.88s/it]
+
+ 36%|████████████████████████████████████████████████████▉                                                                                             | 98/270 [1:38:02<3:02:11, 63.56s/it]
+
+ 37%|█████████████████████████████████████████████████████▌                                                                                            | 99/270 [1:38:55<2:52:28, 60.52s/it]
+
+ 37%|█████████████████████████████████████████████████████▋                                                                                           | 100/270 [1:39:48<2:45:19, 58.35s/it]
+
+ 37%|██████████████████████████████████████████████████████▏                                                                                          | 101/270 [1:40:42<2:40:16, 56.90s/it]
+
+ 38%|██████████████████████████████████████████████████████▊                                                                                          | 102/270 [1:41:35<2:36:28, 55.89s/it]
+
+ 38%|███████████████████████████████████████████████████████▎                                                                                         | 103/270 [1:42:29<2:33:26, 55.13s/it]
+
+ 39%|███████████████████████████████████████████████████████▊                                                                                         | 104/270 [1:43:22<2:31:02, 54.59s/it]
+{'loss': 7.2878, 'learning_rate': 2e-05, 'epoch': 10.95}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 39%|███████████████████████████████████████████████████████▊                                                                                         | 104/270 [1:43:59<2:31:02, 54.59s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 39%|████████████████████████████████████████████████████████▍                                                                                        | 105/270 [1:45:21<3:23:22, 73.95s/it]
+
+ 39%|████████████████████████████████████████████████████████▉                                                                                        | 106/270 [1:46:15<3:05:29, 67.86s/it]
+
+ 40%|█████████████████████████████████████████████████████████▍                                                                                       | 107/270 [1:47:08<2:52:35, 63.53s/it]
+
+ 40%|██████████████████████████████████████████████████████████                                                                                       | 108/270 [1:48:02<2:43:20, 60.50s/it]
+
+ 40%|██████████████████████████████████████████████████████████▌                                                                                      | 109/270 [1:48:55<2:36:41, 58.40s/it]
+{'loss': 7.1572, 'learning_rate': 2e-05, 'epoch': 11.47}
+
+ 41%|███████████████████████████████████████████████████████████                                                                                      | 110/270 [1:49:49<2:31:45, 56.91s/it]
+
+
+ 41%|████████████████████████████████████████████████████████████▏                                                                                    | 112/270 [1:51:35<2:25:14, 55.15s/it]
+{'loss': 7.3915, 'learning_rate': 2e-05, 'epoch': 11.79}
+
+ 42%|████████████████████████████████████████████████████████████▋                                                                                    | 113/270 [1:52:29<2:22:58, 54.64s/it]
+
+ 42%|█████████████████████████████████████████████████████████████▏                                                                                   | 114/270 [1:53:22<2:21:06, 54.27s/it]
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+
+ 42%|█████████████████████████████████████████████████████████████▏                                                                                   | 114/270 [1:53:33<2:21:06, 54.27s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 7.0755, 'learning_rate': 2e-05, 'epoch': 12.11}
+
+ 43%|██████████████████████████████████████████████████████████████▎                                                                                  | 116/270 [1:56:15<2:53:56, 67.77s/it]
+{'loss': 6.7846, 'learning_rate': 2e-05, 'epoch': 12.21}
+
+ 43%|██████████████████████████████████████████████████████████████▊                                                                                  | 117/270 [1:57:09<2:41:57, 63.51s/it]
+
+ 44%|███████████████████████████████████████████████████████████████▎                                                                                 | 118/270 [1:58:03<2:33:16, 60.50s/it]
+
+
+ 44%|████████████████████████████████████████████████████████████████▍                                                                                | 120/270 [1:59:49<2:22:12, 56.88s/it]
+{'loss': 6.4669, 'learning_rate': 2e-05, 'epoch': 12.63}
+
+ 45%|████████████████████████████████████████████████████████████████▉                                                                                | 121/270 [2:00:43<2:18:46, 55.88s/it]
+
+
+ 46%|██████████████████████████████████████████████████████████████████                                                                               | 123/270 [2:02:30<2:13:49, 54.62s/it]
+{'loss': 7.0759, 'learning_rate': 2e-05, 'epoch': 12.95}
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+
+ 46%|██████████████████████████████████████████████████████████████████                                                                               | 123/270 [2:03:07<2:13:49, 54.62s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 46%|██████████████████████████████████████████████████████████████████▌                                                                              | 124/270 [2:04:34<3:03:34, 75.44s/it]
+{'loss': 7.4726, 'learning_rate': 2e-05, 'epoch': 13.05}
+
+ 46%|███████████████████████████████████████████████████████████████████▏                                                                             | 125/270 [2:05:27<2:46:25, 68.86s/it]
+
+ 47%|███████████████████████████████████████████████████████████████████▋                                                                             | 126/270 [2:06:21<2:34:10, 64.24s/it]
+
+
+ 47%|████████████████████████████████████████████████████████████████████▋                                                                            | 128/270 [2:08:08<2:19:00, 58.74s/it]
+{'loss': 6.9647, 'learning_rate': 2e-05, 'epoch': 13.47}
+
+ 48%|█████████████████████████████████████████████████████████████████████▎                                                                           | 129/270 [2:09:01<2:14:17, 57.15s/it]
+
+ 48%|█████████████████████████████████████████████████████████████████████▊                                                                           | 130/270 [2:09:55<2:10:53, 56.10s/it]
+
+
+ 49%|██████████████████████████████████████████████████████████████████████▉                                                                          | 132/270 [2:11:42<2:05:53, 54.74s/it]
+{'loss': 7.002, 'learning_rate': 2e-05, 'epoch': 13.89}
+
+ 49%|███████████████████████████████████████████████████████████████████████▍                                                                         | 133/270 [2:12:35<2:04:06, 54.35s/it]
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+
+ 49%|███████████████████████████████████████████████████████████████████████▍                                                                         | 133/270 [2:12:45<2:04:06, 54.35s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 6.9047, 'learning_rate': 2e-05, 'epoch': 14.11}
+ 50%|███████████████████████████████████████████████████████████████████████▉                                                                         | 134/270 [2:14:33<2:46:28, 73.44s/it]
+
+ 50%|████████████████████████████████████████████████████████████████████████▌                                                                        | 135/270 [2:15:27<2:31:47, 67.46s/it]
+
+ 50%|█████████████████████████████████████████████████████████████████████████                                                                        | 136/270 [2:16:20<2:21:20, 63.28s/it]
+
+ 51%|█████████████████████████████████████████████████████████████████████████▌                                                                       | 137/270 [2:17:14<2:13:45, 60.34s/it]
+
+ 51%|██████████████████████████████████████████████████████████████████████████                                                                       | 138/270 [2:18:07<2:08:08, 58.24s/it]
+
+
+ 52%|███████████████████████████████████████████████████████████████████████████▏                                                                     | 140/270 [2:19:54<2:00:59, 55.84s/it]
+{'loss': 6.9699, 'learning_rate': 2e-05, 'epoch': 14.74}
+
+ 52%|███████████████████████████████████████████████████████████████████████████▋                                                                     | 141/270 [2:20:47<1:58:28, 55.10s/it]
+
+ 53%|████████████████████████████████████████████████████████████████████████████▎                                                                    | 142/270 [2:21:41<1:56:27, 54.59s/it]
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 53%|████████████████████████████████████████████████████████████████████████████▎                                                                    | 142/270 [2:22:18<1:56:27, 54.59s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 7.2892, 'learning_rate': 2e-05, 'epoch': 15.05}
+ 53%|████████████████████████████████████████████████████████████████████████████▊                                                                    | 143/270 [2:23:41<2:37:06, 74.22s/it]
+
+
+ 54%|█████████████████████████████████████████████████████████████████████████████▊                                                                   | 145/270 [2:25:28<2:12:36, 63.65s/it]
+{'loss': 6.7162, 'learning_rate': 2e-05, 'epoch': 15.26}
+
+ 54%|██████████████████████████████████████████████████████████████████████████████▍                                                                  | 146/270 [2:26:21<2:05:12, 60.59s/it]
+
+
+ 55%|███████████████████████████████████████████████████████████████████████████████▍                                                                 | 148/270 [2:28:08<1:55:45, 56.93s/it]
+{'loss': 6.3803, 'learning_rate': 2e-05, 'epoch': 15.58}
+
+ 55%|████████████████████████████████████████████████████████████████████████████████                                                                 | 149/270 [2:29:02<1:52:47, 55.93s/it]
+
+ 56%|████████████████████████████████████████████████████████████████████████████████▌                                                                | 150/270 [2:29:55<1:50:20, 55.17s/it]
+
+
+ 56%|█████████████████████████████████████████████████████████████████████████████████▋                                                               | 152/270 [2:31:42<1:46:48, 54.31s/it]
+{'loss': 6.3859, 'learning_rate': 2e-05, 'epoch': 16.0}
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+
+ 56%|█████████████████████████████████████████████████████████████████████████████████▋                                                               | 152/270 [2:31:52<1:46:48, 54.31s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 6.7368, 'learning_rate': 2e-05, 'epoch': 16.11}
+ 57%|██████████████████████████████████████████████████████████████████████████████████▏                                                              | 153/270 [2:33:41<2:23:57, 73.82s/it]
+
+ 57%|██████████████████████████████████████████████████████████████████████████████████▋                                                              | 154/270 [2:34:35<2:10:56, 67.73s/it]
+
+
+ 58%|███████████████████████████████████████████████████████████████████████████████████▊                                                             | 156/270 [2:36:22<1:54:56, 60.50s/it]
+{'loss': 6.5687, 'learning_rate': 2e-05, 'epoch': 16.42}
+
+ 58%|████████████████████████████████████████████████████████████████████████████████████▎                                                            | 157/270 [2:37:15<1:49:54, 58.36s/it]
+
+
+ 59%|█████████████████████████████████████████████████████████████████████████████████████▍                                                           | 159/270 [2:39:02<1:43:26, 55.91s/it]
+{'loss': 6.7401, 'learning_rate': 2e-05, 'epoch': 16.74}
+
+ 59%|█████████████████████████████████████████████████████████████████████████████████████▉                                                           | 160/270 [2:39:56<1:41:09, 55.18s/it]
+
+ 60%|██████████████████████████████████████████████████████████████████████████████████████▍                                                          | 161/270 [2:40:49<1:39:16, 54.65s/it]
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+
+ 60%|██████████████████████████████████████████████████████████████████████████████████████▍                                                          | 161/270 [2:41:27<1:39:16, 54.65s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 7.0996, 'learning_rate': 2e-05, 'epoch': 17.05}
+ 60%|███████████████████████████████████████████████████████████████████████████████████████                                                          | 162/270 [2:42:49<2:13:39, 74.25s/it]
+
+
+ 61%|████████████████████████████████████████████████████████████████████████████████████████                                                         | 164/270 [2:44:36<1:52:26, 63.64s/it]
+{'loss': 6.5464, 'learning_rate': 2e-05, 'epoch': 17.26}
+
+ 61%|████████████████████████████████████████████████████████████████████████████████████████▌                                                        | 165/270 [2:45:30<1:46:01, 60.59s/it]
+
+
+ 62%|█████████████████████████████████████████████████████████████████████████████████████████▋                                                       | 167/270 [2:47:17<1:37:45, 56.95s/it]
+
+ 62%|██████████████████████████████████████████████████████████████████████████████████████████▏                                                      | 168/270 [2:48:10<1:35:08, 55.96s/it]
+{'loss': 6.3258, 'learning_rate': 2e-05, 'epoch': 17.68}
+
+ 63%|██████████████████████████████████████████████████████████████████████████████████████████▊                                                      | 169/270 [2:49:04<1:32:54, 55.19s/it]
+
+
+ 63%|███████████████████████████████████████████████████████████████████████████████████████████▊                                                     | 171/270 [2:50:51<1:29:38, 54.33s/it]
+{'loss': 6.2404, 'learning_rate': 2e-05, 'epoch': 18.0}
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+
+ 63%|███████████████████████████████████████████████████████████████████████████████████████████▊                                                     | 171/270 [2:51:01<1:29:38, 54.33s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 6.5809, 'learning_rate': 2e-05, 'epoch': 18.11}
+ 64%|████████████████████████████████████████████████████████████████████████████████████████████▎                                                    | 172/270 [2:52:50<2:00:24, 73.72s/it]
+
+
+ 64%|█████████████████████████████████████████████████████████████████████████████████████████████▍                                                   | 174/270 [2:54:37<1:41:29, 63.43s/it]
+{'loss': 6.2647, 'learning_rate': 2e-05, 'epoch': 18.32}
+
+ 65%|█████████████████████████████████████████████████████████████████████████████████████████████▉                                                   | 175/270 [2:55:30<1:35:41, 60.44s/it]
+
+ 65%|██████████████████████████████████████████████████████████████████████████████████████████████▌                                                  | 176/270 [2:56:23<1:31:21, 58.31s/it]
+
+
+ 66%|███████████████████████████████████████████████████████████████████████████████████████████████▌                                                 | 178/270 [2:58:11<1:25:40, 55.87s/it]
+{'loss': 6.6018, 'learning_rate': 2e-05, 'epoch': 18.74}
+
+ 66%|████████████████████████████████████████████████████████████████████████████████████████████████▏                                                | 179/270 [2:59:04<1:23:37, 55.14s/it]
+
+ 67%|████████████████████████████████████████████████████████████████████████████████████████████████▋                                                | 180/270 [2:59:57<1:21:55, 54.62s/it]
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 67%|████████████████████████████████████████████████████████████████████████████████████████████████▋                                                | 180/270 [3:00:35<1:21:55, 54.62s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 67%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                               | 181/270 [3:01:57<1:49:53, 74.09s/it]
+{'loss': 6.9681, 'learning_rate': 2e-05, 'epoch': 19.05}
+
+ 67%|█████████████████████████████████████████████████████████████████████████████████████████████████▋                                               | 182/270 [3:02:50<1:39:36, 67.91s/it]
+
+ 68%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                              | 183/270 [3:03:44<1:32:10, 63.57s/it]
+
+
+ 69%|███████████████████████████████████████████████████████████████████████████████████████████████████▎                                             | 185/270 [3:05:31<1:22:45, 58.42s/it]
+
+ 69%|███████████████████████████████████████████████████████████████████████████████████████████████████▉                                             | 186/270 [3:06:24<1:19:42, 56.94s/it]
+{'loss': 6.0762, 'learning_rate': 2e-05, 'epoch': 19.58}
+
+ 69%|████████████████████████████████████████████████████████████████████████████████████████████████████▍                                            | 187/270 [3:07:18<1:17:22, 55.93s/it]
+
+
+ 70%|█████████████████████████████████████████████████████████████████████████████████████████████████████▌                                           | 189/270 [3:09:05<1:13:48, 54.67s/it]
+
+ 70%|██████████████████████████████████████████████████████████████████████████████████████████████████████                                           | 190/270 [3:09:58<1:12:24, 54.31s/it]
+{'loss': 6.1211, 'learning_rate': 2e-05, 'epoch': 20.0}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 70%|██████████████████████████████████████████████████████████████████████████████████████████████████████                                           | 190/270 [3:10:09<1:12:24, 54.31s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 71%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                                          | 191/270 [3:11:57<1:36:54, 73.60s/it]
+
+ 71%|███████████████████████████████████████████████████████████████████████████████████████████████████████                                          | 192/270 [3:12:50<1:27:50, 67.57s/it]
+{'loss': 6.1855, 'learning_rate': 2e-05, 'epoch': 20.21}
+
+ 71%|███████████████████████████████████████████████████████████████████████████████████████████████████████▋                                         | 193/270 [3:13:44<1:21:20, 63.39s/it]
+
+
+ 72%|████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                        | 195/270 [3:15:31<1:12:50, 58.27s/it]
+
+ 73%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                       | 196/270 [3:16:24<1:10:05, 56.83s/it]
+{'loss': 5.8392, 'learning_rate': 2e-05, 'epoch': 20.63}
+
+
+ 73%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                      | 198/270 [3:18:11<1:06:07, 55.11s/it]
+
+ 74%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                      | 199/270 [3:19:04<1:04:36, 54.60s/it]
+{'loss': 6.5387, 'learning_rate': 2e-05, 'epoch': 20.95}
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+
+ 74%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                      | 199/270 [3:19:42<1:04:36, 54.60s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 6.8551, 'learning_rate': 2e-05, 'epoch': 21.05}
+
+ 74%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                     | 201/270 [3:21:57<1:17:57, 67.80s/it]
+
+ 75%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                    | 202/270 [3:22:50<1:11:57, 63.49s/it]
+{'loss': 6.2985, 'learning_rate': 2e-05, 'epoch': 21.26}
+
+
+ 76%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                   | 204/270 [3:24:37<1:04:11, 58.36s/it]
+
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████                                   | 205/270 [3:25:31<1:01:41, 56.95s/it]
+
+ 76%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                  | 206/270 [3:26:25<59:38, 55.92s/it]
+{'loss': 6.092, 'learning_rate': 2e-05, 'epoch': 21.68}
+
+
+ 77%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                 | 208/270 [3:28:11<56:29, 54.67s/it]
+
+ 77%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                 | 209/270 [3:29:05<55:12, 54.30s/it]
+{'loss': 6.0224, 'learning_rate': 2e-05, 'epoch': 22.0}
+
+
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+ 77%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                 | 209/270 [3:29:15<55:12, 54.30s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 78%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 210/270 [3:31:05<1:14:10, 74.18s/it]
+
+ 78%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                               | 211/270 [3:31:59<1:06:50, 67.97s/it]
+
+ 79%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                               | 212/270 [3:32:52<1:01:30, 63.63s/it]
+{'loss': 6.0235, 'learning_rate': 2e-05, 'epoch': 22.32}
+
+
+ 79%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                              | 214/270 [3:34:39<54:30, 58.41s/it]
+
+ 80%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                              | 215/270 [3:35:33<52:10, 56.92s/it]
+{'loss': 5.7309, 'learning_rate': 2e-05, 'epoch': 22.63}
+
+
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                            | 217/270 [3:37:20<48:43, 55.16s/it]
+
+ 81%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                            | 218/270 [3:38:13<47:21, 54.64s/it]
+{'loss': 6.409, 'learning_rate': 2e-05, 'epoch': 22.95}
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.83s/it]
+
+ 81%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                            | 218/270 [3:38:50<47:21, 54.64s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 81%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                           | 219/270 [3:40:13<1:03:01, 74.15s/it]
+{'loss': 6.7332, 'learning_rate': 2e-05, 'epoch': 23.05}
+
+
+ 82%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 221/270 [3:42:00<51:57, 63.61s/it]
+
+ 82%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                          | 222/270 [3:42:53<48:27, 60.57s/it]
+
+ 83%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                         | 223/270 [3:43:47<45:45, 58.41s/it]
+{'loss': 6.2288, 'learning_rate': 2e-05, 'epoch': 23.47}
+
+
+ 83%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                        | 225/270 [3:45:34<41:56, 55.91s/it]
+
+ 84%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                        | 226/270 [3:46:27<40:27, 55.17s/it]
+{'loss': 6.4444, 'learning_rate': 2e-05, 'epoch': 23.79}
+
+ 84%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                       | 227/270 [3:47:20<39:10, 54.65s/it]
+ 84%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                      | 228/270 [3:48:14<38:00, 54.31s/it]
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.83s/it]
+
+ 84%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                      | 228/270 [3:48:24<38:00, 54.31s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(
+/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+ 85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                      | 229/270 [3:50:15<50:43, 74.24s/it]
+{'loss': 6.1659, 'learning_rate': 2e-05, 'epoch': 24.11}
+ 85%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                     | 230/270 [3:51:08<45:20, 68.02s/it]
+ 86%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                     | 231/270 [3:52:02<41:25, 63.74s/it]
+ 86%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                     | 231/270 [3:52:02<41:25, 63.74s/it]
+{'loss': 5.8567, 'learning_rate': 2e-05, 'epoch': 24.32}
+ 86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                    | 232/270 [3:52:55<38:25, 60.66s/it]
+ 86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                    | 232/270 [3:52:55<38:25, 60.66s/it]
+ 86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                    | 233/270 [3:53:49<36:05, 58.54s/it]
+ 86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                    | 233/270 [3:53:49<36:05, 58.54s/it]
+{'loss': 6.2114, 'learning_rate': 2e-05, 'epoch': 24.53}
+ 87%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                   | 234/270 [3:54:43<34:13, 57.03s/it]
+ 87%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                   | 234/270 [3:54:43<34:13, 57.03s/it]
+ 87%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                   | 235/270 [3:55:36<32:40, 56.03s/it]
+ 87%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                  | 236/270 [3:56:30<31:18, 55.25s/it]
+ 87%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                  | 236/270 [3:56:30<31:18, 55.25s/it]
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                  | 237/270 [3:57:23<30:04, 54.70s/it]
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                  | 237/270 [3:57:23<30:04, 54.70s/it]
+  0%|                                                                                                                                                                 | 0/5 [00:00<?, ?it/s]
+ 40%|█████████████████████████████████████████████████████████████▏                                                                                           | 2/5 [00:02<00:03,  1.04s/it]
+ 60%|███████████████████████████████████████████████████████████████████████████████████████████▊                                                             | 3/5 [00:04<00:02,  1.49s/it]
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:08<00:00,  1.84s/it]
+
+{'eval_loss': 6.295766353607178, 'eval_runtime': 10.4542, 'eval_samples_per_second': 1.244, 'eval_steps_per_second': 0.478, 'epoch': 24.95}
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(iconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                 | 238/270 [3:59:23<39:40, 74.40s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                 | 238/270 [3:59:23<39:40, 74.40s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 89%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                 | 239/270 [4:00:17<35:10, 68.09s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 89%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                 | 239/270 [4:00:17<35:10, 68.09s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+{'loss': 5.1708, 'learning_rate': 2e-05, 'epoch': 25.16}
+ 89%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 240/270 [4:01:10<31:50, 63.69s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 89%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏               | 241/270 [4:02:04<29:18, 60.63s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 89%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏               | 241/270 [4:02:04<29:18, 60.63s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 90%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊               | 242/270 [4:02:57<27:17, 58.47s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 90%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊               | 242/270 [4:02:57<27:17, 58.47s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+{'loss': 6.1193, 'learning_rate': 2e-05, 'epoch': 25.47}
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎              | 243/270 [4:03:51<25:38, 56.99s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊              | 244/270 [4:04:44<24:14, 55.94s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊              | 244/270 [4:04:44<24:14, 55.94s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+{'loss': 5.8124, 'learning_rate': 2e-05, 'epoch': 25.68}
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍             | 245/270 [4:05:38<22:59, 55.19s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍             | 245/270 [4:05:38<22:59, 55.19s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉             | 246/270 [4:06:31<21:52, 54.69s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉             | 246/270 [4:06:31<21:52, 54.69s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+{'loss': 6.1697, 'learning_rate': 2e-05, 'epoch': 25.89}
+  0%|                                                                                                                                                                 | 0/5 [00:00<?, ?it/s]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 40%|█████████████████████████████████████████████████████████████▏                                                                                           | 2/5 [00:02<00:03,  1.04s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 60%|███████████████████████████████████████████████████████████████████████████████████████████▊                                                             | 3/5 [00:04<00:02,  1.48s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+ 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                              | 4/5 [00:06<00:01,  1.70s/it]. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+                                                                                                                                                                                            . The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+                                                                                                                                                                                            . The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.tails.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+  warnings.warn(                                                                                                                                                                            /home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+ 91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍            | 247/270 [4:09:13<23:12, 60.54s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.
+ 91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍            | 247/270 [4:09:13<23:12, 60.54s/it]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py:1879: UserWarning: Positional args are being deprecated, use kwargs instead. Refer to https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module.state_dict for details.

@@ -10,6 +10,7 @@ from transformers import GenerationConfig, TextIteratorStreamer
 from llama_attn_replace_sft import replace_llama_attn
 from threading import Thread
 import gradio as gr
+import logging
 
 
 def parse_config():
@@ -27,12 +28,28 @@ def parse_config():
 title = "LongLoRA and LongAlpaca for Long-context LLMs"
 
 
-prompt_no_input_base ="""Di seguito c'è un documento legislativo. Memorizza il documento legislativo, poi segui le istruzioni.
-Inizio documento.
-{documento}
-Fine documento.
-Sintetizza in modo completo il contenuto del documento legislativo usando la stessa lingua in cui è stato scritto.
-Sintesi: """
+SYSTEM_PROMPT = (
+    #"You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
+    #"If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
+    "You are a helpful, respectful and honest assistant specialized in writing dossiers for legislative documents. Always answer as helpfully as possible, while being safe. Your answers should not include any false information with respect to the original document."
+)
+
+PROMPT_DICT = {
+    "prompt_no_input_llama2":(
+        "<s>[INST] <<SYS>>\n"
+        "{system_prompt}"
+        "<</SYS>> \n\n {instruction} [/INST]"
+    )
+}
+
+prompt_no_input_base = "Di seguito c'è un documento legislativo in italiano. Memorizza il documento legislativo, poi segui le istruzioni.\nINIZIO DOCUMENTO.\n{documento}\nFINE DOCUMENTO.\nScrivi un dossier riassuntivo del documento. Scrivi in italiano, non scrivere in inglese."
+
+#prompt_no_input_base ="""Di seguito c'è un documento legislativo. Memorizza il documento legislativo, poi segui le istruzioni.
+#Inizio documento.
+#{documento}
+#Fine documento.
+#Sintetizza in modo completo il contenuto del documento legislativo usando la stessa lingua in cui è stato scritto.
+#Sintesi: """
 
 description = """
 <font size=4>
@@ -50,14 +67,6 @@ Preprint Paper
 <a href='https://github.com/dvlab-research/LongLoRA' target='_blank'>   Github Repo </a></p>
 """
 
-PROMPT_DICT = {
-    "prompt_no_input": (
-        "{instruction}"
-        #"Below is an instruction that describes a task. "
-        #"Write a response that appropriately completes the request.\n\n"
-        #"### Instruction:\n{instruction}\n\n### Response:"
-    ),
-}
 
 
 def read_txt_file(material_txt):
@@ -70,7 +79,7 @@ def read_txt_file(material_txt):
 def build_generator(
     model, tokenizer, use_cache=True
 ):
-    def response(material, document, prompt_template, temperature, top_p, max_gen_len):
+    def response(material, document, prompt_template, system_prompt, temperature, top_p, max_gen_len):
         #if material is None:
         #    return "Only support txt file."
 #
@@ -80,10 +89,18 @@ def build_generator(
         #material = read_txt_file(material.name)
         #prompt_no_input = PROMPT_DICT["prompt_no_input"]
 
+
         if not prompt_template or prompt_template.strip() == '':
             prompt_template = prompt_no_input_base
 
-        prompt = prompt_template.format_map({"documento": document})
+        if not system_prompt or system_prompt.strip() == '':
+            system_prompt = SYSTEM_PROMPT
+        
+        user_prompt = prompt_template.format_map({"documento": document})
+        prompt = PROMPT_DICT["prompt_no_input_llama2"].format(system_prompt = system_prompt, instruction=user_prompt)
+
+        logging.info(f'input: {prompt[:300]} ... {prompt[-300:]}')
+
         #print(prompt[:1000])
         inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
@@ -160,6 +177,7 @@ def main(args):
             gr.File(type="file", label="Document txt", visible=False),
             gr.Textbox(lines=1, placeholder=None, label="Document"),
             gr.Textbox(lines=1, placeholder = prompt_no_input_base, value=prompt_no_input_base, label="Prompt"),
+            gr.Textbox(lines=1, placeholder = SYSTEM_PROMPT, value=SYSTEM_PROMPT, label='System Prompt'),
             gr.Slider(minimum=0.001, maximum=1.0, value=args.temperature, label='Temperature'),
             gr.Slider(minimum=0.01, maximum=1.0, step=0.01, value=args.top_p, label="Top p"),
             gr.Slider(minimum=1, maximum=32768, step=1, value=args.max_gen_len, label="Max gen. len."),

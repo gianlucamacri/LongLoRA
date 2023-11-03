@@ -178,7 +178,7 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
         tokenizer(
             text,
             return_tensors="pt",
-            padding="max_length",#"longest", # todo: switch back to longest for actual training
+            padding="longest", # todo: switch back to longest for actual training
             max_length=tokenizer.model_max_length,
             truncation=True,
             #pad_to_multiple_of=4

@@ -181,7 +181,7 @@ def _tokenize_fn(strings: Sequence[str], tokenizer: transformers.PreTrainedToken
             padding="longest", # todo: switch back to longest for actual training
             max_length=tokenizer.model_max_length,
             truncation=True,
-            #pad_to_multiple_of=4
+            pad_to_multiple_of=4
         )
         for text in strings
     ]
@@ -388,7 +388,7 @@ def train():
         model_args.model_name_or_path,
         config=config,
         cache_dir=training_args.cache_dir,
-        #device_map="auto", # use only if model does not fint on a single gpu and lauch with python, less time efficient 
+        device_map="auto", # use only if model does not fint on a single gpu and lauch with python, less time efficient 
         torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
         quantization_config=quantization_config,
         trust_remote_code=True

@@ -1,0 +1,28 @@
+  0%|                                                                                                                                                               | 0/840 [00:00<?, ?it/s]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.0, 'learning_rate': 2e-05, 'epoch': 0.04}
+  0%|▏                                                                                                                                                      | 1/840 [00:02<31:52,  2.28s/it]
+{'loss': 0.0, 'learning_rate': 2e-05, 'epoch': 0.07}
+
+  0%|▌                                                                                                                                                      | 3/840 [00:05<24:50,  1.78s/it]
+
+  0%|▋                                                                                                                                                      | 4/840 [00:07<24:02,  1.73s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 492, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 485, in train
+    trainer.train()
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 2787, in training_step
+    self.accelerator.backward(loss)
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/accelerate/accelerator.py", line 1989, in backward
+    loss.backward(**kwargs)
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

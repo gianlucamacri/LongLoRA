@@ -1,0 +1,39 @@
+  0%|                                                                                                                                                               | 0/840 [00:00<?, ?it/s]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.0, 'learning_rate': 2e-05, 'epoch': 0.04}
+  0%|▏                                                                                                                                                      | 1/840 [00:02<29:56,  2.14s/it]
+
+  0%|▎                                                                                                                                                      | 2/840 [00:04<33:21,  2.39s/it]
+{'loss': 0.0, 'learning_rate': 2e-05, 'epoch': 0.11}
+
+  0%|▌                                                                                                                                                      | 3/840 [00:06<29:23,  2.11s/it]
+
+  1%|▉                                                                                                                                                      | 5/840 [00:09<25:11,  1.81s/it]
+
+  1%|█                                                                                                                                                      | 6/840 [00:11<24:15,  1.75s/it]
+
+  1%|█▎                                                                                                                                                     | 7/840 [00:12<23:38,  1.70s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 492, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 485, in train
+    trainer.train()
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 2768, in training_step
+    model.train()
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2398, in train
+    module.train(mode)
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2398, in train
+    module.train(mode)
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2398, in train
+    module.train(mode)
+  [Previous line repeated 5 more times]
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2397, in train
+    for module in self.children():
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2278, in children
+    def children(self) -> Iterator['Module']:
+KeyboardInterrupt

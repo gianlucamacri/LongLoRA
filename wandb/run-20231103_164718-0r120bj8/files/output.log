@@ -1,0 +1,26 @@
+  0%|                                                                                                                                                               | 0/270 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 492, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 485, in train
+    trainer.train()
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 2801, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/parallel/data_parallel.py", line 171, in forward
+    raise RuntimeError("module must have its parameters and buffers "
+RuntimeError: module must have its parameters and buffers on device cuda:0 (device_ids[0]) but found one of them on device: cpu

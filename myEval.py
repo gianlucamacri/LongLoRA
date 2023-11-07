@@ -13,19 +13,7 @@ import os
 from collections import defaultdict
 import json
 from tqdm.auto import tqdm
-
-SYSTEM_PROMPT = (
-    "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
-    "If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.\n"
-)
-
-PROMPT_DICT = {
-    "prompt_no_input_llama2":(
-        "[INST] <<SYS>>\n"
-        "{system_prompt}"
-        "<</SYS>> \n\n {instruction} [/INST]"
-    ),
-}
+from promptUtils import *
 
 @dataclass
 class EvalArguments():
@@ -47,10 +35,11 @@ class EvalArguments():
     eval_data_path: str = field(default = None,metadata={"required":True, "help": "Path to the evaluation data (validation set)."})
     split_name: str = field(default='validation', metadata={"help": "Dataset split name to be used for the evaluation."})
 
-    #prompt_config: str = field(default=None,metadata={"help": "Filename containing the prompt information."}) #todo
-    prompt: str = field(default=None, metadata={"required":True, "help" : "(limited for now) Prompt to be used for the data. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
+    prompt_config: str = field(default=None,metadata={"help": "Filename containing the prompt information, will superseed following prompt commands. This will allow to use also different prompt templates as long as they keep the standard placeholders system_prompt and instruction."})
+    instruction: str = field(default=None, metadata={"required":True, "help" : "(limited for now) Prompt to be used for the data/user instruction. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
+    system_prompt: str = field(default=LLAMA_SYSTEM_PROMPT, metadata={"help" : "Prompt to be used as a system prompt to define the model behaviour."})
+
     target_column: str = field(default='output', metadata={"help" : "column to be used as the target for the prediction."})
-    system_prompt: str = field(default=SYSTEM_PROMPT, metadata={"help" : "Prompt to be used as a system prompt to define the model behaviour."})
 
     load_in_4bit: bool = field(default=False, metadata={"help" : "Whether to load the model in 4 bit to reduce memory usage (this should not affect inference performance)"})
 
@@ -74,13 +63,15 @@ def load_metrics_and_get_eval_function(tokenizer):
 
 def prepare_dataset(dataset, prompt_template, system_prompt, user_prompt, target_column):
     
+    assert type(user_prompt) == str, "single prompt only sopported for now" # possible todo, but not used for now
+    user_prompt_placeholders = extract_placeholer_names(user_prompt)
     def format_example(ex):
-        instruction = user_prompt.format(reference=ex['reference']) # todo modify to support multiple prompt inputs
+        instruction = user_prompt.format_map({ph:ex[ph] for ph in user_prompt_placeholders})
         ex["input"] = prompt_template.format(system_prompt=system_prompt, instruction=instruction)
         ex["output"] = ex[target_column]
 
         return ex
-
+    
     dataset = dataset.map(format_example)
     dataset = dataset.select_columns(['input', 'output', 'is_camera', 'id', 'reference', 'summary'])
 
@@ -110,6 +101,19 @@ def main():
 
     if not args.max_length:
         args.max_length = args.model_context_size # infer the number of new tokens from the model context size
+
+    if args.prompt_config:
+        prompt_template, system_prompt, user_prompts = read_prompt_config(args.prompt_config)
+
+        assert len(user_prompts) == 1, 'only single instruction mode is supported at the moment'
+        instruction  = user_prompts[0]
+    else:
+        prompt_template = LLAMA_CHAT_PROMPT
+        system_prompt = args.system_prompt
+        instruction = args.instruction
+    
+    assert set(extract_placeholer_names(prompt_template)) == set('system_prompt', 'instruction'), 'prompt template must include all and only the following placeholders: {system_prompt}, {instruction}'
+
 
     if args.use_flash_attn:
         replace_llama_attn(inference=True)
@@ -160,7 +164,7 @@ def main():
     generated_texts = {}
 
     eval_ds = datasets.load_dataset(args.eval_data_path, split=args.split_name)
-    eval_ds = prepare_dataset(eval_ds, PROMPT_DICT['prompt_no_input_llama2'], args.system_prompt, args.prompt, args.target_column)
+    eval_ds = prepare_dataset(eval_ds, prompt_template, system_prompt, instruction, args.target_column)
 
     for i in tqdm(range(0, len(eval_ds))):
 
@@ -202,12 +206,13 @@ def main():
 
     if store_results:
         output_data={
+            'model_name': args.model_name_or_path,
             'metrics': metrics,
             'prompting':
                 {
-                    'prompt_template': PROMPT_DICT['prompt_no_input_llama2'],
-                    'system_prompt': args.system_prompt,
-                    'user_prompt': args.prompt,
+                    'prompt_template': prompt_template,
+                    'system_prompt': system_prompt,
+                    'user_prompt': instruction,
                 },
             'data': generated_texts,
         }

@@ -1,0 +1,119 @@
+  0%|                                                                                                                                                               | 0/270 [00:00<?, ?it/s]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 507, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 493, in train
+    trainer.train()
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 1892, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/trainer.py", line 2801, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 1807, in forward
+    loss = self.module(*inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/peft/peft_model.py", line 977, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 106, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 1038, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 921, in forward
+    layer_outputs = torch.utils.checkpoint.checkpoint(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 328, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py", line 451, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/autograd/function.py", line 539, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py", line 230, in forward
+    outputs = run_function(*args)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 917, in custom_forward
+    return module(*inputs, past_key_value, output_attentions, padding_mask=padding_mask)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 635, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+                                                          ^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/accelerate/hooks.py", line 164, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py", line 127, in forward_flashattn
+    x_unpad, indices, cu_q_lens, max_s = unpad_input(x, key_padding_mask)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gmacri/miniconda3/lib/python3.11/site-packages/flash_attn/bert_padding.py", line 109, in unpad_input
+    indices = torch.nonzero(attention_mask.flatten(), as_tuple=False).flatten()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.

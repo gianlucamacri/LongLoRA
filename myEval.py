@@ -9,7 +9,10 @@ import sys
 import datasets
 import evaluate
 import numpy as np
-
+import os
+from collections import defaultdict
+import json
+from tqdm.auto import tqdm
 
 SYSTEM_PROMPT = (
     "You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.\n\n"
@@ -18,7 +21,7 @@ SYSTEM_PROMPT = (
 
 PROMPT_DICT = {
     "prompt_no_input_llama2":(
-        "<s>[INST] <<SYS>>\n"
+        "[INST] <<SYS>>\n"
         "{system_prompt}"
         "<</SYS>> \n\n {instruction} [/INST]"
     ),
@@ -32,54 +35,85 @@ class EvalArguments():
         default=True,
         metadata={"help": "Whether use flash attention for evaluation (full attention will still be used)."},
     )
-    batch_size: int = field(default=1, metadata={"help": "Batch size for evaluation"})
-    
+
     temperature: float = field(default=0.6, metadata={"help": "Temperature parameter for generation (higher values for more randomness, lower for more determinism)"})
-    max_length: int = field(default=None, metadata={"help": "Maximum number of charachter to be generated, defaults to the model original context size"})
+    max_length: int = field(default=None, metadata={"help": "Maximum number of charachters that the model should handle (prompt+answer), defaults to the model original context size"})
     top_p: int = field(default=0.9, metadata={"help": "Top-p sampling parameter (higher values for more randomness)"})
 
-    eval_data_path: str = field(metadata={"required":True, "help": "Path to the evaluation data (validation set)."})
+    generate_repetition_number: int = field(default=1, metadata={"help": "How many times to repeat the generation for each example (may be usefull in case of higher temperatures due to non-determinism)."})
+
+    output_save_path: str = field(default = None, metadata={"help": "File name to be used for saving output data json."})
+
+    eval_data_path: str = field(default = None,metadata={"required":True, "help": "Path to the evaluation data (validation set)."})
     split_name: str = field(default='validation', metadata={"help": "Dataset split name to be used for the evaluation."})
 
-    prompt_config: str = field(default=None,metadata={"help": "Filename containing the prompt information."})
-    prompts: List[str] = field(default_factory=lambda : ["{instruction}"], metadata={"nargs":"+", "help" : "Prompt(s) to be used for the data. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
-    prompts_are_fn: bool = field(default=False, metadata={"help" :"Whether to interpret the prompts as filenames conataining the actual prompts."})
+    #prompt_config: str = field(default=None,metadata={"help": "Filename containing the prompt information."}) #todo
+    prompt: str = field(default=None, metadata={"required":True, "help" : "(limited for now) Prompt to be used for the data. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
     target_column: str = field(default='output', metadata={"help" : "column to be used as the target for the prediction."})
     system_prompt: str = field(default=SYSTEM_PROMPT, metadata={"help" : "Prompt to be used as a system prompt to define the model behaviour."})
 
     load_in_4bit: bool = field(default=False, metadata={"help" : "Whether to load the model in 4 bit to reduce memory usage (this should not affect inference performance)"})
 
+
 def load_metrics_and_get_eval_function(tokenizer):
     # this cell may take long sometimes for some reason 
-    accuracy = evaluate.load("accuracy")
-    precision = evaluate.load("precision")
-    recall = evaluate.load("recall")
-    f1 = evaluate.load("f1")
     rouge = evaluate.load("rouge")
 
-    def compute_metrics_hf(eval_pred):
-        predictions, labels = eval_pred
-        predictions = np.argmax(predictions, axis=1)
-        metrics = {}
-        metrics.update(accuracy.compute(predictions=predictions, references=labels))
-        #metrics.update(precision.compute(predictions=predictions, references=labels))
-        #metrics.update(recall.compute(predictions=predictions, references=labels))
-        #metrics.update(f1.compute(predictions=predictions, references=labels))
-        predictions = tokenizer.decode(predictions, skip_special_tokens=True)
-        metrics.update(rouge.compute(predictions=predictions, references=labels))
-        return metrics
-    
-    return compute_metrics_hf
+    def compute_metrics_and_get_summary(model_output, input_char_count, expected_output):
 
+        # convert tensor to string
+        predictions = tokenizer.decode(model_output.to('cpu')[0], skip_special_tokens=True)
+        predictions = predictions[input_char_count:] # keep only answer tokens
+        
+        metrics = {}
+        metrics.update(rouge.compute(predictions=[predictions], references=[expected_output]))
+        return metrics, predictions
+    
+    return compute_metrics_and_get_summary
+
+
+def prepare_dataset(dataset, prompt_template, system_prompt, user_prompt, target_column):
+    
+    def format_example(ex):
+        instruction = user_prompt.format(reference=ex['reference']) # todo modify to support multiple prompt inputs
+        ex["input"] = prompt_template.format(system_prompt=system_prompt, instruction=instruction)
+        ex["output"] = ex[target_column]
+
+        return ex
+
+    dataset = dataset.map(format_example)
+    dataset = dataset.select_columns(['input', 'output', 'is_camera', 'id', 'reference', 'summary'])
+
+    return dataset
+
+
+def get_average_metrics(metrics, exclude_set = set()):
+    average_metrics = {}
+    for metric_name, metric_value in metrics.items():
+        if metric_name in exclude_set:
+            continue
+        average_metrics[metric_name] = sum(metric_value)/len(metric_value)
+    return average_metrics
 
 def main():
-    parser = transformers.HfArgumentParser((EvalArguments))
-    args = parser.parse_args_into_dataclasses()
+    parser  = transformers.HfArgumentParser(EvalArguments)
+    args = parser.parse_args_into_dataclasses()[0]
 
-    if args.flash_attn:
+    logging.debug(args)
+
+    if not args.output_save_path:
+        logging.warning("no output file was indecated, output results won't be stored")
+        store_results = False
+    else:
+        assert not os.path.exists(args.output_save_path), "save path already exists, please specify another name"
+        store_results = True
+
+    if not args.max_length:
+        args.max_length = args.model_context_size # infer the number of new tokens from the model context size
+
+    if args.use_flash_attn:
         replace_llama_attn(inference=True)
 
-    # Set RoPE scaling factor
     config = transformers.AutoConfig.from_pretrained(
         args.model_name_or_path
     )
@@ -89,6 +123,7 @@ def main():
         orig_rope_scaling = {"factor": 1}
     orig_rope_scaling_factor = orig_rope_scaling["factor"] if "factor" in orig_rope_scaling.keys() else 1
     orig_ctx_len = getattr(config, "max_position_embeddings", None)
+    
     if orig_ctx_len:
         orig_ctx_len *= orig_rope_scaling_factor
 
@@ -96,8 +131,7 @@ def main():
             scaling_factor = float(math.ceil(args.model_context_size / orig_ctx_len))
             config.rope_scaling = {"type": "linear", "factor": scaling_factor}
 
-            # not sure wether this behavior makes sense or not
-            logging.warning(f'changing rope scaling factor due to context size larger than trining')
+            logging.warning(f'changing rope scaling factor due to the model being ')
 
     # Load model and tokenizer
     model = transformers.AutoModelForCausalLM.from_pretrained(
@@ -110,43 +144,81 @@ def main():
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
         args.model_name_or_path,
-        model_max_length=args.context_size if args.context_size > orig_ctx_len else orig_ctx_len,
+        model_max_length=args.model_context_size if args.model_context_size >= orig_ctx_len else orig_ctx_len,
         padding_side="right",
         use_fast=True,
     )
 
     model.eval()
-    if torch.__version__ >= "2" and sys.platform != "win32":
-        model = torch.compile(model)
 
-    # todo get data, format dataset
+    # perplexity and loss would not be evaluated since they would require the model to
+    # be used as in training but this would intrinsically limit the model generation
+    # as (I think) it will be a sort of a teacher forcing appoach
+    compute_metrics_and_get_summary = load_metrics_and_get_eval_function(tokenizer)
+
+    metrics = defaultdict(lambda : [])
+    generated_texts = {}
 
     eval_ds = datasets.load_dataset(args.eval_data_path, split=args.split_name)
+    eval_ds = prepare_dataset(eval_ds, PROMPT_DICT['prompt_no_input_llama2'], args.system_prompt, args.prompt, args.target_column)
 
-    for i in range(0, len(formatted_data), args.batch_size):
+    for i in tqdm(range(0, len(eval_ds))):
+
+        example = eval_ds[i]
+        example_id = example['id']
+
+        formatted_input = example['input']
+        expected_output = example['output']
         
-        inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+        inputs = tokenizer(formatted_input, return_tensors="pt").to(model.device)
+        
+        if store_results:
+            generated_texts[example_id] = {
+                'is_camera': example['is_camera'],
+                'reference': example['reference'],
+                'original_summary': example['summary'],
+                'generated_summaries': [],
+            }
 
-        output = model.generate(
-            **inputs,
-            max_new_tokens=args.max_gen_len,
-            temperature=args.temperature,
-            top_p=args.top_p
-        )
+        for _ in range(args.generate_repetition_number):
+            output = model.generate(
+                inputs['input_ids'],
+                temperature = args.temperature,
+                max_length = args.max_length,
+                top_p = args.top_p)
 
-        out = tokenizer.decode(output[0], skip_special_tokens=True)
+            iteration_metrics, summary = compute_metrics_and_get_summary(output, len(formatted_input), expected_output)
+            
+            if store_results:
+                generated_texts[example_id]['generated_summaries'].append(summary)            
 
-        ## remove prompt (I think)
+            for m_name, m_value in iteration_metrics.items():
+                metrics[m_name].append(m_value)
+        
+        del output # free memory up
 
-        # evaluate metrics (perplexity, loss, accuracy, rouge,...)
-    
+    average_metrics = get_average_metrics(metrics)
+    metrics['average_metrics'] = average_metrics
 
+    if store_results:
+        output_data={
+            'metrics': metrics,
+            'prompting':
+                {
+                    'prompt_template': PROMPT_DICT['prompt_no_input_llama2'],
+                    'system_prompt': args.system_prompt,
+                    'user_prompt': args.prompt,
+                },
+            'data': generated_texts,
+        }
 
+        with open(args.output_save_path, 'w') as f:
+            logging.info(f'writing results to {args.output_save_path}')
+            json.dump(output_data, f)
 
-
-
-
+    print(f'average metrics:\n{average_metrics}')
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
     main()

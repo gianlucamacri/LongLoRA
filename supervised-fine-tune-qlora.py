@@ -68,12 +68,12 @@ PROMPT_DICT = {
         "### Instruction:\n{instruction}\n\n### Response:"
     ),
     "prompt_no_input_llama2":(
-        "<s>[INST] <<SYS>>\n"
+        "[INST] <<SYS>>\n"
         "{system_prompt}"
         "<</SYS>> \n\n {instruction} [/INST]"
     ),
     "prompt_input_llama2": (
-        "<s>[INST] <<SYS>>\n"
+        "[INST] <<SYS>>\n"
         "{system_prompt}"
         "<</SYS>> \n\n {instruction} \n{input} [/INST]"
     )

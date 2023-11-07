@@ -1,0 +1,40 @@
+  0%|                                                                                                                                                              | 0/6840 [00:00<?, ?it/s]/home/gmacri/miniconda3/lib/python3.11/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+  0%|                                                                                                                                                    | 1/6840 [00:04<9:12:59,  4.85s/it]/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py:54: UserWarning: This function should be used just for training. For inference, please use forward_flashattn_inference.
+  warnings.warn("This function should be used just for training. For inference, please use forward_flashattn_inference.")
+{'loss': 1.7237, 'learning_rate': 2e-05, 'epoch': 0.0}
+
+
+
+
+
+
+  warnings.warn(
+{'eval_loss': 3.851116418838501, 'eval_runtime': 13.9316, 'eval_samples_per_second': 0.933, 'eval_steps_per_second': 0.933, 'epoch': 0.0}
+{'loss': 7.678, 'learning_rate': 2e-05, 'epoch': 0.01}
+  0%|                                                                                                                                                   | 2/6840 [00:24<25:12:24, 13.27s/it]/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py:54: UserWarning: This function should be used just for training. For inference, please use forward_flashattn_inference.
+  warnings.warn("This function should be used just for training. For inference, please use forward_flashattn_inference.")
+
+
+
+
+
+
+
+
+  warnings.warn(
+{'eval_loss': 3.851409435272217, 'eval_runtime': 18.9049, 'eval_samples_per_second': 0.688, 'eval_steps_per_second': 0.688, 'epoch': 0.01}
+{'loss': 1.6126, 'learning_rate': 2e-05, 'epoch': 0.01}
+  0%|                                                                                                                                                   | 3/6840 [00:45<32:44:07, 17.24s/it]/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/llama_attn_replace_sft.py:54: UserWarning: This function should be used just for training. For inference, please use forward_flashattn_inference.
+  warnings.warn("This function should be used just for training. For inference, please use forward_flashattn_inference.")
+
+
+
+
+
+
+
+ 92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍           | 12/13 [00:12<00:01,  1.26s/it]
+{'eval_loss': 3.851165294647217, 'eval_runtime': 15.2127, 'eval_samples_per_second': 0.855, 'eval_steps_per_second': 0.855, 'epoch': 0.01}
+
+  0%|                                                                                                                                                   | 3/6840 [01:02<39:16:41, 20.68s/it]

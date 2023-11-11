@@ -24,6 +24,7 @@ from dataclasses import dataclass, field
 from typing import Dict, Optional, Sequence, List, Union
 from string import Formatter
 
+from accelerate import PartialState
 from promptUtils import *
 import torch
 import torch.nn as nn
@@ -359,6 +360,9 @@ def train():
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
+    distributed_state = PartialState()
+    if distributed_state.is_main_process:
+        logging.debug(distributed_state)
 
     replace_llama_attn(training_args.use_flash_attn, training_args.use_full_attn)
 
@@ -372,12 +376,14 @@ def train():
     orig_rope_scaling_factor = orig_rope_scaling["factor"] if "factor" in orig_rope_scaling.keys() else 1
     orig_ctx_len = getattr(config, "max_position_embeddings", None)
     if orig_ctx_len:
-        orig_ctx_len *= orig_rope_scaling_factor
-        logging.debug(f'original context length {orig_ctx_len} (original scaling factor {orig_rope_scaling_factor})')
+        orig_ctx_len = int(orig_ctx_len*orig_rope_scaling_factor)
+        if distributed_state.is_main_process:
+            logging.debug(f'original context length {orig_ctx_len} (original scaling factor {orig_rope_scaling_factor})')
         if training_args.model_max_length > orig_ctx_len:
             scaling_factor = float(math.ceil(training_args.model_max_length / orig_ctx_len))
-            logging.debug(f'using {scaling_factor} as rope sclaing factor')
             config.rope_scaling = {"type": "linear", "factor": scaling_factor}
+            if distributed_state.is_main_process:
+                logging.debug(f'using {scaling_factor} as rope sclaing factor')
 
     quantization_config = None
     if training_args.use_quantization:
@@ -489,16 +495,20 @@ def train():
             early_stopping_threshold = training_args.es_threshold,
         )] if training_args.use_early_stopping else None
     trainer = Trainer(model=model, tokenizer=tokenizer, args=training_args, callbacks=early_stopping_callback, **data_module)
-    logging.debug(f'training args: {trainer.args}')
+    
+    if distributed_state.is_main_process:
+        logging.debug(f'training args: {trainer.args}')
+    
     trainer.train()
     trainer.save_state()
     trainer.save_model(output_dir=training_args.output_dir)
 
-    output_prompt_config_fn = os.path.join(training_args.output_dir, 'prompt_config.json')
-    if data_args.prompt_config_fn:
-        shutil.copyfile(data_args.prompt_config_fn, output_prompt_config_fn)
-    else:
-        write_prompt_config(output_prompt_config_fn, PROMPT_DICT["prompt_input_llama2"],data_args.system_prompt, data_args.prompts)
+    if distributed_state.is_main_process:
+        output_prompt_config_fn = os.path.join(training_args.output_dir, 'prompt_config.json')
+        if data_args.prompt_config_fn:
+            shutil.copyfile(data_args.prompt_config_fn, output_prompt_config_fn)
+        else:
+            write_prompt_config(output_prompt_config_fn, PROMPT_DICT["prompt_input_llama2"],data_args.system_prompt, data_args.prompts)
 
 
 

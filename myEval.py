@@ -1,4 +1,5 @@
 import transformers
+from transformers import set_seed
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Sequence, List, Union
 from llama_attn_replace import replace_llama_attn
@@ -14,6 +15,7 @@ from collections import defaultdict
 import json
 from tqdm.auto import tqdm
 from promptUtils import *
+import gc
 
 @dataclass
 class EvalArguments():
@@ -24,11 +26,13 @@ class EvalArguments():
         metadata={"help": "Whether use flash attention for evaluation (full attention will still be used)."},
     )
 
+    do_sample: bool = field(default=True, metadata={"help": "Falg to enable or disable smaplig based generation, when false greedy strategy is used."})
     temperature: float = field(default=0.6, metadata={"help": "Temperature parameter for generation (higher values for more randomness, lower for more determinism)"})
     max_length: int = field(default=None, metadata={"help": "Maximum number of charachters that the model should handle (prompt+answer), defaults to the model original context size"})
-    top_p: int = field(default=0.9, metadata={"help": "Top-p sampling parameter (higher values for more randomness)"})
+    top_p: float = field(default=0.9, metadata={"help": "Top-p sampling parameter (higher values for more randomness)"})
+    num_return_sequences: int = field(default=1, metadata={"help": "number of sequences to retrieve for single generation"})
 
-    generate_repetition_number: int = field(default=1, metadata={"help": "How many times to repeat the generation for each example (may be usefull in case of higher temperatures due to non-determinism)."})
+    generate_repetition_number: int = field(default=1, metadata={"help": "How many times to repeat the generation for each example (may be usefull in case non-determinism)."})
 
     output_save_path: str = field(default = None, metadata={"help": "File name to be used for saving output data json."})
 
@@ -36,12 +40,15 @@ class EvalArguments():
     split_name: str = field(default='validation', metadata={"help": "Dataset split name to be used for the evaluation."})
 
     prompt_config: str = field(default=None,metadata={"help": "Filename containing the prompt information, will superseed following prompt commands. This will allow to use also different prompt templates as long as they keep the standard placeholders system_prompt and instruction."})
-    instruction: str = field(default=None, metadata={"required":True, "help" : "(limited for now) Prompt to be used for the data/user instruction. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
+    instruction: str = field(default=None, metadata={"help" : "(limited for now) Prompt to be used for the data/user instruction. It may include some placeholders that need to have the same name of the dataset columns they intend to replace. When multiple prompts are given a column named prompt_idx containing the index of the prompt to be used (integer) is required in the data."})
     system_prompt: str = field(default=LLAMA_SYSTEM_PROMPT, metadata={"help" : "Prompt to be used as a system prompt to define the model behaviour."})
 
     target_column: str = field(default='output', metadata={"help" : "column to be used as the target for the prediction."})
 
     load_in_4bit: bool = field(default=False, metadata={"help" : "Whether to load the model in 4 bit to reduce memory usage (this should not affect inference performance)"})
+
+    seed: int = field(default=None, metadata={"help" : "seed to be set for generation"})
+
 
 
 def load_metrics_and_get_eval_function(tokenizer):
@@ -51,7 +58,7 @@ def load_metrics_and_get_eval_function(tokenizer):
     def compute_metrics_and_get_summary(model_output, input_char_count, expected_output):
 
         # convert tensor to string
-        predictions = tokenizer.decode(model_output.to('cpu')[0], skip_special_tokens=True)
+        predictions = tokenizer.decode(model_output.to('cpu'), skip_special_tokens=True)
         predictions = predictions[input_char_count:] # keep only answer tokens
         
         metrics = {}
@@ -92,6 +99,9 @@ def main():
 
     logging.debug(args)
 
+    if args.seed:
+        set_seed(args.seed)
+
     if not args.output_save_path:
         logging.warning("no output file was indecated, output results won't be stored")
         store_results = False
@@ -112,7 +122,7 @@ def main():
         system_prompt = args.system_prompt
         instruction = args.instruction
     
-    assert set(extract_placeholer_names(prompt_template)) == set('system_prompt', 'instruction'), 'prompt template must include all and only the following placeholders: {system_prompt}, {instruction}'
+    assert set(extract_placeholer_names(prompt_template)) == set(['system_prompt', 'instruction']), f'prompt template must include all and only the following placeholders: system_prompt, instruction\nfound: {set(extract_placeholer_names(prompt_template))}'
 
 
     if args.use_flash_attn:
@@ -185,21 +195,33 @@ def main():
             }
 
         for _ in range(args.generate_repetition_number):
-            output = model.generate(
-                inputs['input_ids'],
-                temperature = args.temperature,
-                max_length = args.max_length,
-                top_p = args.top_p)
+            if args.do_sample:
+                output = model.generate(
+                    inputs['input_ids'],
+                    temperature = args.temperature,
+                    do_sample = args.do_sample,
+                    max_length = args.max_length,
+                    top_p = args.top_p,
+                    num_return_sequences = args.num_return_sequences)
+            else:
+                output = model.generate(
+                    inputs['input_ids'],
+                    do_sample = args.do_sample,
+                    max_length = args.max_length,
+                    num_return_sequences = args.num_return_sequences)
 
-            iteration_metrics, summary = compute_metrics_and_get_summary(output, len(formatted_input), expected_output)
-            
-            if store_results:
-                generated_texts[example_id]['generated_summaries'].append(summary)            
+            for i in range(output.shape[0]):
+                iteration_metrics, summary = compute_metrics_and_get_summary(output[i], len(formatted_input), expected_output)
+                
+                if store_results:
+                    generated_texts[example_id]['generated_summaries'].append(summary)            
 
-            for m_name, m_value in iteration_metrics.items():
-                metrics[m_name].append(m_value)
+                for m_name, m_value in iteration_metrics.items():
+                    metrics[m_name].append(m_value)
         
         del output # free memory up
+        gc.collect()
+        torch.cuda.empty_cache()
 
     average_metrics = get_average_metrics(metrics)
     metrics['average_metrics'] = average_metrics

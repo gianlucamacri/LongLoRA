@@ -1,0 +1,7 @@
+{
+    "prompt_template":"[INST] <<SYS>>\n{system_prompt}<</SYS>> \n\n {instruction} [/INST]",
+    "system_prompt":"You are a helpful, respectful and honest assistant specialized in writing dossiers that summarize legislative documents. Always answer as helpfully as possible, while being safe. Your answers should not include any false information with respect to the original document.",
+    "user_prompts":[
+        "Di seguito c'è un documento legislativo in italiano. Memorizza il documento legislativo, poi segui le istruzioni.\nINIZIO DOCUMENTO.\n{reference}\nFINE DOCUMENTO.\nScrivi un dossier riassuntivo del documento. Scrivi in italiano, non scrivere in inglese."
+    ]
+}

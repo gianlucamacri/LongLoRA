@@ -30,7 +30,7 @@ def read_prompt_config(prompt_config_fn):
         logging.warning(f'"system_prompt" key missing, using llama default value as a fall back: {LLAMA_SYSTEM_PROMPT}')
         prompt_template = LLAMA_SYSTEM_PROMPT
 
-    user_prompts = prompt_config['user_prompst']
+    user_prompts = prompt_config['user_prompts']
 
     return prompt_template, system_prompt, user_prompts
 
@@ -44,7 +44,7 @@ def write_prompt_config(out_fn, prompt_template, system_prompt, user_prompts):
     }
 
     with open(out_fn, 'x') as f:
-        json.dump(f, prompt_config)
+        json.dump(prompt_config, f)
 
 
 def extract_placeholer_names(prompt):

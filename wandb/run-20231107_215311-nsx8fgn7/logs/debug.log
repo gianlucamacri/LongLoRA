@@ -1,0 +1,21 @@
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Current SDK version is 0.16.0
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Configure stats pid to 1338809
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Loading settings from /home/gmacri/.config/wandb/settings
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Loading settings from /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/settings
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'supervised-fine-tune-qlora.py', 'program_abspath': '/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py', 'program': '/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py'}
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_init.py:_log_setup():524] Logging user logs to /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231107_215311-nsx8fgn7/logs/debug.log
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_init.py:_log_setup():525] Logging internal logs to /home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/wandb/run-20231107_215311-nsx8fgn7/logs/debug-internal.log
+2023-11-07 21:53:11,902 INFO    MainThread:1338809 [wandb_init.py:init():564] calling init triggers
+2023-11-07 21:53:11,903 INFO    MainThread:1338809 [wandb_init.py:init():571] wandb.init called with sweep_config: {}
+config: {}
+2023-11-07 21:53:11,903 INFO    MainThread:1338809 [wandb_init.py:init():614] starting backend
+2023-11-07 21:53:11,903 INFO    MainThread:1338809 [wandb_init.py:init():618] setting up manager
+2023-11-07 21:53:11,904 INFO    MainThread:1338809 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-11-07 21:53:11,905 INFO    MainThread:1338809 [wandb_init.py:init():624] backend started and connected
+2023-11-07 21:53:11,908 INFO    MainThread:1338809 [wandb_init.py:init():716] updated telemetry
+2023-11-07 21:53:11,912 INFO    MainThread:1338809 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2023-11-07 21:53:12,426 INFO    MainThread:1338809 [wandb_run.py:_on_init():2254] communicating current version
+2023-11-07 21:53:12,524 INFO    MainThread:1338809 [wandb_run.py:_on_init():2263] got version response 
+2023-11-07 21:53:12,524 INFO    MainThread:1338809 [wandb_init.py:init():800] starting run threads in backend

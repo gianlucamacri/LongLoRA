@@ -2,7 +2,10 @@ import transformers
 from transformers import set_seed
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Sequence, List, Union
-from llama_attn_replace import replace_llama_attn
+try:
+    from llama_attn_replace import replace_llama_attn
+except:
+    logging.info("cannot import llama_attn_replace")
 import math
 import logging
 import torch
@@ -194,7 +197,7 @@ def main():
                 'generated_summaries': [],
             }
 
-        for _ in range(args.generate_repetition_number):
+        for _ in tqdm(range(args.generate_repetition_number)):
             if args.do_sample:
                 output = model.generate(
                     inputs['input_ids'],
@@ -219,9 +222,9 @@ def main():
                 for m_name, m_value in iteration_metrics.items():
                     metrics[m_name].append(m_value)
         
-        del output # free memory up
-        gc.collect()
-        torch.cuda.empty_cache()
+            del output # free memory up
+            gc.collect()
+            torch.cuda.empty_cache()
 
     average_metrics = get_average_metrics(metrics)
     metrics['average_metrics'] = average_metrics

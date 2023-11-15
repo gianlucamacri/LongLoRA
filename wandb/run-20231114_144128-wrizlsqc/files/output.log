@@ -1,0 +1,48 @@
+
+
+  0%|▋                                                                                                                                                  | 1/200 [03:21<11:07:31, 201.26s/it]
+
+  1%|█▍                                                                                                                                                 | 2/200 [06:50<11:19:10, 205.81s/it]
+
+  2%|██▏                                                                                                                                                | 3/200 [09:54<10:43:33, 196.01s/it]
+
+  2%|██▉                                                                                                                                                | 4/200 [13:06<10:34:28, 194.23s/it]
+{'loss': 4.9603, 'learning_rate': 2e-05, 'epoch': 0.99}
+
+
+
+
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 434, in __getattr__
+    return super().__getattr__(name)  # defer to nn.Module's logic
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'PeftModelForCausalLM' object has no attribute 'save_checkpoint'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora.py", line 492, in __getattr__
+    return super().__getattr__(name)  # defer to nn.Module's logic
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'LoraModel' object has no attribute 'save_checkpoint'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 529, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 514, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1999, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2339, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial, metrics=metrics)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2400, in _save_checkpoint
+    self.model_wrapped.save_checkpoint(output_dir)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 436, in __getattr__
+    return getattr(self.base_model, name)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora.py", line 494, in __getattr__
+    return getattr(self.model, name)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'LlamaForCausalLM' object has no attribute 'save_checkpoint'
+{'eval_loss': 5.5978684425354, 'eval_runtime': 17.4121, 'eval_samples_per_second': 0.345, 'eval_steps_per_second': 0.345, 'epoch': 0.99}

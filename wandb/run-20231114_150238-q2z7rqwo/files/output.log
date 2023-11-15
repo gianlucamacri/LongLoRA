@@ -1,0 +1,65 @@
+
+
+  0%|▏                                                                                                                                                   | 1/600 [01:14<12:27:34, 74.88s/it]
+
+  0%|▍                                                                                                                                                   | 2/600 [02:15<11:01:18, 66.35s/it]
+
+  0%|▋                                                                                                                                                   | 3/600 [03:20<10:57:11, 66.05s/it]
+
+  1%|▉                                                                                                                                                   | 4/600 [04:37<11:36:49, 70.15s/it]
+
+  1%|█▏                                                                                                                                                  | 5/600 [05:44<11:26:21, 69.21s/it]
+
+  1%|█▍                                                                                                                                                  | 6/600 [06:52<11:20:12, 68.71s/it]
+
+  1%|█▋                                                                                                                                                  | 7/600 [07:47<10:33:10, 64.07s/it]
+
+  1%|█▉                                                                                                                                                  | 8/600 [08:50<10:29:54, 63.84s/it]
+
+  2%|██▏                                                                                                                                                 | 9/600 [09:55<10:32:51, 64.25s/it]
+
+  2%|██▍                                                                                                                                                | 10/600 [11:00<10:32:31, 64.32s/it]
+
+  2%|██▋                                                                                                                                                | 11/600 [12:07<10:41:43, 65.37s/it]
+{'loss': 4.708, 'learning_rate': 2e-05, 'epoch': 0.91}
+
+  2%|██▉                                                                                                                                                | 12/600 [13:07<10:23:17, 63.60s/it]
+
+
+
+
+
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 508, in __getattr__
+    return super().__getattr__(name)  # defer to nn.Module's logic
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'PeftModelForCausalLM' object has no attribute 'save_checkpoint'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora/model.py", line 328, in __getattr__
+    return super().__getattr__(name)  # defer to nn.Module's logic
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'LoraModel' object has no attribute 'save_checkpoint'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 529, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 514, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1999, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2339, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial, metrics=metrics)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2400, in _save_checkpoint
+    self.model_wrapped.save_checkpoint(output_dir)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/peft_model.py", line 510, in __getattr__
+    return getattr(self.base_model, name)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora/model.py", line 330, in __getattr__
+    return getattr(self.model, name)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'LlamaForCausalLM' object has no attribute 'save_checkpoint'
+{'eval_loss': 4.987327575683594, 'eval_runtime': 17.1669, 'eval_samples_per_second': 0.35, 'eval_steps_per_second': 0.35, 'epoch': 0.99}

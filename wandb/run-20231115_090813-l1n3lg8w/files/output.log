@@ -1,0 +1,27 @@
+
+
+ 50%|████████████████████████████████████████████████████████████████████████████▌                                                                            | 1/2 [00:22<00:22, 22.38s/it]
+{'loss': 3.9846, 'learning_rate': 2e-05, 'epoch': 0.02}
+
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:01,  1.94s/it]
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:59<00:00, 30.85s/it]
+{'loss': 4.9283, 'learning_rate': 2e-05, 'epoch': 0.04}
+
+
+
+
+
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 530, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 517, in train
+    model.base_model.save_pretrained(save_directory=os.path.join(training_args.output_dir,"full_model"))
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/modeling_utils.py", line 1951, in save_pretrained
+    raise NotImplementedError(
+NotImplementedError: You are calling `save_pretrained` on a 4-bit converted model. This is currently not supported
+{'eval_loss': 5.778966426849365, 'eval_runtime': 15.3464, 'eval_samples_per_second': 0.391, 'eval_steps_per_second': 0.391, 'epoch': 0.04}
+{'train_runtime': 79.3073, 'train_samples_per_second': 0.05, 'train_steps_per_second': 0.025, 'train_loss': 4.456435680389404, 'epoch': 0.04}

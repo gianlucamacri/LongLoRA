@@ -1,0 +1,27 @@
+
+
+ 50%|████████████████████████████████████████████████████████████████████████████▌                                                                            | 1/2 [00:22<00:22, 22.06s/it]
+{'loss': 3.9846, 'learning_rate': 2e-05, 'epoch': 0.02}
+
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:08<00:01,  1.87s/it]
+{'eval_loss': 5.778966426849365, 'eval_runtime': 14.3945, 'eval_samples_per_second': 0.417, 'eval_steps_per_second': 0.417, 'epoch': 0.02}
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:57<00:00, 29.92s/it]
+
+
+
+/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/peft/tuners/lora/bnb.py:213: UserWarning: Merge lora module to 4-bit linear may get different generations due to rounding errors.
+  warnings.warn(
+{'eval_loss': 5.778966426849365, 'eval_runtime': 14.7827, 'eval_samples_per_second': 0.406, 'eval_steps_per_second': 0.406, 'epoch': 0.04}
+{'train_runtime': 80.3911, 'train_samples_per_second': 0.05, 'train_steps_per_second': 0.025, 'train_loss': 4.456435680389404, 'epoch': 0.04}
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 534, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 520, in train
+    merged_model.save_pretrained(os.path.join(training_args.output_dir, 'full_model_hf'))
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/modeling_utils.py", line 1951, in save_pretrained
+    raise NotImplementedError(
+NotImplementedError: You are calling `save_pretrained` on a 4-bit converted model. This is currently not supported

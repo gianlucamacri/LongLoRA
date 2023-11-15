@@ -138,6 +138,10 @@ class TrainingArguments(transformers.TrainingArguments):
         default=True,
         metadata={"help": "Whether use quantization for training."},
     )
+    use_8_bit: bool = field(
+        default=False,
+        metadata={"help": "Whether use quantization in 8 bits instead of 4 for training."},
+    )
     use_early_stopping: bool = field(
         default=False,
         metadata={"help": "Whether use earlystopping during training."},
@@ -149,6 +153,10 @@ class TrainingArguments(transformers.TrainingArguments):
     es_threshold: float = field(
         default=0.0,
         metadata={"help": "Patient threshold for early stopping."},
+    )
+    no_accelerate: bool = field(
+        default=False,
+        metadata={"help": "Enable auto device mapping, should allow for a better memory usage but causing slower training."},
     )
 
 
@@ -360,6 +368,10 @@ def train():
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
+    if training_args.use_quantization and not training_args.use_8_bit:
+        logging.warning("### WARNING ###\n make sure to be suing deep speed otherwise model emb and norm layers will NOT be saved!")
+
+
     distributed_state = PartialState()
     if distributed_state.is_main_process:
         logging.debug(distributed_state)
@@ -371,8 +383,10 @@ def train():
         model_args.model_name_or_path,
         cache_dir=training_args.cache_dir,
     )
-
-    orig_rope_scaling = getattr(config, "rope_scaling",  {"factor": 1})
+    orig_rope_scaling = getattr(config, "rope_scaling", None)
+    if orig_rope_scaling is None:
+        orig_rope_scaling = {"factor": 1}
+    
     orig_rope_scaling_factor = orig_rope_scaling["factor"] if "factor" in orig_rope_scaling.keys() else 1
     orig_ctx_len = getattr(config, "max_position_embeddings", None)
     if orig_ctx_len:
@@ -385,27 +399,37 @@ def train():
             if distributed_state.is_main_process:
                 logging.debug(f'using {scaling_factor} as rope sclaing factor')
 
-    quantization_config = None
+
+    model_kw_args = {}
     if training_args.use_quantization:
-        quantization_config = BitsAndBytesConfig(
-            #    load_in_8bit=True,
-            #    llm_int8_threshold=6.0,
-            #    llm_int8_has_fp16_weight=False,
-                load_in_4bit=True,
-                bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_quant_type="nf4",
-            )
+        if training_args.use_8_bit:
+            quantization_config = BitsAndBytesConfig(
+                    load_in_8bit=True,
+                    llm_int8_threshold=6.0,
+                    llm_int8_has_fp16_weight=False,
+                )
+        
+        else:
+            quantization_config = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_quant_type="nf4",
+                )
+        model_kw_args['quantization_config'] = quantization_config
+    
+    if training_args.no_accelerate:
+        model_kw_args['device_map'] = "auto" # use only if model does not fint on a single gpu and lauch with python, less time efficient 
+
 
     # Load model and tokenizer
     model = transformers.AutoModelForCausalLM.from_pretrained(
         model_args.model_name_or_path,
         config=config,
         cache_dir=training_args.cache_dir,
-        #device_map="auto", # use only if model does not fint on a single gpu and lauch with python, less time efficient 
         torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
-        quantization_config=quantization_config,
-        trust_remote_code=True
+        trust_remote_code=True,
+        **model_kw_args,
     )
 
     if training_args.use_quantization:
@@ -413,6 +437,7 @@ def train():
             module.requires_grad = False  # freeze the model
             if "norm" in name or "embed" in name: # added embed and norm since they both gets trained  
                 module = module.to(torch.float32)
+                #module = module.to(torch.float16)
 
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
@@ -498,10 +523,18 @@ def train():
     
     if distributed_state.is_main_process:
         logging.debug(f'training args: {trainer.args}')
-    
+        logging.debug(f'layers that will be trained: { {k for k,v in model.named_parameters() if v.requires_grad} }')
+
     trainer.train()
     trainer.save_state()
     trainer.save_model(output_dir=training_args.output_dir)
+    
+    if training_args.use_quantization:
+        try:
+            model.base_model.save_pretrained(training_args.output_dir, 'full_model')
+        except Exception as e:
+            logging.error(f'unable to save full model: {e}')
+    
 
     if distributed_state.is_main_process:
         output_prompt_config_fn = os.path.join(training_args.output_dir, 'prompt_config.json')

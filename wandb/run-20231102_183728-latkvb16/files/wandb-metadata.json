@@ -1,0 +1,223 @@
+{
+    "os": "Linux-5.4.0-149-generic-x86_64-with-glibc2.27",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-11-02T17:37:28.884376",
+    "startedAt": "2023-11-02T17:37:28.298600",
+    "docker": null,
+    "cuda": "10.2.89",
+    "args": [
+        "--model_name_or_path",
+        "Yukang/LongAlpaca-7B",
+        "--output_dir",
+        "../../output/hdd_output/LongLoRA/test_acc",
+        "--cache_dir",
+        "../../cache/hdd_cache/",
+        "--model_max_length",
+        "8192",
+        "--use_flash_attn",
+        "False",
+        "--low_rank_training",
+        "True",
+        "--num_train_epochs",
+        "30",
+        "--per_device_train_batch_size",
+        "1",
+        "--gradient_accumulation_steps",
+        "8",
+        "--per_device_eval_batch_size",
+        "1",
+        "--load_best_model_at_end",
+        "True",
+        "--evaluation_strategy",
+        "epoch",
+        "--save_strategy",
+        "epoch",
+        "--save_total_limit",
+        "3",
+        "--learning_rate",
+        "2e-5",
+        "--weight_decay",
+        "0.0",
+        "--logging_steps",
+        "1",
+        "--fp16",
+        "True",
+        "--lr_scheduler_type",
+        "constant",
+        "--deepspeed",
+        "ds_configs/stage2.json",
+        "--hf_dataset",
+        "gianma/eurlexsum_ita_cleaned_8192_86",
+        "--target_column",
+        "summary",
+        "--max_prompt_token_count",
+        "86",
+        "--prompts",
+        "Di seguito c'\u00e8 un documento legislativo. Memorizza il documento legislativo, poi segui le istruzioni.\\nInizio documento.\\n{reference}\\nFine documento.\\nSintetizza in modo completo il contenuto del documento legislativo usando la stessa lingua in cui \u00e8 stato scritto.\\nSintesi:",
+        "--system_prompt",
+        "You are a helpful, respectful and honest assistant specialized in writing dossiers for legislative documents. Always answer as helpfully as possible, while being safe. Your answers should not include any false information with respect to the original document."
+    ],
+    "state": "running",
+    "program": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py",
+    "codePathLocal": "supervised-fine-tune-qlora.py",
+    "codePath": "supervised-fine-tune-qlora.py",
+    "git": {
+        "remote": "git@github.com:gianlucamacri/LongLoRA.git",
+        "commit": "8b242c7d4c15b9825f09ec6fe43d6956d9766566"
+    },
+    "email": "gianluca18ma@gmail.com",
+    "root": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA",
+    "host": "leonardo",
+    "username": "gmacri",
+    "executable": "/home/gmacri/anaconda3/envs/LongLora/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2224.6984583333337,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 4144.064,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1899.132,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1896.871,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1939.588,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1807.961,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2492.937,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1993.168,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2018.214,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2002.517,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2029.857,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2145.213,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2030.834,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 4284.783,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1895.152,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1927.849,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1756.33,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1899.718,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2793.963,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1941.579,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2070.348,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2198.67,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1885.62,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2252.408,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2085.987,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 937.8226585388184,
+            "used": 802.5742416381836
+        }
+    },
+    "gpu": "NVIDIA TITAN RTX",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25396838400
+        },
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25395462144
+        }
+    ],
+    "memory": {
+        "total": 62.74051284790039
+    }
+}

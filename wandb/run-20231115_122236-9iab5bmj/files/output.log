@@ -1,0 +1,146 @@
+  0%|                                                                                                                                                               | 0/300 [00:00<?, ?it/s]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+  0%|▍                                                                                                                                                  | 1/300 [03:38<18:08:22, 218.40s/it]
+
+  1%|▉                                                                                                                                                  | 2/300 [07:29<18:40:45, 225.66s/it]
+
+  1%|█▍                                                                                                                                                 | 3/300 [11:06<18:18:05, 221.84s/it]
+
+  1%|█▉                                                                                                                                                 | 4/300 [14:19<17:18:36, 210.53s/it]
+
+  2%|██▍                                                                                                                                                | 5/300 [17:49<17:13:43, 210.25s/it]
+
+  2%|██▉                                                                                                                                                | 6/300 [21:10<16:54:46, 207.10s/it]
+{'loss': 4.9631, 'learning_rate': 2e-05, 'epoch': 0.99}
+
+
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:02,  2.04s/it]
+  2%|██▉                                                                                                                                                | 6/300 [21:32<16:54:46, 207.10s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 4.4075, 'learning_rate': 2e-05, 'epoch': 1.15}
+  2%|███▍                                                                                                                                               | 7/300 [25:26<18:09:43, 223.15s/it]
+
+  3%|███▉                                                                                                                                               | 8/300 [29:04<17:58:13, 221.55s/it]
+
+  3%|████▍                                                                                                                                              | 9/300 [32:47<17:56:32, 221.97s/it]
+
+  3%|████▊                                                                                                                                             | 10/300 [36:23<17:43:30, 220.04s/it]
+
+  4%|█████▎                                                                                                                                            | 11/300 [39:38<17:02:47, 212.34s/it]
+
+  4%|█████▊                                                                                                                                            | 12/300 [43:13<17:03:38, 213.26s/it]
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:02,  2.05s/it]
+
+  4%|█████▊                                                                                                                                            | 12/300 [43:52<17:03:38, 213.26s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 4.6776, 'learning_rate': 2e-05, 'epoch': 2.14}
+
+  5%|██████▊                                                                                                                                           | 14/300 [50:13<16:42:11, 210.25s/it]
+{'loss': 4.7603, 'learning_rate': 2e-05, 'epoch': 2.31}
+
+  5%|███████▎                                                                                                                                          | 15/300 [53:52<16:51:17, 212.90s/it]
+
+  5%|███████▊                                                                                                                                          | 16/300 [57:56<17:32:31, 222.36s/it]
+
+  6%|████████▏                                                                                                                                       | 17/300 [1:01:09<16:46:39, 213.42s/it]
+
+  6%|████████▋                                                                                                                                       | 18/300 [1:04:41<16:41:20, 213.05s/it]
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:02,  2.09s/it]
+
+  6%|████████▋                                                                                                                                       | 18/300 [1:05:59<16:41:20, 213.05s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 4.5423, 'learning_rate': 2e-05, 'epoch': 3.13}
+
+  7%|█████████▌                                                                                                                                      | 20/300 [1:12:48<17:48:38, 228.99s/it]
+{'loss': 3.6669, 'learning_rate': 2e-05, 'epoch': 3.3}
+
+  7%|██████████                                                                                                                                      | 21/300 [1:16:24<17:26:14, 225.00s/it]
+
+
+  8%|███████████                                                                                                                                     | 23/300 [1:23:35<17:00:05, 220.96s/it]
+
+  8%|███████████▌                                                                                                                                    | 24/300 [1:27:12<16:50:15, 219.62s/it]
+{'loss': 3.5895, 'learning_rate': 2e-05, 'epoch': 3.96}
+
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:02,  2.04s/it]
+  8%|███████████▌                                                                                                                                    | 24/300 [1:28:11<16:50:15, 219.62s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 3.5364, 'learning_rate': 2e-05, 'epoch': 4.12}
+
+  9%|████████████▍                                                                                                                                   | 26/300 [1:34:22<16:29:35, 216.70s/it]
+{'loss': 3.5641, 'learning_rate': 2e-05, 'epoch': 4.29}
+
+
+  9%|█████████████▍                                                                                                                                  | 28/300 [1:41:26<16:04:01, 212.65s/it]
+
+ 10%|█████████████▉                                                                                                                                  | 29/300 [1:45:21<16:30:34, 219.32s/it]
+
+ 10%|██████████████▍                                                                                                                                 | 30/300 [1:48:47<16:09:12, 215.38s/it]
+{'loss': 3.3566, 'learning_rate': 2e-05, 'epoch': 4.95}
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:13<00:00,  2.54s/it]
+
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 3.1974, 'learning_rate': 2e-05, 'epoch': 5.11}
+ 10%|██████████████▉                                                                                                                                 | 31/300 [1:53:02<16:58:07, 227.09s/it]
+
+ 11%|███████████████▎                                                                                                                                | 32/300 [1:56:12<16:05:23, 216.13s/it]
+
+ 11%|███████████████▊                                                                                                                                | 33/300 [2:00:06<16:25:39, 221.50s/it]
+
+ 11%|████████████████▎                                                                                                                               | 34/300 [2:03:24<15:50:47, 214.46s/it]
+
+
+ 12%|█████████████████▎                                                                                                                              | 36/300 [2:11:19<16:31:33, 225.35s/it]
+{'loss': 2.9548, 'learning_rate': 2e-05, 'epoch': 5.94}
+
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:02,  2.03s/it]
+
+ 12%|█████████████████▎                                                                                                                              | 36/300 [2:12:44<16:31:33, 225.35s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 3.2132, 'learning_rate': 2e-05, 'epoch': 6.1}
+ 12%|█████████████████▊                                                                                                                              | 37/300 [2:14:55<16:16:30, 222.78s/it]
+
+ 13%|██████████████████▏                                                                                                                             | 38/300 [2:18:18<15:46:23, 216.73s/it]
+
+
+ 13%|███████████████████▏                                                                                                                            | 40/300 [2:25:30<15:35:22, 215.86s/it]
+{'loss': 3.2419, 'learning_rate': 2e-05, 'epoch': 6.6}
+
+ 14%|███████████████████▋                                                                                                                            | 41/300 [2:29:08<15:35:29, 216.72s/it]
+
+ 14%|████████████████████▏                                                                                                                           | 42/300 [2:33:09<16:02:37, 223.87s/it]
+
+
+
+
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 5/6 [00:09<00:02,  2.02s/it]
+
+ 14%|████████████████████▏                                                                                                                           | 42/300 [2:35:05<16:02:37, 223.87s/it]/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:322: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+{'loss': 2.9858, 'learning_rate': 2e-05, 'epoch': 7.09}
+
+ 15%|█████████████████████                                                                                                                           | 44/300 [2:40:18<15:24:37, 216.71s/it]
+{'loss': 2.9234, 'learning_rate': 2e-05, 'epoch': 7.26}
+
+ 15%|█████████████████████▌                                                                                                                          | 45/300 [2:43:42<15:04:25, 212.81s/it]
+

@@ -2,6 +2,7 @@ import transformers
 from transformers import set_seed
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Sequence, List, Union
+import logging
 try:
     from llama_attn_replace import replace_llama_attn
 except:
@@ -29,11 +30,13 @@ class EvalArguments():
         metadata={"help": "Whether use flash attention for evaluation (full attention will still be used)."},
     )
 
-    do_sample: bool = field(default=True, metadata={"help": "Falg to enable or disable smaplig based generation, when false greedy strategy is used."})
+    do_sample: bool = field(default=True, metadata={"help": "Flag to enable or disable smaplig based generation, when false greedy strategy is used."})
     temperature: float = field(default=0.6, metadata={"help": "Temperature parameter for generation (higher values for more randomness, lower for more determinism)"})
     max_length: int = field(default=None, metadata={"help": "Maximum number of charachters that the model should handle (prompt+answer), defaults to the model original context size"})
     top_p: float = field(default=0.9, metadata={"help": "Top-p sampling parameter (higher values for more randomness)"})
-    num_return_sequences: int = field(default=1, metadata={"help": "number of sequences to retrieve for single generation"})
+    num_return_sequences: int = field(default=1, metadata={"help": "number of sequences to retrieve for single generation, this seems slower and is more memory hungry than generate_repetition_number"})
+    include_no_sample: bool = field(default=True, metadata={"help": "When this is set and do_sample is also set, allows to add on top of the previous summaries the one generated greedily"})
+    include_no_sample_metrics: bool = field(default=True, metadata={"help": "Whether to include the added unsampled text in the metrics"})
 
     generate_repetition_number: int = field(default=1, metadata={"help": "How many times to repeat the generation for each example (may be usefull in case non-determinism)."})
 
@@ -49,6 +52,7 @@ class EvalArguments():
     target_column: str = field(default='output', metadata={"help" : "column to be used as the target for the prediction."})
 
     load_in_4bit: bool = field(default=False, metadata={"help" : "Whether to load the model in 4 bit to reduce memory usage (this should not affect inference performance)"})
+    compile: bool = field(default=True, metadata={"help" : "Whether to compile the model"})
 
     seed: int = field(default=None, metadata={"help" : "seed to be set for generation"})
 
@@ -148,7 +152,23 @@ def main():
             scaling_factor = float(math.ceil(args.model_context_size / orig_ctx_len))
             config.rope_scaling = {"type": "linear", "factor": scaling_factor}
 
-            logging.warning(f'changing rope scaling factor due to the model being ')
+            logging.warning(f'changing rope scaling factor to {scaling_factor} due to the model original context being smaller')
+
+    model_kwargs = {}
+    if args.load_in_4bit:
+        quantization_config = transformers.BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
+            )
+        model_kwargs['quantization_config'] = quantization_config
+
+    if not args.do_sample:
+        if args.generate_repetition_number > 1 or args.num_return_sequences > 1:
+            logging.warning('when sampling is disabled it does not make sense to generate multiple sequences sice the model is deterministic')
+
+
 
     # Load model and tokenizer
     model = transformers.AutoModelForCausalLM.from_pretrained(
@@ -156,7 +176,7 @@ def main():
         config=config,
         torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
         device_map="auto",
-        load_in_4bit=args.load_in_4bit,
+        **model_kwargs
     )
 
     tokenizer = transformers.AutoTokenizer.from_pretrained(
@@ -165,6 +185,13 @@ def main():
         padding_side="right",
         use_fast=True,
     )
+
+    model.eval()
+
+    if torch.__version__ >= "2" and sys.platform != "win32" and args.compile: 
+        logging.info('compiling model')
+        model = torch.compile(model) 
+        print('model compiled')
 
     model.eval()
 
@@ -179,7 +206,7 @@ def main():
     eval_ds = datasets.load_dataset(args.eval_data_path, split=args.split_name)
     eval_ds = prepare_dataset(eval_ds, prompt_template, system_prompt, instruction, args.target_column)
 
-    for i in tqdm(range(0, len(eval_ds))):
+    for i in tqdm(range(0, len(eval_ds)), desc='total'):
 
         example = eval_ds[i]
         example_id = example['id']
@@ -195,9 +222,35 @@ def main():
                 'reference': example['reference'],
                 'original_summary': example['summary'],
                 'generated_summaries': [],
+                'first_generated_is_unsampled':not args.do_sample,
             }
+        
+        if args.include_no_sample and args.do_sample:
+            print(f'generating unsampled text for #{i}')
+            if store_results:
+                generated_texts[example_id]['first_generated_is_unsampled'] = True
 
-        for _ in tqdm(range(args.generate_repetition_number)):
+            output = model.generate(
+                    inputs['input_ids'],
+                    do_sample = False,
+                    max_length = args.max_length)
+            
+            iteration_metrics, summary = compute_metrics_and_get_summary(output[0], len(formatted_input), expected_output)
+                
+            if store_results:
+                generated_texts[example_id]['generated_summaries'].append(summary)            
+
+            if args.include_no_sample_metrics:
+                for m_name, m_value in iteration_metrics.items():
+                    metrics[m_name].append(m_value)
+        
+            del output # free memory up
+            gc.collect()
+            torch.cuda.empty_cache()
+        
+        
+
+        for _ in tqdm(range(args.generate_repetition_number), desc=f'ex #{i}'):
             if args.do_sample:
                 output = model.generate(
                     inputs['input_ids'],
@@ -241,6 +294,9 @@ def main():
                 },
             'data': generated_texts,
         }
+
+        if args.seed:
+            output_data['seed'] = args.seed
 
         with open(args.output_save_path, 'w') as f:
             logging.info(f'writing results to {args.output_save_path}')

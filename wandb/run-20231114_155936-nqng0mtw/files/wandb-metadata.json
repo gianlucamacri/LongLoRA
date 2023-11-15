@@ -1,0 +1,229 @@
+{
+    "os": "Linux-5.4.0-149-generic-x86_64-with-glibc2.27",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-11-14T14:59:37.576333",
+    "startedAt": "2023-11-14T14:59:36.737113",
+    "docker": null,
+    "cuda": "10.2.89",
+    "args": [
+        "--no_accelerate",
+        "True",
+        "--model_name_or_path",
+        "meta-llama/Llama-2-7b-chat-hf",
+        "--output_dir",
+        "../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_test",
+        "--model_max_length",
+        "8192",
+        "--use_flash_attn",
+        "False",
+        "--low_rank_training",
+        "True",
+        "--num_train_epochs",
+        "50",
+        "--per_device_train_batch_size",
+        "1",
+        "--gradient_accumulation_steps",
+        "1",
+        "--per_device_eval_batch_size",
+        "1",
+        "--load_best_model_at_end",
+        "True",
+        "--evaluation_strategy",
+        "steps",
+        "--save_strategy",
+        "steps",
+        "--save_steps",
+        "1",
+        "--save_total_limit",
+        "2",
+        "--learning_rate",
+        "2e-5",
+        "--weight_decay",
+        "0.0",
+        "--logging_steps",
+        "1",
+        "--fp16",
+        "True",
+        "--lr_scheduler_type",
+        "constant",
+        "--hf_dataset",
+        "gianma/camera_cleaned_8192_174",
+        "--target_column",
+        "summary",
+        "--max_prompt_token_count",
+        "174",
+        "--use_early_stopping",
+        "True",
+        "--es_patience",
+        "3",
+        "--es_threshold",
+        "0.01",
+        "--use_quantization",
+        "True",
+        "--prompt_config_fn",
+        "prompts/prompt_config.json"
+    ],
+    "state": "running",
+    "program": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py",
+    "codePathLocal": "supervised-fine-tune-qlora.py",
+    "codePath": "supervised-fine-tune-qlora.py",
+    "git": {
+        "remote": "git@github.com:gianlucamacri/LongLoRA.git",
+        "commit": "49280a55506ce2e98562cd443980e3fff9787117"
+    },
+    "email": "gianluca18ma@gmail.com",
+    "root": "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA",
+    "host": "leonardo",
+    "username": "gmacri",
+    "executable": "/home/gmacri/anaconda3/envs/LongLora/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2288.3426249999993,
+        "min": 2200.0,
+        "max": 3500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2033.504,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2163.364,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1762.46,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2303.556,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1858.607,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3773.205,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1809.108,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2633.515,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1808.393,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2092.101,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1936.752,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2194.498,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2177.628,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3558.997,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2015.201,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2663.95,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2083.922,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 3084.204,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 1964.82,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2525.81,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2028.344,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2143.108,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2198.082,
+            "min": 2200.0,
+            "max": 3500.0
+        },
+        {
+            "current": 2107.094,
+            "min": 2200.0,
+            "max": 3500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 937.8226585388184,
+            "used": 803.1467590332031
+        }
+    },
+    "gpu": "NVIDIA TITAN RTX",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25396838400
+        },
+        {
+            "name": "NVIDIA TITAN RTX",
+            "memory_total": 25395462144
+        }
+    ],
+    "memory": {
+        "total": 62.74051284790039
+    }
+}

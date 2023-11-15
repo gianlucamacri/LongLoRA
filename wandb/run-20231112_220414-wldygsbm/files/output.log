@@ -1,0 +1,24 @@
+
+  0%|▏                                                                                                                                                  | 1/650 [02:08<23:09:47, 128.49s/it]Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 517, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 502, in train
+    trainer.train()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 1984, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 2302, in _maybe_log_save_evaluate
+    tr_loss_scalar = self._nested_gather(tr_loss).mean().item()
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer.py", line 3394, in _nested_gather
+    tensors = distributed_concat(tensors)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/transformers/trainer_pt_utils.py", line 204, in distributed_concat
+    dist.all_gather(output_tensors, tensor)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    return func(*args, **kwargs)
+  File "/home/gmacri/anaconda3/envs/LongLora/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 2448, in all_gather
+    work = default_pg.allgather([tensor_list], [tensor])
+torch.distributed.DistBackendError: NCCL error in: /opt/conda/conda-bld/pytorch_1682343995026/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.14.3
+ncclInternalError: Internal check failed.
+Last error:
+[Proxy Service 0] Failed to execute operation Setup from rank 0, retcode 1

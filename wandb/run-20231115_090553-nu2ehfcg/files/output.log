@@ -1,0 +1,27 @@
+
+  0%|                                                                                                                                                                 | 0/2 [00:00<?, ?it/s]
+
+ 50%|████████████████████████████████████████████████████████████████████████████▌                                                                            | 1/2 [00:22<00:22, 22.01s/it]
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:11<00:00,  2.12s/it]
+
+{'eval_loss': 5.778966426849365, 'eval_runtime': 14.404, 'eval_samples_per_second': 0.417, 'eval_steps_per_second': 0.417, 'epoch': 0.02}
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:57<00:00, 29.93s/it]
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:11<00:00,  2.18s/it]
+{'eval_loss': 5.778966426849365, 'eval_runtime': 14.868, 'eval_samples_per_second': 0.404, 'eval_steps_per_second': 0.404, 'epoch': 0.04}
+Traceback (most recent call last):
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 530, in <module>
+    train()
+  File "/home/gmacri/tirocinioCameraSummarization/LongLora_fork/LongLoRA/supervised-fine-tune-qlora.py", line 517, in train
+    model.base_model.save_pretrained(output_dir=os.path.join(training_args.output_dir,"full_model"))
+TypeError: PreTrainedModel.save_pretrained() missing 1 required positional argument: 'save_directory'

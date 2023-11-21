@@ -9,7 +9,7 @@ _wandb:
     huggingface_version: 4.34.0
     is_jupyter_run: false
     is_kaggle_kernel: false
-    start_time: 1700047356.701245
+    start_time: 1700134036.900891
     t:
       1:
       - 1
@@ -318,18 +318,18 @@ quantization_config:
   desc: null
   value:
     quant_method: QuantizationMethod.BITS_AND_BYTES
-    load_in_8bit: true
-    load_in_4bit: false
+    load_in_8bit: false
+    load_in_4bit: true
     llm_int8_threshold: 6.0
     llm_int8_skip_modules: null
     llm_int8_enable_fp32_cpu_offload: false
     llm_int8_has_fp16_weight: false
-    bnb_4bit_quant_type: fp4
-    bnb_4bit_use_double_quant: false
-    bnb_4bit_compute_dtype: float32
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_compute_dtype: float16
 output_dir:
   desc: null
-  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_saved
+  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_test
 overwrite_output_dir:
   desc: null
   value: false
@@ -344,7 +344,7 @@ do_predict:
   value: false
 evaluation_strategy:
   desc: null
-  value: epoch
+  value: steps
 prediction_loss_only:
   desc: null
   value: false
@@ -362,7 +362,7 @@ per_gpu_eval_batch_size:
   value: null
 gradient_accumulation_steps:
   desc: null
-  value: 16
+  value: 2
 eval_accumulation_steps:
   desc: null
   value: null
@@ -389,10 +389,10 @@ max_grad_norm:
   value: 1.0
 num_train_epochs:
   desc: null
-  value: 50.0
+  value: 3.0
 max_steps:
   desc: null
-  value: -1
+  value: 2
 lr_scheduler_type:
   desc: null
   value: constant
@@ -413,7 +413,7 @@ log_on_each_node:
   value: true
 logging_dir:
   desc: null
-  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_saved/runs/Nov15_12-22-25_leonardo
+  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_test/runs/Nov16_12-27-05_leonardo
 logging_strategy:
   desc: null
   value: steps
@@ -428,7 +428,7 @@ logging_nan_inf_filter:
   value: true
 save_strategy:
   desc: null
-  value: epoch
+  value: steps
 save_steps:
   desc: null
   value: 500
@@ -503,7 +503,7 @@ dataloader_drop_last:
   value: false
 eval_steps:
   desc: null
-  value: null
+  value: 1.0
 dataloader_num_workers:
   desc: null
   value: 0
@@ -512,7 +512,7 @@ past_index:
   value: -1
 run_name:
   desc: null
-  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_saved
+  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_test
 disable_tqdm:
   desc: null
   value: false
@@ -696,7 +696,7 @@ use_quantization:
   value: true
 use_8_bit:
   desc: null
-  value: true
+  value: false
 use_early_stopping:
   desc: null
   value: true

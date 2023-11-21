@@ -30,7 +30,7 @@ import torch
 import torch.nn as nn
 import transformers
 from torch.utils.data import Dataset
-from transformers import Trainer, DataCollatorForLanguageModeling, BitsAndBytesConfig
+from transformers import Trainer, DataCollatorForLanguageModeling, BitsAndBytesConfig, TrainerCallback, TrainerState, TrainerControl
 from datasets import load_dataset
 from llama_attn_replace_sft import replace_llama_attn
 from peft import LoraConfig, get_peft_model
@@ -369,7 +369,7 @@ def train():
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
     if training_args.use_quantization and not training_args.use_8_bit:
-        logging.warning("### WARNING ###\n make sure to be suing deep speed otherwise model emb and norm layers will NOT be saved!")
+        logging.warning("saving should now occur regardless, to be checked")
 
 
     distributed_state = PartialState()
@@ -512,14 +512,43 @@ def train():
     model.enable_input_require_grads()     # required for gradient checkpointing
     model.gradient_checkpointing_enable()  # enable gradient checkpointing
 
+    callbacks = []
+
     # here compute_metrics function will be None, enablin just the loss evaluation, using other functions
     # caused memory overflow for some reason, I thought it may be due to eval_accumulation_steps not being set
     # but in that case there seem to be another issue that couses the crash
-    early_stopping_callback = [transformers.EarlyStoppingCallback(
+    early_stopping_callback = transformers.EarlyStoppingCallback(
             early_stopping_patience = training_args.es_patience,
             early_stopping_threshold = training_args.es_threshold,
-        )] if training_args.use_early_stopping else None
-    trainer = Trainer(model=model, tokenizer=tokenizer, args=training_args, callbacks=early_stopping_callback, **data_module)
+        ) if training_args.use_early_stopping else None
+    
+    callbacks.append(early_stopping_callback)
+    
+    class SavePeftModelCallback(TrainerCallback):
+        def __init__(self):
+            super().__init__()
+
+        def on_save(
+            self,
+            args: TrainingArguments,
+            state: TrainerState,
+            control: TrainerControl,
+            **kwargs,
+        ):
+            checkpoint_folder = os.path.join(args.output_dir, f"checkpoint-{state.global_step}")
+
+            modules_to_save = training_args.trainable_params.split(",")
+            state_dict = kwargs["model"].state_dict()
+            to_save = {}
+            for key, value in state_dict.items():
+                if any(module_name in key for module_name in modules_to_save):
+                    to_save[key.replace("base_model.model.", "")] = value
+            torch.save(to_save, os.path.join(checkpoint_folder, "trainable_params.bin"))    
+            return control
+        
+    callbacks.append(SavePeftModelCallback())
+
+    trainer = Trainer(model=model, tokenizer=tokenizer, args=training_args, callbacks=callbacks, **data_module)
     
     if distributed_state.is_main_process:
         logging.debug(f'training args: {trainer.args}')
@@ -530,6 +559,7 @@ def train():
     trainer.save_model(output_dir=training_args.output_dir)
     
     if training_args.use_quantization:
+        # fallback
         try:
             model.base_model.save_pretrained(training_args.output_dir, 'full_model')
         except Exception as e:

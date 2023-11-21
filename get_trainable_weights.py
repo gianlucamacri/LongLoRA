@@ -20,6 +20,7 @@ def parse_config():
     parser = argparse.ArgumentParser(description='arg parser')
     parser.add_argument('--checkpoint_path', type=str, default="/dataset/models/checkpoint-1000")
     parser.add_argument('--trainable_params', type=str, default="embed,norm")
+    parser.add_argument('--ignore_lora', type=bool, default=False)
     args = parser.parse_args()
     return args
 
@@ -33,7 +34,7 @@ def main(args):
     weights_trainable = {}
     weights_lora = {}
     for k in weights_all:
-        if "lora" in k:
+        if not args.ignore_lora and "lora" in k:
             k_new = k.replace("default.", "") if "default." in k else k
             weights_lora[k_new] = weights_all[k]
         else:

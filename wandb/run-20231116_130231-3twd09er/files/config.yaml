@@ -9,7 +9,7 @@ _wandb:
     huggingface_version: 4.34.0
     is_jupyter_run: false
     is_kaggle_kernel: false
-    start_time: 1700047356.701245
+    start_time: 1700136151.810556
     t:
       1:
       - 1
@@ -58,42 +58,6 @@ _wandb:
       5: 1
       6:
       - 1
-    - 1: eval/loss
-      5: 1
-      6:
-      - 1
-    - 1: eval/runtime
-      5: 1
-      6:
-      - 1
-    - 1: eval/samples_per_second
-      5: 1
-      6:
-      - 1
-    - 1: eval/steps_per_second
-      5: 1
-      6:
-      - 1
-    - 1: train/train_runtime
-      5: 1
-      6:
-      - 1
-    - 1: train/train_samples_per_second
-      5: 1
-      6:
-      - 1
-    - 1: train/train_steps_per_second
-      5: 1
-      6:
-      - 1
-    - 1: train/total_flos
-      5: 1
-      6:
-      - 1
-    - 1: train/train_loss
-      5: 1
-      6:
-      - 1
 vocab_size:
   desc: null
   value: 32001
@@ -102,19 +66,19 @@ max_position_embeddings:
   value: 4096
 hidden_size:
   desc: null
-  value: 4096
+  value: 5120
 intermediate_size:
   desc: null
-  value: 11008
+  value: 13824
 num_hidden_layers:
   desc: null
-  value: 32
+  value: 40
 num_attention_heads:
   desc: null
-  value: 32
+  value: 40
 num_key_value_heads:
   desc: null
-  value: 32
+  value: 40
 hidden_act:
   desc: null
   value: silu
@@ -307,7 +271,7 @@ problem_type:
   value: null
 _name_or_path:
   desc: null
-  value: meta-llama/Llama-2-7b-chat-hf
+  value: meta-llama/Llama-2-13b-chat-hf
 transformers_version:
   desc: null
   value: 4.34.0
@@ -318,18 +282,18 @@ quantization_config:
   desc: null
   value:
     quant_method: QuantizationMethod.BITS_AND_BYTES
-    load_in_8bit: true
-    load_in_4bit: false
+    load_in_8bit: false
+    load_in_4bit: true
     llm_int8_threshold: 6.0
     llm_int8_skip_modules: null
     llm_int8_enable_fp32_cpu_offload: false
     llm_int8_has_fp16_weight: false
-    bnb_4bit_quant_type: fp4
-    bnb_4bit_use_double_quant: false
-    bnb_4bit_compute_dtype: float32
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_compute_dtype: float16
 output_dir:
   desc: null
-  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_saved
+  value: ../../output/hdd_output/LongLoRA/camera_13_8k_llama2_chat_sftq
 overwrite_output_dir:
   desc: null
   value: false
@@ -413,7 +377,7 @@ log_on_each_node:
   value: true
 logging_dir:
   desc: null
-  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_saved/runs/Nov15_12-22-25_leonardo
+  value: ../../output/hdd_output/LongLoRA/camera_13_8k_llama2_chat_sftq/runs/Nov16_13-02-10_leonardo
 logging_strategy:
   desc: null
   value: steps
@@ -512,7 +476,7 @@ past_index:
   value: -1
 run_name:
   desc: null
-  value: ../../output/hdd_output/LongLoRA/camera_7_8k_llama2_chat_sftq_saved
+  value: ../../output/hdd_output/LongLoRA/camera_13_8k_llama2_chat_sftq
 disable_tqdm:
   desc: null
   value: false
@@ -696,7 +660,7 @@ use_quantization:
   value: true
 use_8_bit:
   desc: null
-  value: true
+  value: false
 use_early_stopping:
   desc: null
   value: true
@@ -705,7 +669,7 @@ es_patience:
   value: 3
 es_threshold:
   desc: null
-  value: 0.01
+  value: 0.02
 no_accelerate:
   desc: null
   value: true

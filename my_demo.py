@@ -215,13 +215,13 @@ def main(args):
     demo = gr.Interface(
         respond,
         inputs=[
-            gr.File(type="file", label="Document txt", visible=False),
+            gr.File(type="filepath", label="Document txt", visible=False),
             gr.Textbox(lines=1, placeholder=None, label="Document"),
             gr.Textbox(lines=1, placeholder = user_prompt, value=user_prompt, label="Prompt"),
             gr.Textbox(lines=1, placeholder = system_prompt, value=system_prompt, label='System Prompt'),
-            gr.Slider(minimum=16, maximum=32768, step=16,type=int, value=args.max_gen_len, label="Max gen. len."),
+            gr.Slider(minimum=16, maximum=32768, step=16, value=args.max_gen_len, label="Max gen. len."),
             gr.Checkbox(value=True, label='sampling', info='if unchecked disables the following settings, enables to model to be non-determministic, using the options below'),
-            gr.Slider(minimum=0.1, maximum=4.0, type=float,value=args.temperature, label='Temperature'),
+            gr.Slider(minimum=0.1, maximum=4.0, value=args.temperature, label='Temperature'),
             gr.Slider(minimum=0.1, maximum=1.0, step=0.05, value=args.top_p, label="Top p"),
         ],
         outputs=[
